@@ -1,5 +1,6 @@
 package service.service;
 
+<<<<<<< HEAD
 import model.Service;
 
 import java.util.List;
@@ -13,4 +14,7 @@ public interface IServiceService {
 
     public boolean deleteService(int id);
     Service getById(int id);
+=======
+public interface IServiceService {
+>>>>>>> develop
 }

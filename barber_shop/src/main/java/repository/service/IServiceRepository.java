@@ -1,5 +1,6 @@
 package repository.service;
 
+<<<<<<< HEAD
 import model.Service;
 
 import java.util.List;
@@ -14,4 +15,7 @@ public interface IServiceRepository {
     public boolean deleteService(int id);
 
     Service getById(int id);
+=======
+public interface IServiceRepository {
+>>>>>>> develop
 }

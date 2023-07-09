@@ -1,5 +1,6 @@
 package service.service.impl;
 
+<<<<<<< HEAD
 import model.Service;
 import repository.service.IServiceRepository;
 import repository.service.impl.ServiceRepository;
@@ -35,4 +36,7 @@ public class ServiceService implements IServiceService {
         return serviceRepository.getById(id);
     }
 
+=======
+public class ServiceService {
+>>>>>>> develop
 }

@@ -1,5 +1,6 @@
 package repository.service.impl;
 
+<<<<<<< HEAD
 import model.Service;
 import repository.service.BaseRepository;
 import repository.service.IServiceRepository;
@@ -105,4 +106,7 @@ public class ServiceRepository implements IServiceRepository {
     }
 
 
+=======
+public class ServiceRepository {
+>>>>>>> develop
 }

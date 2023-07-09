@@ -1,5 +1,6 @@
 package model;
 
+<<<<<<< HEAD
 import java.util.Objects;
 
 public class Service {
@@ -47,4 +48,7 @@ public class Service {
         this.price = price;
     }
 
+=======
+public class Service {
+>>>>>>> develop
 }
