@@ -1,12 +1,19 @@
 package controller.account;
 
+import controller.booking.BookingServlet;
 import model.Account;
 import model.Employee;
 import model.dto_model.AccountDTO;
+import model.dto_model.BookingDTO;
 import service.account.IAccountService;
 import service.account.impl.AccountService;
+<<<<<<< HEAD
 import service.employee.IEmployeeService;
 import service.employee.impl.EmployeeService;
+=======
+import service.booking.IBookingService;
+import service.booking.impl.BookingService;
+>>>>>>> booking_thanh
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -16,8 +23,13 @@ import java.util.List;
 
 @WebServlet(name = "AccountServlet", value = "/AccountServlet")
 public class AccountServlet extends HttpServlet {
+<<<<<<< HEAD
     private static IAccountService accountService = new AccountService();
     private static final IEmployeeService employeeService = new EmployeeService();
+=======
+    private static final IAccountService accountService = new AccountService();
+    private static final IBookingService bookingService = new BookingService();
+>>>>>>> booking_thanh
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -92,10 +104,15 @@ public class AccountServlet extends HttpServlet {
     }
 
     private static void getAllAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<BookingDTO> bookingDTOList = bookingService.displayBooking();
         List<AccountDTO> accountList = accountService.getAllAccount();
         List<Employee> employeeList = employeeService.display();
         request.setAttribute("employeeList",employeeList);
         request.setAttribute("accountList", accountList);
+<<<<<<< HEAD
+=======
+        request.setAttribute("bookingDTOList",bookingDTOList);
+>>>>>>> booking_thanh
         RequestDispatcher dispatcher = request.getRequestDispatcher("/page_admin.jsp");
         dispatcher.forward(request, response);
     }
@@ -142,7 +159,7 @@ public class AccountServlet extends HttpServlet {
         }
     }
 
-    private static void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userName = request.getParameter("username");
         String passWord = request.getParameter("password");
         Account account = accountService.selectAccount(userName, passWord);
