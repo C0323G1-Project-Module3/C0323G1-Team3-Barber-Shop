@@ -6,6 +6,6 @@
     <title>Barber Shop</title>
 </head>
 <body>
-<a href="/ServiceServlet">Hiển thị danh sách khách hàng</a>
+<a href="ServiceServlet">Hiển thị danh sách dịch vụ</a>
 </body>
 </html>

@@ -6,25 +6,21 @@ public class Service {
    private int serviceId;
    private String serviceName;
    private double price;
-   private int serviceQuantity;
-   private boolean status;
+
 
     public Service() {
     }
 
-    public Service(String serviceName, double price, int serviceQuantity, boolean status) {
+    public Service(String serviceName, double price) {
         this.serviceName = serviceName;
         this.price = price;
-        this.serviceQuantity = serviceQuantity;
-        this.status = status;
     }
 
-    public Service(int serviceId, String serviceName, double price, int serviceQuantity, boolean status) {
+    public Service(int serviceId, String serviceName, double price) {
         this.serviceId = serviceId;
         this.serviceName = serviceName;
         this.price = price;
-        this.serviceQuantity = serviceQuantity;
-        this.status = status;
+
     }
 
     public int getServiceId() {
@@ -49,22 +45,6 @@ public class Service {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public int getServiceQuantity() {
-        return serviceQuantity;
-    }
-
-    public void setServiceQuantity(int serviceQuantity) {
-        this.serviceQuantity = serviceQuantity;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 
 }

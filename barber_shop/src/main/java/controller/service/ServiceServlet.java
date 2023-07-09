@@ -80,9 +80,7 @@ public class ServiceServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
-        boolean status = Boolean.parseBoolean(request.getParameter("status"));
-        Service editService = new Service(id, name, price, quantity, status);
+        Service editService = new Service(id, name, price);
         this.serviceService.updateService(editService);
         RequestDispatcher dispatcher = request.getRequestDispatcher("service/edit.jsp");
         dispatcher.forward(request, response);
@@ -91,9 +89,7 @@ public class ServiceServlet extends HttpServlet {
     private void addService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
-        boolean status = Boolean.parseBoolean(request.getParameter("status"));
-        Service service = new Service(name, price, quantity, status);
+        Service service = new Service(name, price);
         this.serviceService.addService(service);
         RequestDispatcher dispatcher = request.getRequestDispatcher("service/add.jsp");
         dispatcher.forward(request, response);

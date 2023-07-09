@@ -13,8 +13,8 @@ public class ServiceRepository implements IServiceRepository {
     private static final String SELECT_SERVICE_ALL = "select * from service";
     private static final String SELECT_SERVICE_BY_ID = " select * from service where service_id=? ";
     private static final String DELETE_SERVICE = "delete from service where service_id=?";
-    private static final String CALL_INSERT_SERVICE = " call insert_service(?, ? , ?, ?); ";
-    private static final String CALL_UPDATES_SERVICE = " call update_service(?, ?, ?, ?, ?); ";
+    private static final String CALL_INSERT_SERVICE = " call insert_service(?, ? ); ";
+    private static final String CALL_UPDATES_SERVICE = " call update_service(?, ?, ?; ";
 
     @Override
     public List<Service> displayAll() {
@@ -27,9 +27,7 @@ public class ServiceRepository implements IServiceRepository {
                 int id = rs.getInt("service_id");
                 String name = rs.getString("service_name");
                 double price = rs.getDouble("price");
-                int quantity = rs.getInt("service_quantity");
-                boolean status = rs.getBoolean("status");
-                serviceList.add(new Service(id, name, price, quantity, status));
+                serviceList.add(new Service(id, name, price));
             }
 
         } catch (SQLException e) {
@@ -51,8 +49,6 @@ public class ServiceRepository implements IServiceRepository {
             CallableStatement callableStatement = connection.prepareCall(CALL_INSERT_SERVICE);
             callableStatement.setString(1, service.getServiceName());
             callableStatement.setDouble(2, service.getPrice());
-            callableStatement.setInt(3, service.getServiceQuantity());
-            callableStatement.setBoolean(4, service.isStatus());
             callableStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -67,9 +63,7 @@ public class ServiceRepository implements IServiceRepository {
             CallableStatement callableStatement = connection.prepareCall(CALL_UPDATES_SERVICE);
             callableStatement.setString(1, service.getServiceName());
             callableStatement.setDouble(2, service.getPrice());
-            callableStatement.setInt(3, service.getServiceQuantity());
-            callableStatement.setBoolean(4, service.isStatus());
-            callableStatement.setInt(5, service.getServiceId());
+            callableStatement.setInt(3, service.getServiceId());
             rowUpdates = callableStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -102,9 +96,7 @@ public class ServiceRepository implements IServiceRepository {
             while (rs.next()) {
                 String name = rs.getString("service_name");
                 double price = rs.getDouble("price");
-                int quantity = rs.getInt("service_quantity");
-                boolean status = rs.getBoolean("status");
-                service = new Service(id, name, price, quantity, status);
+                service = new Service(id, name, price);
             }
         } catch (SQLException e) {
             e.printStackTrace();

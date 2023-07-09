@@ -4,7 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dcde6d1-6709-4402-b277-cdb5c788b678" name="Changes" comment="up" />
+    <list default="true" id="5dcde6d1-6709-4402-b277-cdb5c788b678" name="Changes" comment="up">
+      <change afterPath="$PROJECT_DIR$/barber_shop/src/main/java/config/CharsetFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/.gradle/7.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/.gradle/7.6/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/.gradle/7.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/.gradle/7.6/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/.gradle/7.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/.gradle/7.6/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/.gradle/7.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/.gradle/7.6/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/.gradle/7.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/.gradle/7.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/controller/service/ServiceServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/controller/service/ServiceServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/model/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/model/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/repository/service/BaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/repository/service/BaseRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/repository/service/impl/ServiceRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/repository/service/impl/ServiceRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/libs/barber_shop-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/libs/barber_shop-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/tmp/compileJava/compileTransaction/stash-dir/ServiceServlet.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/controller/service/ServiceServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/controller/service/ServiceServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/model/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/model/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/repository/service/BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/repository/service/BaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/repository/service/impl/ServiceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/repository/service/impl/ServiceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/webapp/service/add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/webapp/service/add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/webapp/service/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/webapp/service/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/webapp/service/service.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/webapp/service/service.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +91,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ADMIN/Desktop/pageAdmin/pageAdmin",
+    "last_opened_file_path": "D:/Codegym/case_study_barber_shop/phap/C0323G1-Team3-Barber-Shop",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -182,6 +209,7 @@
       <workItem from="1688543381399" duration="4924000" />
       <workItem from="1688605973209" duration="19417000" />
       <workItem from="1688692225910" duration="18526000" />
+      <workItem from="1688889271585" duration="8292000" />
     </task>
     <task id="LOCAL-00001" summary="up">
       <created>1688723978564</created>

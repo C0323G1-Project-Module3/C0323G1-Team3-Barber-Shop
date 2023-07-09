@@ -30,15 +30,11 @@
     <h1>Danh sách dịch vụ</h1>
     <h2><a class="btn btn-outline-primary container" href="/ServiceServlet?action=add" role="button">Thêm mới dịch vụ</a></h2>
 </center>
-<%--<h2 class="btn-"><a href="/ServiceServlet?action=add">Thêm mới dịch vụ</a><br>--%>
-<%--</h2>--%>
 <table border="1px" class="table table-striped container">
     <tr>
         <th>STT</th>
         <th>Tên dịch vụ</th>
         <th>Giá dịch vụ</th>
-        <th>Số lượng dịch vụ</th>
-        <th>Trạng thái dịch vụ</th>
         <th>Chỉnh sửa</th>
         <th>Xóa</th>
     </tr>
@@ -47,8 +43,6 @@
             <td>${loop.count}</td>
             <td><c:out value="${service.serviceName}"/></td>
             <td><c:out value="${service.price}"/></td>
-            <td><c:out value="${service.serviceQuantity}"/></td>
-            <td><c:out value="${service.status}"/></td>
             <td><a class="btn btn-primary" href="/ServiceServlet?action=edit&id=${service.getServiceId()}"
                    role="button">Sửa</a></td>
             <td><a class="btn btn-danger" href="/ServiceServlet?action=delete&id=${service.getServiceId()}"

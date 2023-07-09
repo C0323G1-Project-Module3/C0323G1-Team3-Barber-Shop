@@ -40,27 +40,6 @@
                 </td>
             </tr>
             <tr>
-                <th>Số lượng:</th>
-                <td>
-                    <input type="number" name="quantity" id="quantity" value="${service.getServiceQuantity()}"
-                           size="15"/>
-                </td>
-            </tr>
-            <tr>
-                <th>Trạng thái:</th>
-                <td>
-                    <c:if test="${service.isStatus()==true}">
-                        <input type="radio" name="status" checked="checked" id="status" value="${true}" size="15"/><span>True</span>
-                        <input type="radio" name="status" id="status" value="${false}" size="15"/><span>False</span>
-                    </c:if>
-                    <c:if test="${service.isStatus()==false}">
-                        <input type="radio" name="status" id="status1" value="${true}" size="15"/><span>True</span>
-                        <input type="radio" name="status" checked="checked" id="status1" value="${false}" size="15"/><span>False</span>
-
-                    </c:if>
-                </td>
-            </tr>
-            <tr>
                 <td colspan="2" align="center">
                     <input type="submit" value="Chỉnh sửa"/>
                 </td>
