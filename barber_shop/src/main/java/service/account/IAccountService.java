@@ -11,4 +11,5 @@ public interface IAccountService {
     void createAccount(Account account);
     void deleteAccount(int accountId);
     void editPassword(int accountId,String password);
+    Account selectAccountById(int accountId);
 }

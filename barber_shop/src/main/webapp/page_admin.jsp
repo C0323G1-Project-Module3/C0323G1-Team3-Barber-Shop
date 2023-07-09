@@ -57,9 +57,6 @@
             <table id="tableStudent1" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
                 <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
-                    <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">Thêm
-                    </button>
                 </caption>
                 <thead>
                 <tr>
@@ -87,13 +84,8 @@
                                 ${account.roleName}
                         </td>
                         <td class="d-flex justify-content-center align-items-center">
-                            <a href="/AccountServlet?action=editPassword&id=${account.accountId}"><button type="button" class="btn btn-primary mx-3" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal1">
+                            <a href="/AccountServlet?action=showFormEdit&id=${account.accountId}"><button type="button" class="btn btn-primary mx-3">
                                 Sửa Mật Khẩu
-                            </button></a>
-                            <a href="/AccountServlet?action=delete&id=${account.accountId}"><button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal2">
-                                Xóa
                             </button></a>
                         </td>
                     </tr>
@@ -142,7 +134,23 @@
         </div>
     </div>
 </div>
-
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a id="confirm" href=""><button type="button" class="btn btn-primary">Save changes</button></a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="jquery/jquery-3.5.1.min.js"></script>
 <script src="datatables/js/jquery.dataTables.min.js"></script>
@@ -169,6 +177,10 @@
             "pageLength": 5
         });
     });
+    function confirm(accountId)
+    {
+        document.getElementById("confirm").href="/AccountServlet?action=delete&id="+accountId;
+    }
 </script>
 <script src="bootstrap520/js/bootstrap.bundle.js"></script>
 </body>

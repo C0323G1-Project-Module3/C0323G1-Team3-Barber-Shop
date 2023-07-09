@@ -48,8 +48,7 @@ public class AccountRepository implements IAccountRepository {
     public void createAccount(Account account) {
 
         try {
-            PreparedStatement preparedStatement = BaseConnection.getConnection().prepareStatement("insert into account values (?,?,?,?);");
-            preparedStatement.setInt(1, account.getAccountId());
+            PreparedStatement preparedStatement = BaseConnection.getConnection().prepareStatement("insert into account(account.username,account.password,account.role_id) values (?,?,?);");
             preparedStatement.setString(2, account.getUsername());
             preparedStatement.setString(3, account.getPassword());
             preparedStatement.setInt(4, account.getRoleId());
@@ -81,4 +80,23 @@ public class AccountRepository implements IAccountRepository {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public Account selectAccountById(int accountId) {
+        Connection connection = BaseConnection.getConnection();
+        Account account = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from account where account_id=?;");
+            preparedStatement.setInt(1, accountId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                account = new Account(resultSet.getInt("account_id"), resultSet.getString("username"), resultSet.getString("password"), resultSet.getInt("role_id"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(account);
+        return account;
+    }
+
 }

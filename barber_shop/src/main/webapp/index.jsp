@@ -6,6 +6,6 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<c:redirect url="login.jsp"/>
+<c:redirect url="/AccountServlet?action=admin"/>
 </body>
 </html>

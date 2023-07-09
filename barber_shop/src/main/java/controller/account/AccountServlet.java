@@ -18,7 +18,8 @@ public class AccountServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action == null)
+        HttpSession session = request.getSession();
+        if (action == null || session.getAttribute("account") == null)
             action = "";
         switch (action) {
             case "admin":
@@ -26,6 +27,9 @@ public class AccountServlet extends HttpServlet {
                 break;
             case "showFormLogin":
                 ShowFormLogin(request, response);
+                break;
+            case "showFormEdit":
+                showFormEdit(request, response);
                 break;
             case "create":
                 createAccount(request, response);
@@ -38,6 +42,21 @@ public class AccountServlet extends HttpServlet {
                 break;
             default:
                 response.sendRedirect("home/home.jsp");
+        }
+    }
+
+    private void showFormEdit(HttpServletRequest request, HttpServletResponse response) {
+        int accountId = Integer.parseInt(request.getParameter("id"));
+        Account account = accountService.selectAccountById(accountId);
+        System.out.println(account);
+        request.setAttribute("account", account);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("edit_account.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -69,7 +88,6 @@ public class AccountServlet extends HttpServlet {
     private static void getAllAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<AccountDTO> accountList = accountService.getAllAccount();
         request.setAttribute("accountList", accountList);
-        System.out.println(accountList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/page_admin.jsp");
         dispatcher.forward(request, response);
     }
@@ -77,7 +95,8 @@ public class AccountServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action == null)
+        HttpSession session = request.getSession();
+        if (action == null || session.getAttribute("account") == null)
             action = "";
         switch (action) {
             case "login":
@@ -85,20 +104,42 @@ public class AccountServlet extends HttpServlet {
                 break;
             case "editPassword":
                 editPassword(request, response);
+                break;
+            default:
+                response.sendRedirect("home/home.jsp");
         }
     }
 
     private void editPassword(HttpServletRequest request, HttpServletResponse response) {
+        int accountId = Integer.parseInt(request.getParameter("id"));
+        String password = request.getParameter("password");
+        String confirm = request.getParameter("confirm");
+        if (password.equals(confirm)) {
+            accountService.editPassword(accountId, password);
+            try {
+                response.sendRedirect("/AccountServlet?action=admin");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            request.setAttribute("msg", "Mật khẩu không trùng");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("edit_account.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private static void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userName = request.getParameter("username");
         String passWord = request.getParameter("password");
         Account account = accountService.selectAccount(userName, passWord);
-        System.out.println(account);
         HttpSession session = request.getSession();
         session.setAttribute("account", account);
-        System.out.println(account);
         if (account != null) {
             if (account.getRoleId() == 3) {
                 response.sendRedirect("/AccountServlet?action=admin");
