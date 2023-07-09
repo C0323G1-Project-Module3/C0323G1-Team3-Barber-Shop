@@ -1,9 +1,13 @@
 package controller.account;
 
+import controller.booking.BookingServlet;
 import model.Account;
 import model.dto_model.AccountDTO;
+import model.dto_model.BookingDTO;
 import service.account.IAccountService;
 import service.account.impl.AccountService;
+import service.booking.IBookingService;
+import service.booking.impl.BookingService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -13,7 +17,8 @@ import java.util.List;
 
 @WebServlet(name = "AccountServlet", value = "/AccountServlet")
 public class AccountServlet extends HttpServlet {
-    private static IAccountService accountService = new AccountService();
+    private static final IAccountService accountService = new AccountService();
+    private static final IBookingService bookingService = new BookingService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -67,9 +72,10 @@ public class AccountServlet extends HttpServlet {
     }
 
     private static void getAllAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<BookingDTO> bookingDTOList = bookingService.displayBooking();
         List<AccountDTO> accountList = accountService.getAllAccount();
         request.setAttribute("accountList", accountList);
-        System.out.println(accountList);
+        request.setAttribute("bookingDTOList",bookingDTOList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/page_admin.jsp");
         dispatcher.forward(request, response);
     }
@@ -91,14 +97,12 @@ public class AccountServlet extends HttpServlet {
     private void editPassword(HttpServletRequest request, HttpServletResponse response) {
     }
 
-    private static void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userName = request.getParameter("username");
         String passWord = request.getParameter("password");
         Account account = accountService.selectAccount(userName, passWord);
-        System.out.println(account);
         HttpSession session = request.getSession();
         session.setAttribute("account", account);
-        System.out.println(account);
         if (account != null) {
             if (account.getRoleId() == 3) {
                 response.sendRedirect("/AccountServlet?action=admin");

@@ -102,7 +102,7 @@
                     <a href="#" class="nav-item nav-link">Lịch sử booking</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId == 3 ||  sessionScope.account.roleId == 2}">
-                    <a href="#" class="nav-item nav-link">Danh sách booking</a>
+                    <a href="/BookingServlet?action=showBookingEmp" class="nav-item nav-link">Danh sách booking</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId==3}">
                     <a href="/AccountServlet?action=admin" class="nav-item nav-link">Admin</a>
