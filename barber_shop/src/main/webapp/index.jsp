@@ -6,9 +6,6 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<c:redirect url="/AccountServlet?action=admin"/>
 </body>
 </html>
