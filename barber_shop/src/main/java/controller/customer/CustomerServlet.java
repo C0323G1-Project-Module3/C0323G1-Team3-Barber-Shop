@@ -32,17 +32,40 @@ public class CustomerServlet extends HttpServlet {
                 showEditForm(request, response);
                 break;
             case "delete":
-                deleteCustomer(request,response);
+                showDeleteForm(request,response);
                 break;
             default:
-                listCustomer(request, response);
+                comeAdmin(request,response);
                 break;
         }
     }
+
+    private void comeAdmin(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher requestDispatcher=request.getRequestDispatcher("AccountServlet?action=admin");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException | IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Customer customer = customerService.findById(id);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("delete_customer.jsp");
+        request.setAttribute("customer", customer);
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private void listCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customerList = customerService.viewAllCustomer();
         request.setAttribute("customerList", customerList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("customer_jsp/listCustomer.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/AccountServlet?action=admin");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
@@ -52,7 +75,7 @@ public class CustomerServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = customerService.findById(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/customer_jsp/edit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("edit_customer.jsp");
         request.setAttribute("customer", customer);
         try {
             dispatcher.forward(request, response);
@@ -61,7 +84,7 @@ public class CustomerServlet extends HttpServlet {
         }
     }
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("customer_jsp/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
@@ -81,6 +104,8 @@ public class CustomerServlet extends HttpServlet {
                 break;
             case "edit":
                 updateCustomer(request, response);
+            case "delete":
+                deleteCustomer(request,response);
                 break;
         }
     }
@@ -89,10 +114,9 @@ public class CustomerServlet extends HttpServlet {
         Customer customer=customerService.findById(id);
         customerService.remove(id);
         accountRepository.deleteAccount(customer.getCustomerAccountId());
-        RequestDispatcher dispatcher=request.getRequestDispatcher("customer_id/listCustomer.jsp");
         try {
-            dispatcher.forward(request,response);
-        } catch (ServletException | IOException e) {
+            response.sendRedirect("/CustomerServlet");
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -107,10 +131,9 @@ public class CustomerServlet extends HttpServlet {
 
         Customer customer=new Customer(name,birthday,phone,gender,address,typeId);
         customerService.update(id,customer);
-        RequestDispatcher dispatcher=request.getRequestDispatcher("/customer_jsp/edit.jsp");
         try {
-            dispatcher.forward(request,response);
-        } catch (ServletException | IOException e) {
+            response.sendRedirect("/CustomerServlet");
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
@@ -127,5 +150,11 @@ public class CustomerServlet extends HttpServlet {
         String address = request.getParameter("address");
         int accountId = customerService.getIdAccount(username);
         customerService.save(new Customer(name, birthday, phone, gender, address, accountId));
+        RequestDispatcher dispatcher=request.getRequestDispatcher("login.jsp");
+        try {
+            dispatcher.forward(request,response);
+        } catch (ServletException | IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

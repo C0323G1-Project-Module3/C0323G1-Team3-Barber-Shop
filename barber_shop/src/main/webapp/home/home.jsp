@@ -96,7 +96,7 @@
                 <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
                 <c:if test="${sessionScope.account == null}">
                     <a href="/AccountServlet?action=showFormLogin" class="nav-item nav-link">Đăng nhập</a>
-                    <a href="#" class="nav-item nav-link">Đăng kí</a>
+                    <a href="/CustomerServlet?action=create" class="nav-item nav-link">Đăng kí</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId == 1}">
                     <a href="/BookingServlet?action=showAddBooking" class="nav-item nav-link">Booking</a>

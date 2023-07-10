@@ -1,5 +1,6 @@
 package repository.employee.impl;
 
+import base_connection.BaseConnection;
 import model.Account;
 import model.Employee;
 import repository.DB_connect.BaseRepository;
@@ -11,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 public class EmployeeRepository implements IEmployeeRepository {
-    private static final String CALL_SELECT_ALL = " call display_all() ";
+    private static final String CALL_SELECT_ALL = "call display_all();";
     private static final String INSERT_EMPLOYEE = " call add_employee(?,?,?,?,?,?,?,?) ";
     private static final String CALL_EDIT = "call edit_employee(?,?,?,?,?,?,?,?)";
     private static final String CALL_DELETE = "call delete_employee(?)";
@@ -24,7 +25,7 @@ public class EmployeeRepository implements IEmployeeRepository {
     @Override
     public List<Employee> display() {
         List<Employee> employeeList = new ArrayList<>();
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseConnection.getConnection();
         try {
             CallableStatement callableStatement = connection.prepareCall(CALL_SELECT_ALL);
             ResultSet resultSet = callableStatement.executeQuery();
@@ -53,7 +54,7 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public void create(Employee employee) {
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseConnection.getConnection();
         try {
             CallableStatement callableStatement = connection.prepareCall(INSERT_EMPLOYEE);
             callableStatement.setString(1, employee.getEmployeeName());
@@ -74,7 +75,7 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     public int getAccountId(String username) {
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseConnection.getConnection();
         PreparedStatement preparedStatement;
         int accountId = 0;
         ResultSet resultSet = null;
@@ -94,7 +95,7 @@ public class EmployeeRepository implements IEmployeeRepository {
     @Override
     public void insertAccount(Account account) {
         try {
-            PreparedStatement preparedStatement = BaseRepository.getConnection().prepareStatement(INSERT_ACCOUNT);
+            PreparedStatement preparedStatement = BaseConnection.getConnection().prepareStatement(INSERT_ACCOUNT);
             preparedStatement.setString(1, account.getUsername());
             preparedStatement.setString(2, account.getPassword());
             preparedStatement.executeUpdate();
@@ -107,7 +108,7 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public Employee getById(int employeeId) {
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseConnection.getConnection();
         Employee employee = null;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(GET_BY_ID);
