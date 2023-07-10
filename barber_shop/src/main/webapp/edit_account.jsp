@@ -70,7 +70,7 @@
 
     <!-- Register buttons -->
     <c:if test="${msg != null}">
-        <span>${msg}</span>
+        <span class="text-danger">${msg}</span>
     </c:if>
 </form>
 
@@ -101,8 +101,8 @@
                 <div class="footer-newsletter">
                     <h2>Vấn đề</h2>
                     <p>
-                        Lorem ipsum dolor sit amet elit. Quisque eu lectus a leo dictum nec non quam. Tortor eu
-                        placerat rhoncus, lorem quam iaculis felis, sed lacus neque id eros.
+                        Nếu có vấn đề gì trong lúc sử dụng dịch vụ quý khách có thể liên hệ với chúng tôi để giải quyết vấn đề,
+                        mọi thông tin liên hệ ở bên góc trái màn hình. Cảm ơn quý khách đã sử dụng dịch vụ.
                     </p>
                     <div class="form">
                         <input class="form-control" placeholder="Email goes here">
