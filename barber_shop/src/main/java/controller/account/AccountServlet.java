@@ -1,9 +1,12 @@
 package controller.account;
 
 import model.Account;
+import model.Employee;
 import model.dto_model.AccountDTO;
 import service.account.IAccountService;
 import service.account.impl.AccountService;
+import service.employee.IEmployeeService;
+import service.employee.impl.EmployeeService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -14,12 +17,13 @@ import java.util.List;
 @WebServlet(name = "AccountServlet", value = "/AccountServlet")
 public class AccountServlet extends HttpServlet {
     private static IAccountService accountService = new AccountService();
+    private static final IEmployeeService employeeService = new EmployeeService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        HttpSession session = request.getSession();
-        if (action == null || session.getAttribute("account") == null)
+
+        if (action == null )
             action = "";
         switch (action) {
             case "admin":
@@ -42,6 +46,8 @@ public class AccountServlet extends HttpServlet {
                 break;
             default:
                 response.sendRedirect("home/home.jsp");
+                break;
+
         }
     }
 
@@ -87,6 +93,8 @@ public class AccountServlet extends HttpServlet {
 
     private static void getAllAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<AccountDTO> accountList = accountService.getAllAccount();
+        List<Employee> employeeList = employeeService.display();
+        request.setAttribute("employeeList",employeeList);
         request.setAttribute("accountList", accountList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/page_admin.jsp");
         dispatcher.forward(request, response);
@@ -95,8 +103,8 @@ public class AccountServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        HttpSession session = request.getSession();
-        if (action == null || session.getAttribute("account") == null)
+
+        if (action == null )
             action = "";
         switch (action) {
             case "login":
