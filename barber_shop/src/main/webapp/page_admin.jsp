@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%--
@@ -87,9 +86,11 @@
                                 ${account.roleName}
                         </td>
                         <td class="d-flex justify-content-center align-items-center">
-                            <a href="/AccountServlet?action=showFormEdit&id=${account.accountId}"><button type="button" class="btn btn-primary mx-3">
-                                Sửa Mật Khẩu
-                            </button></a>
+                            <a href="/AccountServlet?action=showFormEdit&id=${account.accountId}">
+                                <button type="button" class="btn btn-primary mx-3">
+                                    Sửa Mật Khẩu
+                                </button>
+                            </a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -101,9 +102,15 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="table-responsive">
-            <table id="tableStudent2" class="table caption-top table-light table-hover table-striped text-center"
+            <table id="tableEmployee" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
-                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Employee
+                </h1>
+                    <a href="/EmployeeServlet?action=create">
+                        <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal1">Thêm mới Nhân viên
+                        </button>
+                    </a>
                 </caption>
                 <thead>
                 <tr>
@@ -136,8 +143,10 @@
                     <td><c:out value="${employee.getIdCard()}"/></td>
                     <td><c:out value="${employee.getAddress()}"/></td>
 
-                    <td><a class="btn btn-primary"href="/EmployeeServlet?action=edit&id=${employee.getEmployeeId()}" role="submit">Cập nhật</a></td>
-                    <td><a class="btn btn-danger" href="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}" role="button">Xóa</a></td>
+                    <td><a class="btn btn-primary" href="/EmployeeServlet?action=edit&id=${employee.getEmployeeId()}"
+                           role="submit">Cập nhật</a></td>
+                    <td><a class="btn btn-danger" href="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}"
+                           role="button">Xóa</a></td>
                 </tr>
                 </c:forEach>
             </table>
@@ -158,7 +167,7 @@
                     <th>phone</th>
                     <th>gender</th>
                     <th>address</th>
-                    <th> </th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -170,9 +179,11 @@
                         <td><c:out value="${customer.isGender()}"/></td>
                         <td><c:out value="${customer.getAddress()}"/></td>
                         <td class="d-flex justify-content-center align-items-center">
-                            <a href="/CustomerServlet?action=showFormEdit&id=${customer.getCustomerId()}"><button type="button" class="btn btn-primary mx-3">
-                                Sửa Mật Khẩu
-                            </button></a>
+                            <a href="/CustomerServlet?action=showFormEdit&id=${customer.getCustomerId()}">
+                                <button type="button" class="btn btn-primary mx-3">
+                                    Sửa Mật Khẩu
+                                </button>
+                            </a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -197,8 +208,8 @@
                 <tr>
                     <th>Tên khách hàng</th>
                     <th>Ngày booking</th>
-                    <th>Tổng tiền </th>
-                    <th>Trạng thái </th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -275,7 +286,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a id="confirm" href=""><button type="button" class="btn btn-primary">Save changes</button></a>
+                <a id="confirm" href="">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </a>
             </div>
         </div>
     </div>
@@ -287,6 +300,13 @@
 <script>
     $(document).ready(function () {
         $('#tableStudent1').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        });
+    });
+    $(document).ready(function () {
+        $('#tableEmployee').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5
@@ -306,9 +326,9 @@
             "pageLength": 5
         });
     });
-    function confirm(accountId)
-    {
-        document.getElementById("confirm").href="/AccountServlet?action=delete&id="+accountId;
+
+    function confirm(accountId) {
+        document.getElementById("confirm").href = "/AccountServlet?action=delete&id=" + accountId;
     }
 </script>
 <script src="bootstrap520/js/bootstrap.bundle.js"></script>
