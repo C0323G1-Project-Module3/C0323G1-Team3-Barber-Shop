@@ -69,13 +69,6 @@
                             <p><i class="fa fa-map-marker-alt"></i>280 Trần Hưng Đạo, Sơn Trà, Đà Nẵng</p>
                             <p><i class="fa fa-phone-alt"></i>0123456789</p>
                             <p><i class="fa fa-envelope"></i>cuongplastic@gmail.com</p>
-                            <div class="footer-social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-youtube"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
                         </div>
                     </div>
                 </div>
