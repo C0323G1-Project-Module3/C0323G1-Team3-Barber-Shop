@@ -43,9 +43,12 @@
 
         <!-- Password input -->
         <div class="form-outline mb-4 w-50">
-            <input type="password" name="password" id="form2Example2" class="form-control text-center"/>
+            <input type="password" name="password" id="form2Example2" class="form-control"/>
             <label class="form-label" for="form2Example2">Mật Khẩu</label>
         </div>
+        <c:if test="${msg != null}">
+            <span class="text-danger">${msg}</span>
+        </c:if>
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4 d-flex justify-content-center">Sign in</button>
 

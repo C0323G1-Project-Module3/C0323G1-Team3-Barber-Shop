@@ -49,9 +49,9 @@ public class AccountRepository implements IAccountRepository {
 
         try {
             PreparedStatement preparedStatement = BaseConnection.getConnection().prepareStatement("insert into account(account.username,account.password,account.role_id) values (?,?,?);");
-            preparedStatement.setString(2, account.getUsername());
-            preparedStatement.setString(3, account.getPassword());
-            preparedStatement.setInt(4, account.getRoleId());
+            preparedStatement.setString(1, account.getUsername());
+            preparedStatement.setString(2, account.getPassword());
+            preparedStatement.setInt(3, account.getRoleId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
