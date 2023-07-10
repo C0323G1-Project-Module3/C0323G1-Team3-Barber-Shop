@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/C0323G1-Team3-Baber-Shop.iml" filepath="$PROJECT_DIR$/.idea/C0323G1-Team3-Baber-Shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/barber_shop.iml" filepath="$PROJECT_DIR$/.idea/modules/barber_shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/barber_shop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/barber_shop.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/barber_shop.test.iml" filepath="$PROJECT_DIR$/.idea/modules/barber_shop.test.iml" />
     </modules>
   </component>
 </project>
