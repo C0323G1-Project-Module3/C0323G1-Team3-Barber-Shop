@@ -26,7 +26,7 @@ public class EmployeeServlet extends HttpServlet {
             action="";
         }
         switch (action) {
-            case "showFormCreate":
+            case "create":
                 showFormCreate(request,response);
                 break;
             case "edit":
@@ -99,12 +99,6 @@ public class EmployeeServlet extends HttpServlet {
 
     }
 
-//    private void showList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        List<Employee> employeeList = employeeService.display();
-//        request.setAttribute("employeeList",employeeList);
-//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/employee/employeeList.jsp");
-//        requestDispatcher.forward(request, response);
-//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -168,19 +162,17 @@ public class EmployeeServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         Account account=new Account(username,password);
+        System.out.println(account);
         this.employeeService.insertAccount(account);
         int accountId=employeeService.getEmployeeAccountId(username);
         Employee employee = new Employee(employeeName, birthDay, salary, phoneNumber, gender, idCard, address, accountId);
+        System.out.println(employee);
         this.employeeService.create(employee);
 
         try {
-            request.setAttribute("employee",employee);
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/page_admin.jsp");
-            requestDispatcher.forward(request,response);
+            response.sendRedirect("/EmployeeServlet");
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
         }
 
     }

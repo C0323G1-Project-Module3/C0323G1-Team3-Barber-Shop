@@ -105,7 +105,7 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
 
-//    employee_name,birthday,salary,phone_number,gender,id_card,address
+
     @Override
     public Employee getById(int employeeId) {
         Connection connection = BaseConnection.getConnection();
