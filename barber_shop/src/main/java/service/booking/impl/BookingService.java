@@ -1,5 +1,6 @@
 package service.booking.impl;
 
+import model.Booking;
 import model.dto_model.BookingDTO;
 import repository.booking.IBookingRepository;
 import repository.booking.impl.BookingRepository;
@@ -18,4 +19,10 @@ public class BookingService implements IBookingService {
     public List<BookingDTO> displayBookingEmp() {
         return bookingRepository.displayBookingEmp();
     }
+
+    @Override
+    public void addBooking(Booking booking) {
+        bookingRepository.addBooking(booking);
+    }
+
 }

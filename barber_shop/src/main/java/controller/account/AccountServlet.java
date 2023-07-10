@@ -31,7 +31,9 @@ public class AccountServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action == null )
+        HttpSession session = request.getSession();
+        if (action == null &&(session.getAttribute("account")==null || action!="showFormLogin"))
+
             action = "";
         switch (action) {
             case "admin":
@@ -42,12 +44,6 @@ public class AccountServlet extends HttpServlet {
                 break;
             case "showFormEdit":
                 showFormEdit(request, response);
-                break;
-            case "create":
-                createAccount(request, response);
-                break;
-            case "delete":
-                deleteAccount(request, response);
                 break;
             case "logout":
                 logout(request, response);
@@ -84,19 +80,12 @@ public class AccountServlet extends HttpServlet {
         }
     }
 
-    private void deleteAccount(HttpServletRequest request, HttpServletResponse response) {
-    }
-
     private void ShowFormLogin(HttpServletRequest request, HttpServletResponse response) {
         try {
             response.sendRedirect("login.jsp");
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void createAccount(HttpServletRequest request, HttpServletResponse response) {
-
     }
 
     private static void getAllAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
