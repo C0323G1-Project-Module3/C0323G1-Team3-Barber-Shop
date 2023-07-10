@@ -99,7 +99,7 @@
                     <a href="#" class="nav-item nav-link">Đăng kí</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId == 1}">
-                    <a href="#" class="nav-item nav-link">Booking</a>
+                    <a href="/BookingServlet?action=showAddBooking" class="nav-item nav-link">Booking</a>
                     <a href="#" class="nav-item nav-link">Lịch sử booking</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId == 3 ||  sessionScope.account.roleId == 2}">
