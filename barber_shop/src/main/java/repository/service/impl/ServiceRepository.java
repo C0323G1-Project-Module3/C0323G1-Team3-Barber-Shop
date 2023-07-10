@@ -1,7 +1,7 @@
 package repository.service.impl;
 
 import model.Service;
-import repository.service.BaseRepository;
+import repository.DB_connect.BaseRepository;
 import repository.service.IServiceRepository;
 
 import java.sql.*;
@@ -14,7 +14,7 @@ public class ServiceRepository implements IServiceRepository {
     private static final String SELECT_SERVICE_BY_ID = " select * from service where service_id=? ";
     private static final String DELETE_SERVICE = "delete from service where service_id=?";
     private static final String CALL_INSERT_SERVICE = " call insert_service(?, ? ); ";
-    private static final String CALL_UPDATES_SERVICE = " call update_service(?, ?, ?; ";
+    private static final String CALL_UPDATES_SERVICE = " call update_service(?, ?, ?); ";
 
     @Override
     public List<Service> displayAll() {

@@ -6,6 +6,7 @@ import repository.booking.IBookingRepository;
 import repository.booking.impl.BookingRepository;
 import service.booking.IBookingService;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class BookingService implements IBookingService {
@@ -21,8 +22,19 @@ public class BookingService implements IBookingService {
     }
 
     @Override
-    public void addBooking(Booking booking) {
-        bookingRepository.addBooking(booking);
+    public int addBooking(Booking booking) {
+        return bookingRepository.addBooking(booking);
     }
+
+    @Override
+    public List<BookingDTO> displayHistoryBooking(int accountId) {
+        return bookingRepository.displayHistoryBooking(accountId);
+    }
+
+    @Override
+    public void deleteBooking(int bookingId) {
+        bookingRepository.deleteBooking(bookingId);
+    }
+
 
 }

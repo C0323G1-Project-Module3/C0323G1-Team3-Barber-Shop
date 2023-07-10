@@ -8,5 +8,8 @@ import java.util.List;
 public interface IBookingService {
     List<BookingDTO> displayBooking();
     List<BookingDTO> displayBookingEmp();
-    void addBooking(Booking booking);
+    int addBooking(Booking booking);
+    List<BookingDTO> displayHistoryBooking(int accountId);
+    void deleteBooking(int bookingId);
+
 }

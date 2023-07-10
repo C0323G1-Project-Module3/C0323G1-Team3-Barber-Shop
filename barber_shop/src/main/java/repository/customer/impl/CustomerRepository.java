@@ -16,9 +16,9 @@ public class CustomerRepository implements ICustomerRepository {
     private static final String INSERT_ACCOUNT_CUSTOMER_SQL = "insert into account(username,password,role_id) values(?,?,1);";
     private static final String INSERT_CUSTOMER_SQL = "insert into customer(customer_name,birthday,phone_number,gender," +
             "address,customer_type_id,account_id) values(?,?,?,?,?,1,?);";
-    private static final String SELECT_CUSTOMER_BY_ID = "SELECT* FROM customer where id=?;";
+    private static final String SELECT_CUSTOMER_BY_ID = "SELECT* FROM customer where customer_id=?;";
     private static final String SELECT_ALL_CUSTOMERS = "SELECT * FROM customer;";
-    private static final String DELETE_CUSTOMER_SQL = "DELETE FROM customer where id=?;";
+    private static final String DELETE_CUSTOMER_SQL = "DELETE FROM customer where customer_id= ?;";
     private static final String UPDATE_CUSTOMER_SQL = "UPDATE customer set customer_name=?,birthday=?,phone_number=?,gender=?," +
             "address=?,customer_type_id=?,account_id=?;";
     private static final String SELECT_ACCOUNT_SQL_BY_USERNAME = "SELECT * FROM account where username=?;";
@@ -117,7 +117,7 @@ public class CustomerRepository implements ICustomerRepository {
                 int customerId=resultSet.getInt("customer_id");
                 String name=resultSet.getString("customer_name");
                 String birth=resultSet.getString("birthday");
-                String phone=resultSet.getString("phone");
+                String phone=resultSet.getString("phone_number");
                 boolean gender=resultSet.getBoolean("gender");
                 String address=resultSet.getString("address");
                 int typeId =resultSet.getInt("customer_type_id");
