@@ -1,10 +1,13 @@
 package controller.account;
 
 import model.Account;
+import model.Customer;
 import model.Employee;
 import model.dto_model.AccountDTO;
 import service.account.IAccountService;
 import service.account.impl.AccountService;
+import service.customer.ICustomerService;
+import service.customer.impl.CustomerService;
 import service.employee.IEmployeeService;
 import service.employee.impl.EmployeeService;
 
@@ -18,6 +21,8 @@ import java.util.List;
 public class AccountServlet extends HttpServlet {
     private static IAccountService accountService = new AccountService();
     private static final IEmployeeService employeeService = new EmployeeService();
+    private static final ICustomerService customerService = new CustomerService();
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -94,6 +99,8 @@ public class AccountServlet extends HttpServlet {
     private static void getAllAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<AccountDTO> accountList = accountService.getAllAccount();
         List<Employee> employeeList = employeeService.display();
+        List<Customer> customerList =  customerService.viewAllCustomer();
+        request.setAttribute("customerList",customerList);
         request.setAttribute("employeeList",employeeList);
         request.setAttribute("accountList", accountList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/page_admin.jsp");
