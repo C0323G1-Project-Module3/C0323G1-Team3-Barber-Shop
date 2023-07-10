@@ -1,11 +1,16 @@
 package controller.account;
 
-import controller.booking.BookingServlet;
 import model.Account;
+import model.Customer;
+import model.Employee;
 import model.dto_model.AccountDTO;
 import model.dto_model.BookingDTO;
 import service.account.IAccountService;
 import service.account.impl.AccountService;
+import service.customer.ICustomerService;
+import service.customer.impl.CustomerService;
+import service.employee.IEmployeeService;
+import service.employee.impl.EmployeeService;
 import service.booking.IBookingService;
 import service.booking.impl.BookingService;
 
@@ -17,13 +22,16 @@ import java.util.List;
 
 @WebServlet(name = "AccountServlet", value = "/AccountServlet")
 public class AccountServlet extends HttpServlet {
-    private static final IAccountService accountService = new AccountService();
+    private static IAccountService accountService = new AccountService();
+    private static final IEmployeeService employeeService = new EmployeeService();
+    private static final ICustomerService customerService = new CustomerService();
     private static final IBookingService bookingService = new BookingService();
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action == null)
+        if (action == null )
             action = "";
         switch (action) {
             case "admin":
@@ -31,6 +39,9 @@ public class AccountServlet extends HttpServlet {
                 break;
             case "showFormLogin":
                 ShowFormLogin(request, response);
+                break;
+            case "showFormEdit":
+                showFormEdit(request, response);
                 break;
             case "create":
                 createAccount(request, response);
@@ -43,6 +54,23 @@ public class AccountServlet extends HttpServlet {
                 break;
             default:
                 response.sendRedirect("home/home.jsp");
+                break;
+
+        }
+    }
+
+    private void showFormEdit(HttpServletRequest request, HttpServletResponse response) {
+        int accountId = Integer.parseInt(request.getParameter("id"));
+        Account account = accountService.selectAccountById(accountId);
+        System.out.println(account);
+        request.setAttribute("account", account);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("edit_account.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -74,6 +102,10 @@ public class AccountServlet extends HttpServlet {
     private static void getAllAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<BookingDTO> bookingDTOList = bookingService.displayBooking();
         List<AccountDTO> accountList = accountService.getAllAccount();
+        List<Employee> employeeList = employeeService.display();
+        List<Customer> customerList =  customerService.viewAllCustomer();
+        request.setAttribute("customerList",customerList);
+        request.setAttribute("employeeList",employeeList);
         request.setAttribute("accountList", accountList);
         request.setAttribute("bookingDTOList",bookingDTOList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/page_admin.jsp");
@@ -83,7 +115,8 @@ public class AccountServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action == null)
+
+        if (action == null )
             action = "";
         switch (action) {
             case "login":
@@ -91,10 +124,34 @@ public class AccountServlet extends HttpServlet {
                 break;
             case "editPassword":
                 editPassword(request, response);
+                break;
+            default:
+                response.sendRedirect("home/home.jsp");
         }
     }
 
     private void editPassword(HttpServletRequest request, HttpServletResponse response) {
+        int accountId = Integer.parseInt(request.getParameter("id"));
+        String password = request.getParameter("password");
+        String confirm = request.getParameter("confirm");
+        if (password.equals(confirm)) {
+            accountService.editPassword(accountId, password);
+            try {
+                response.sendRedirect("/AccountServlet?action=admin");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            request.setAttribute("msg", "Mật khẩu không trùng");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("edit_account.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

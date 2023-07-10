@@ -15,4 +15,5 @@ public interface IAccountRepository {
     void deleteAccount(int accountId);
 
     void editPassword(int accountId,String password);
+    Account selectAccountById(int accountId);
 }

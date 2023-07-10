@@ -1,4 +1,6 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: Asus
@@ -7,6 +9,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -57,9 +60,6 @@
             <table id="tableStudent1" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
                 <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
-                    <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">Thêm
-                    </button>
                 </caption>
                 <thead>
                 <tr>
@@ -87,19 +87,98 @@
                                 ${account.roleName}
                         </td>
                         <td class="d-flex justify-content-center align-items-center">
-                            <a href="/AccountServlet?action=editPassword&id=${account.accountId}"><button type="button" class="btn btn-primary mx-3" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal1">
+                            <a href="/AccountServlet?action=showFormEdit&id=${account.accountId}"><button type="button" class="btn btn-primary mx-3">
                                 Sửa Mật Khẩu
-                            </button></a>
-                            <a href="/AccountServlet?action=delete&id=${account.accountId}"><button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal2">
-                                Xóa
                             </button></a>
                         </td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="table-responsive">
+            <table id="tableStudent2" class="table caption-top table-light table-hover table-striped text-center"
+                   style="width:100%">
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
+                </caption>
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Lương</th>
+                    <th>Số điện thoại</th>
+                    <th>Giới tính</th>
+                    <th>Số CMND</th>
+                    <th>Địa chỉ</th>
+                    <th>Cập nhật</th>
+                    <th>Xóa</th>
+                </tr>
+                <c:forEach var="employee" items="${employeeList}" varStatus="loop">
+                <tr>
+                    <td>${loop.count}</td>
+                    <td><c:out value="${employee.getEmployeeName()}"/></td>
+                    <td><c:out value="${employee.getBirthDay()}"/></td>
+                    <td><c:out value="${employee.getSalary()}"/></td>
+                    <td><c:out value="${employee.getPhoneNumber()}"/></td>
+                    <td>
+                        <c:if test="${employee.isGender()==true}">
+                            Nam
+                        </c:if>
+                        <c:if test="${employee.isGender()==false}">
+                            Nữ
+                        </c:if>
+                    </td>
+                    <td><c:out value="${employee.getIdCard()}"/></td>
+                    <td><c:out value="${employee.getAddress()}"/></td>
+
+                    <td><a class="btn btn-primary"href="/EmployeeServlet?action=edit&id=${employee.getEmployeeId()}" role="submit">Cập nhật</a></td>
+                    <td><a class="btn btn-danger" href="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}" role="button">Xóa</a></td>
+                </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="table-responsive">
+            <table id="tableStudent4" class="table caption-top table-light table-hover table-striped text-center"
+                   style="width:100%">
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
+                </caption>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>birthday</th>
+                    <th>phone</th>
+                    <th>gender</th>
+                    <th>address</th>
+                    <th> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="customer" items="${customerList}">
+                    <tr>
+                        <td><c:out value="${customer.getCustomerName()}"/></td>
+                        <td><c:out value="${customer.getBirthday()}"/></td>
+                        <td><c:out value="${customer.getPhone()}"/></td>
+                        <td><c:out value="${customer.isGender()}"/></td>
+                        <td><c:out value="${customer.getAddress()}"/></td>
+                        <td class="d-flex justify-content-center align-items-center">
+                            <a href="/CustomerServlet?action=showFormEdit&id=${customer.getCustomerId()}"><button type="button" class="btn btn-primary mx-3">
+                                Sửa Mật Khẩu
+                            </button></a>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>
@@ -184,7 +263,23 @@
         </div>
     </div>
 </div>
-
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a id="confirm" href=""><button type="button" class="btn btn-primary">Save changes</button></a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="jquery/jquery-3.5.1.min.js"></script>
 <script src="datatables/js/jquery.dataTables.min.js"></script>
@@ -211,10 +306,12 @@
             "pageLength": 5
         });
     });
+    function confirm(accountId)
+    {
+        document.getElementById("confirm").href="/AccountServlet?action=delete&id="+accountId;
+    }
 </script>
 <script src="bootstrap520/js/bootstrap.bundle.js"></script>
 </body>
 </html>
 
-</body>
-</html>

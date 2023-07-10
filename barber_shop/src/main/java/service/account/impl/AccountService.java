@@ -33,6 +33,11 @@ public class AccountService implements IAccountService {
 
     @Override
     public void editPassword(int accountId, String password) {
-        accountRepository.editPassword(accountId,password);
+        accountRepository.editPassword(accountId, password);
+    }
+
+    @Override
+    public Account selectAccountById(int accountId) {
+        return accountRepository.selectAccountById(accountId);
     }
 }

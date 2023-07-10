@@ -3,9 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Barber Shop Cường Plastic</title>
 </head>
 <body>
-<c:redirect url="login.jsp"/>
+<h1><%= "Barber shop Cường Plastic" %>
+</h1>
+<br/>
+<c:redirect url="login.jsp"></c:redirect>
 </body>
 </html>

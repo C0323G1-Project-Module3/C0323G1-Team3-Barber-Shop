@@ -4,6 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="5a4b888c-a7e9-4972-adb6-1e2df4513b13" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/barber_shop/src/main/java/repository/DB_connect/BaseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/barber_shop/src/main/webapp/employee/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/barber_shop/src/main/webapp/employee/delete.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/barber_shop/src/main/webapp/employee/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___com_example___barber_shop_1_0_SNAPSHOT_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___com_example___barber_shop_1_0_SNAPSHOT_war__exploded_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f0ab4b79-8ac3-46e2-b5e3-d0b299574c52.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_4_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__jstl_jstl_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/barber_shop.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/barber_shop.main.iml" afterDir="false" />
+=======
     <list default="true" id="ad75a0cc-2444-4240-a59f-21abffb8e4c3" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules/barber_shop.iml" afterDir="false" />
@@ -16,6 +38,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+>>>>>>> booking_thanh
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/.gradle/7.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/.gradle/7.6/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/.gradle/7.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/.gradle/7.6/executionHistory/executionHistory.lock" afterDir="false" />
@@ -27,16 +50,35 @@
       <change beforePath="$PROJECT_DIR$/barber_shop/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/base_connection/BaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/base_connection/BaseConnection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/controller/account/AccountServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/controller/account/AccountServlet.class" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/controller/employee/EmployeeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/controller/employee/EmployeeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/model/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/repository/employee/IEmployeeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/repository/employee/IEmployeeRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/repository/employee/impl/EmployeeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/repository/employee/impl/EmployeeRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/service/employee/IEmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/service/employee/IEmployeeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/service/employee/impl/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/service/employee/impl/EmployeeService.class" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/controller/booking/BookingServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/controller/booking/BookingServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/repository/booking/IBookingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/repository/booking/IBookingRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/repository/booking/impl/BookingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/repository/booking/impl/BookingRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/service/booking/IBookingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/service/booking/IBookingService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/build/classes/java/main/service/booking/impl/BookingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/classes/java/main/service/booking/impl/BookingService.class" afterDir="false" />
+>>>>>>> booking_thanh
       <change beforePath="$PROJECT_DIR$/barber_shop/build/libs/barber_shop-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/libs/barber_shop-1.0-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/build/tmp/compileJava/compileTransaction/stash-dir/AccountServlet.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/base_connection/BaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/base_connection/BaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/controller/account/AccountServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/controller/account/AccountServlet.java" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/controller/employee/EmployeeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/controller/employee/EmployeeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/model/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/repository/employee/IEmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/repository/employee/IEmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/repository/employee/impl/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/repository/employee/impl/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/service/employee/IEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/service/employee/IEmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/service/employee/impl/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/service/employee/impl/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/barber_shop/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/webapp/index.jsp" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/controller/booking/BookingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/controller/booking/BookingServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/model/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/model/Booking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/repository/booking/IBookingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/repository/booking/IBookingRepository.java" afterDir="false" />
@@ -44,6 +86,7 @@
       <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/service/booking/IBookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/service/booking/IBookingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/src/main/java/service/booking/impl/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/java/service/booking/impl/BookingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/barber_shop/src/main/webapp/home/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/webapp/home/home.jsp" afterDir="false" />
+>>>>>>> booking_thanh
       <change beforePath="$PROJECT_DIR$/barber_shop/src/main/webapp/page_admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/barber_shop/src/main/webapp/page_admin.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,11 +147,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/CodeGym/module3/case_study_2/C0323G1-Team3-Barber-Shop/barber_shop/src/main/java/model",
+    "last_opened_file_path": "D:/CodeGym/module3/case_study_2/cuong_account/C0323G1-Team3-Barber-Shop",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -229,10 +273,14 @@
       <option name="presentableId" value="Default" />
       <updated>1688692761356</updated>
       <workItem from="1688692762057" duration="14858000" />
+      <workItem from="1688892321504" duration="92000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
