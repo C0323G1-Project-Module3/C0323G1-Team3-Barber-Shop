@@ -40,13 +40,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleXxl">
             <ul class="navbar-nav me-auto mb-2 mb-xl-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Log Out</a>
+                    <a class="nav-link" href="/AccountServlet?action=logout">Log Out</a>
                 </li>
             </ul>
         </div>
@@ -57,7 +51,7 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="table-responsive">
-            <table id="tableStudent1" class="table caption-top table-light table-hover table-striped text-center"
+            <table id="Account" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
                 <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
                 </caption>
@@ -141,6 +135,44 @@
                 </tr>
                 </c:forEach>
             </table>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="table-responsive">
+            <table id="tableStudent4" class="table caption-top table-light table-hover table-striped text-center"
+                   style="width:100%">
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
+                </caption>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>birthday</th>
+                    <th>phone</th>
+                    <th>gender</th>
+                    <th>address</th>
+                    <th> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="customer" items="${customerList}">
+                    <tr>
+                        <td><c:out value="${customer.getCustomerName()}"/></td>
+                        <td><c:out value="${customer.getBirthday()}"/></td>
+                        <td><c:out value="${customer.getPhone()}"/></td>
+                        <td><c:out value="${customer.isGender()}"/></td>
+                        <td><c:out value="${customer.getAddress()}"/></td>
+                        <td class="d-flex justify-content-center align-items-center">
+                            <a href="/CustomerServlet?action=showFormEdit&id=${customer.getCustomerId()}"><button type="button" class="btn btn-primary mx-3">
+                                Sửa Mật Khẩu
+                            </button></a>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>
@@ -248,7 +280,7 @@
 <script src="datatables/js/dataTables.bootstrap5.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#tableStudent1').dataTable({
+        $('#Account').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5

@@ -1,11 +1,14 @@
 package controller.account;
 
 import model.Account;
+import model.Customer;
 import model.Employee;
 import model.dto_model.AccountDTO;
 import model.dto_model.BookingDTO;
 import service.account.IAccountService;
 import service.account.impl.AccountService;
+import service.customer.ICustomerService;
+import service.customer.impl.CustomerService;
 import service.employee.IEmployeeService;
 import service.employee.impl.EmployeeService;
 import service.booking.IBookingService;
@@ -21,12 +24,16 @@ import java.util.List;
 public class AccountServlet extends HttpServlet {
     private static IAccountService accountService = new AccountService();
     private static final IEmployeeService employeeService = new EmployeeService();
+    private static final ICustomerService customerService = new CustomerService();
     private static final IBookingService bookingService = new BookingService();
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action == null )
+        HttpSession session = request.getSession();
+        if (action == null &&(session.getAttribute("account")==null || action!="showFormLogin"))
+
             action = "";
         switch (action) {
             case "admin":
@@ -37,12 +44,6 @@ public class AccountServlet extends HttpServlet {
                 break;
             case "showFormEdit":
                 showFormEdit(request, response);
-                break;
-            case "create":
-                createAccount(request, response);
-                break;
-            case "delete":
-                deleteAccount(request, response);
                 break;
             case "logout":
                 logout(request, response);
@@ -79,9 +80,6 @@ public class AccountServlet extends HttpServlet {
         }
     }
 
-    private void deleteAccount(HttpServletRequest request, HttpServletResponse response) {
-    }
-
     private void ShowFormLogin(HttpServletRequest request, HttpServletResponse response) {
         try {
             response.sendRedirect("login.jsp");
@@ -90,14 +88,12 @@ public class AccountServlet extends HttpServlet {
         }
     }
 
-    private void createAccount(HttpServletRequest request, HttpServletResponse response) {
-
-    }
-
     private static void getAllAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<BookingDTO> bookingDTOList = bookingService.displayBooking();
         List<AccountDTO> accountList = accountService.getAllAccount();
         List<Employee> employeeList = employeeService.display();
+        List<Customer> customerList =  customerService.viewAllCustomer();
+        request.setAttribute("customerList",customerList);
         request.setAttribute("employeeList",employeeList);
         request.setAttribute("accountList", accountList);
         request.setAttribute("bookingDTOList",bookingDTOList);

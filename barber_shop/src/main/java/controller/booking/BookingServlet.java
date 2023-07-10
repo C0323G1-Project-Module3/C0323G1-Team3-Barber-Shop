@@ -26,6 +26,20 @@ public class BookingServlet extends HttpServlet {
             case "showBookingEmp":
                 showBookingEmp(request,response);
                 break;
+            case "showAddBooking":
+                showAddBooking(request,response);
+                break;
+        }
+    }
+
+    private void showAddBooking(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/add_booking.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
