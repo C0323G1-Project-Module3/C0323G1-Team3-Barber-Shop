@@ -32,17 +32,30 @@ public class CustomerServlet extends HttpServlet {
                 showEditForm(request, response);
                 break;
             case "delete":
-                deleteCustomer(request,response);
+                showDeleteForm(request,response);
                 break;
             default:
                 listCustomer(request, response);
                 break;
         }
     }
+
+    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Customer customer = customerService.findById(id);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("delete_customer.jsp");
+        request.setAttribute("customer", customer);
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private void listCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customerList = customerService.viewAllCustomer();
         request.setAttribute("customerList", customerList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("customer_jsp/listCustomer.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("edit_customer.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
@@ -52,7 +65,7 @@ public class CustomerServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = customerService.findById(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/customer_jsp/edit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("edit_customer.jsp");
         request.setAttribute("customer", customer);
         try {
             dispatcher.forward(request, response);
@@ -61,7 +74,7 @@ public class CustomerServlet extends HttpServlet {
         }
     }
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("customer_jsp/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
@@ -81,13 +94,15 @@ public class CustomerServlet extends HttpServlet {
                 break;
             case "edit":
                 updateCustomer(request, response);
+            case "delete":
+                deleteCustomer(request,response);
                 break;
         }
     }
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
         int id=Integer.parseInt(request.getParameter("id"));
         Customer customer=customerService.findById(id);
-        customerService.remove(id);
+        customerService.remove(customer.getCustomerId());
         accountRepository.deleteAccount(customer.getCustomerAccountId());
         RequestDispatcher dispatcher=request.getRequestDispatcher("customer_id/listCustomer.jsp");
         try {
