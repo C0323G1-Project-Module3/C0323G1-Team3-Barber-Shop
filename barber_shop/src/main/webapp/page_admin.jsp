@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%--
@@ -81,9 +80,11 @@
                                 ${account.roleName}
                         </td>
                         <td class="d-flex justify-content-center align-items-center">
-                            <a href="/AccountServlet?action=showFormEdit&id=${account.accountId}"><button type="button" class="btn btn-primary mx-3">
-                                Sửa Mật Khẩu
-                            </button></a>
+                            <a href="/AccountServlet?action=showFormEdit&id=${account.accountId}">
+                                <button type="button" class="btn btn-primary mx-3">
+                                    Sửa Mật Khẩu
+                                </button>
+                            </a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -95,10 +96,17 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="table-responsive">
-            <table id="tableStudent2" class="table caption-top table-light table-hover table-striped text-center"
+            <table id="tableEmployee" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
-                <caption><h1 class="display-4 float-start" style="color: #cfb981">Employee</h1>
-                </caption>
+
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Employee
+                </h1>
+                    <a href="/EmployeeServlet?action=create">
+                        <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal1">Thêm mới Nhân viên
+                        </button>
+                    </a>
+ </caption>
                 <thead>
                 <tr>
                     <th>STT</th>
@@ -130,8 +138,10 @@
                     <td><c:out value="${employee.getIdCard()}"/></td>
                     <td><c:out value="${employee.getAddress()}"/></td>
 
-                    <td><a class="btn btn-primary"href="/EmployeeServlet?action=edit&id=${employee.getEmployeeId()}" role="submit">Cập nhật</a></td>
-                    <td><a class="btn btn-danger" href="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}" role="button">Xóa</a></td>
+                    <td><a class="btn btn-primary" href="/EmployeeServlet?action=edit&id=${employee.getEmployeeId()}"
+                           role="submit">Cập nhật</a></td>
+                    <td><a class="btn btn-danger" href="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}"
+                           role="button">Xóa</a></td>
                 </tr>
                 </c:forEach>
             </table>
@@ -151,6 +161,7 @@
                 <thead>
                 <tr>
 
+
                     <th>STT</th>
                     <th>Họ và Tên</th>
                     <th>Ngày Sinh</th>
@@ -159,6 +170,7 @@
                     <th>Địa Chỉ</th>
                     <th>EDIT</th>
                     <th>DELETE</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -176,6 +188,7 @@
                                 Nữ
                             </c:if>
                         <td><c:out value="${customer.getAddress()}"/></td>
+
                         <td><a class="btn btn-primary"href="/CustomerServlet?action=edit&id=${customer.getCustomerId()}" role="submit">Cập nhật</a></td>
                         <td><a class="btn btn-danger" href="/CustomerServlet?action=delete&id=${customer.getCustomerId()}" role="button">Xóa</a></td>
                     </tr>
@@ -201,8 +214,8 @@
                 <tr>
                     <th>Tên khách hàng</th>
                     <th>Ngày booking</th>
-                    <th>Tổng tiền </th>
-                    <th>Trạng thái </th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -279,7 +292,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a id="confirm" href=""><button type="button" class="btn btn-primary">Save changes</button></a>
+                <a id="confirm" href="">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </a>
             </div>
         </div>
     </div>
@@ -291,6 +306,13 @@
 <script>
     $(document).ready(function () {
         $('#Account').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        });
+    });
+    $(document).ready(function () {
+        $('#tableEmployee').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5
@@ -310,6 +332,7 @@
             "pageLength": 5
         });
     });
+
     $(document).ready(function () {
         $('#tableCustomer').dataTable({
             "dom": 'lrtip',
