@@ -4,12 +4,15 @@ import model.Account;
 import model.Customer;
 import model.Employee;
 import model.dto_model.AccountDTO;
+import model.dto_model.BookingDTO;
 import service.account.IAccountService;
 import service.account.impl.AccountService;
 import service.customer.ICustomerService;
 import service.customer.impl.CustomerService;
 import service.employee.IEmployeeService;
 import service.employee.impl.EmployeeService;
+import service.booking.IBookingService;
+import service.booking.impl.BookingService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -22,12 +25,12 @@ public class AccountServlet extends HttpServlet {
     private static IAccountService accountService = new AccountService();
     private static final IEmployeeService employeeService = new EmployeeService();
     private static final ICustomerService customerService = new CustomerService();
+    private static final IBookingService bookingService = new BookingService();
 
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-
         if (action == null )
             action = "";
         switch (action) {
@@ -97,12 +100,14 @@ public class AccountServlet extends HttpServlet {
     }
 
     private static void getAllAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<BookingDTO> bookingDTOList = bookingService.displayBooking();
         List<AccountDTO> accountList = accountService.getAllAccount();
         List<Employee> employeeList = employeeService.display();
         List<Customer> customerList =  customerService.viewAllCustomer();
         request.setAttribute("customerList",customerList);
         request.setAttribute("employeeList",employeeList);
         request.setAttribute("accountList", accountList);
+        request.setAttribute("bookingDTOList",bookingDTOList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/page_admin.jsp");
         dispatcher.forward(request, response);
     }
@@ -149,7 +154,7 @@ public class AccountServlet extends HttpServlet {
         }
     }
 
-    private static void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userName = request.getParameter("username");
         String passWord = request.getParameter("password");
         Account account = accountService.selectAccount(userName, passWord);

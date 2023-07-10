@@ -183,6 +183,48 @@
     </div>
 </div>
 
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="table-responsive">
+            <table id="displayBooking" class="table caption-top table-light table-hover table-striped text-center"
+                   style="width:100%">
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
+                    <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal1">Thêm
+                    </button>
+                </caption>
+                <thead>
+                <tr>
+                    <th>Tên khách hàng</th>
+                    <th>Ngày booking</th>
+                    <th>Tổng tiền </th>
+                    <th>Trạng thái </th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <c:forEach var="b" items="${bookingDTOList}">
+                    <tr>
+                        <td>
+                                ${b.getCustomerName()}
+                        </td>
+                        <td>
+                                ${b.getBookingDate()}
+                        </td>
+                        <td>
+                                ${b.getPrice()}
+                        </td>
+                        <td>
+                                ${b.getBookingStatus()}
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <div class="footer pt-5" style="background-color: #1d2434;color: #d5b981">
     <div class="container">
         <div class="row">
@@ -251,7 +293,7 @@
         });
     });
     $(document).ready(function () {
-        $('#tableStudent2').dataTable({
+        $('#displayBooking').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5
