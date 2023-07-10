@@ -183,39 +183,36 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6">
-                <div class="service-item">
+                <div class="service-item" style="height: 40%;">
                     <div class="service-img">
                         <img src="hair_cut.jpg" alt="Image">
                     </div>
                     <h3 class="text-white">Cắt tóc</h3>
                     <p>
-                        Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                        Với thâm niên 3 tháng cắt tóc cộng thêm đội ngũ chuyên gia từ nước ngoài, dịch vụ cắt tóc luôn là dịch vụ được yêu thích nhất barber
                     </p>
-                    <a class="btn" href="">Learn More</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="service-item">
+                <div class="service-item" style="height: 40%">
                     <div class="service-img">
                         <img src="beard.jpg" alt="Image">
                     </div>
                     <h3 class="text-white">Cạo râu</h3>
                     <p>
-                        Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                        Với sự xuất hiện của chuyên gia Thành Râu, chúng tôi khẳng định luôn đem lại cho bạn vẻ bề ngoài sáng bóng, sạch sâu và cảm giác thõa mái nhất trong thời gian sử dụng dịch vụ.
                     </p>
-                    <a class="btn" href="">Learn More</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="service-item">
+                <div class="service-item" style="height: 40%">
                     <div class="service-img">
                         <img src="service3.jpg" alt="Image">
                     </div>
                     <h3 class="text-white">Nhuộm và gội</h3>
                     <p>
-                        Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                        Chỉ một từ có thể diển tả là "Cháy", cháy hơn cả mặt trời miền Trung.
                     </p>
-                    <a class="btn" href="">Learn More</a>
                 </div>
             </div>
         </div>
@@ -298,7 +295,7 @@
                     </div>
                     <div class="team-text">
                         <h2>Thành Râu</h2>
-                        <p>Chuyên gia về Râu</p>
+                        <p>Nhân viên cạo râu</p>
                     </div>
                 </div>
             </div>
@@ -309,7 +306,7 @@
                     </div>
                     <div class="team-text">
                         <h2>Quân Seven</h2>
-                        <p>Chuyên gia về Tóc</p>
+                        <p>Thợ cắt tóc</p>
                     </div>
                 </div>
             </div>
@@ -320,7 +317,7 @@
                     </div>
                     <div class="team-text">
                         <h2>Cường Nhựa</h2>
-                        <p>Bậc thầy cắt tóc</p>
+                        <p>Chủ Barber</p>
                     </div>
                 </div>
             </div>
@@ -331,7 +328,7 @@
                     </div>
                     <div class="team-text">
                         <h2>Duy Gates</h2>
-                        <p>Chuyên gia về nhuộm</p>
+                        <p>Thợ nhuộm</p>
                     </div>
                 </div>
             </div>
@@ -429,29 +426,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="footer-link">
-                            <h2>Thông tin</h2>
-                            <a href="">Terms of use</a>
-                            <a href="">Privacy policy</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="col-lg-5">
                 <div class="footer-newsletter">
                     <h2>Vấn đề</h2>
                     <p>
-                        Lorem ipsum dolor sit amet elit. Quisque eu lectus a leo dictum nec non quam. Tortor eu
-                        placerat rhoncus, lorem quam iaculis felis, sed lacus neque id eros.
+                       Nếu có vấn đề gì trong lúc sử dụng dịch vụ quý khách có thể liên hệ với chúng tôi để giải quyết vấn đề,
+                       mọi thông tin liên hệ ở bên góc trái màn hình. Cảm ơn quý khách đã sử dụng dịch vụ.
                     </p>
-                    <div class="form">
-                        <input class="form-control" placeholder="Email goes here">
-                        <button class="btn">Submit</button>
-                    </div>
                 </div>
             </div>
         </div>
