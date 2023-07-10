@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%--
@@ -40,13 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleXxl">
             <ul class="navbar-nav me-auto mb-2 mb-xl-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Log Out</a>
+                    <a class="nav-link" href="/AccountServlet?action=logout">Log Out</a>
                 </li>
             </ul>
         </div>
@@ -57,7 +50,7 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="table-responsive">
-            <table id="tableStudent1" class="table caption-top table-light table-hover table-striped text-center"
+            <table id="Account" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
                 <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
                 </caption>
@@ -87,9 +80,11 @@
                                 ${account.roleName}
                         </td>
                         <td class="d-flex justify-content-center align-items-center">
-                            <a href="/AccountServlet?action=showFormEdit&id=${account.accountId}"><button type="button" class="btn btn-primary mx-3">
-                                Sửa Mật Khẩu
-                            </button></a>
+                            <a href="/AccountServlet?action=showFormEdit&id=${account.accountId}">
+                                <button type="button" class="btn btn-primary mx-3">
+                                    Sửa Mật Khẩu
+                                </button>
+                            </a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -101,10 +96,17 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="table-responsive">
-            <table id="tableStudent2" class="table caption-top table-light table-hover table-striped text-center"
+            <table id="tableEmployee" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
-                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
-                </caption>
+
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Employee
+                </h1>
+                    <a href="/EmployeeServlet?action=create">
+                        <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal1">Thêm mới Nhân viên
+                        </button>
+                    </a>
+ </caption>
                 <thead>
                 <tr>
                     <th>STT</th>
@@ -136,44 +138,59 @@
                     <td><c:out value="${employee.getIdCard()}"/></td>
                     <td><c:out value="${employee.getAddress()}"/></td>
 
-                    <td><a class="btn btn-primary"href="/EmployeeServlet?action=edit&id=${employee.getEmployeeId()}" role="submit">Cập nhật</a></td>
-                    <td><a class="btn btn-danger" href="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}" role="button">Xóa</a></td>
+                    <td><a class="btn btn-primary" href="/EmployeeServlet?action=edit&id=${employee.getEmployeeId()}"
+                           role="submit">Cập nhật</a></td>
+                    <td><a class="btn btn-danger" href="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}"
+                           role="button">Xóa</a></td>
                 </tr>
                 </c:forEach>
             </table>
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container-fluid mt-5">
     <div class="row">
         <div class="table-responsive">
-            <table id="tableStudent4" class="table caption-top table-light table-hover table-striped text-center"
+            <table id="tableCustomer" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
-                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Customer</h1>
+                    <a href="/CustomerServlet?action=create"><button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
+                                       data-bs-target="#exampleModal1">Thêm
+                    </button></a>
                 </caption>
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>birthday</th>
-                    <th>phone</th>
-                    <th>gender</th>
-                    <th>address</th>
-                    <th> </th>
+
+
+                    <th>STT</th>
+                    <th>Họ và Tên</th>
+                    <th>Ngày Sinh</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Giới Tính</th>
+                    <th>Địa Chỉ</th>
+                    <th>EDIT</th>
+                    <th>DELETE</th>
+
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="customer" items="${customerList}">
+                <c:forEach var="customer" items="${customerList}" varStatus="loop">
                     <tr>
+                        <td>${loop.count}</td>
                         <td><c:out value="${customer.getCustomerName()}"/></td>
                         <td><c:out value="${customer.getBirthday()}"/></td>
                         <td><c:out value="${customer.getPhone()}"/></td>
-                        <td><c:out value="${customer.isGender()}"/></td>
+                        <td>
+                            <c:if test="${customer.isGender()==true}">
+                                Nam
+                            </c:if>
+                            <c:if test="${customer.isGender()==false}">
+                                Nữ
+                            </c:if>
                         <td><c:out value="${customer.getAddress()}"/></td>
-                        <td class="d-flex justify-content-center align-items-center">
-                            <a href="/CustomerServlet?action=showFormEdit&id=${customer.getCustomerId()}"><button type="button" class="btn btn-primary mx-3">
-                                Sửa Mật Khẩu
-                            </button></a>
-                        </td>
+
+                        <td><a class="btn btn-primary"href="/CustomerServlet?action=edit&id=${customer.getCustomerId()}" role="submit">Cập nhật</a></td>
+                        <td><a class="btn btn-danger" href="/CustomerServlet?action=delete&id=${customer.getCustomerId()}" role="button">Xóa</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -197,8 +214,8 @@
                 <tr>
                     <th>Tên khách hàng</th>
                     <th>Ngày booking</th>
-                    <th>Tổng tiền </th>
-                    <th>Trạng thái </th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -275,7 +292,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a id="confirm" href=""><button type="button" class="btn btn-primary">Save changes</button></a>
+                <a id="confirm" href="">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </a>
             </div>
         </div>
     </div>
@@ -286,7 +305,14 @@
 <script src="datatables/js/dataTables.bootstrap5.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#tableStudent1').dataTable({
+        $('#Account').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        });
+    });
+    $(document).ready(function () {
+        $('#tableEmployee').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5
@@ -306,6 +332,15 @@
             "pageLength": 5
         });
     });
+
+    $(document).ready(function () {
+        $('#tableCustomer').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        });
+    });
+
     function confirm(accountId)
     {
         document.getElementById("confirm").href="/AccountServlet?action=delete&id="+accountId;

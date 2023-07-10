@@ -1,7 +1,8 @@
 package repository.service.impl;
 
 import model.Service;
-import repository.DB_connect.BaseRepository;
+
+import base_connection.BaseConnection;
 import repository.service.IServiceRepository;
 
 import java.sql.*;
@@ -14,12 +15,12 @@ public class ServiceRepository implements IServiceRepository {
     private static final String SELECT_SERVICE_BY_ID = " select * from service where service_id=? ";
     private static final String DELETE_SERVICE = "delete from service where service_id=?";
     private static final String CALL_INSERT_SERVICE = " call insert_service(?, ? ); ";
-    private static final String CALL_UPDATES_SERVICE = " call update_service(?, ?, ?); ";
+    private static final String CALL_UPDATES_SERVICE = " call update_service(?, ?, ?);";
 
     @Override
     public List<Service> displayAll() {
         List<Service> serviceList = new ArrayList<>();
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseConnection.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SERVICE_ALL);
             ResultSet rs = preparedStatement.executeQuery();
@@ -44,7 +45,7 @@ public class ServiceRepository implements IServiceRepository {
 
     @Override
     public void addService(Service service) {
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseConnection.getConnection();
         try {
             CallableStatement callableStatement = connection.prepareCall(CALL_INSERT_SERVICE);
             callableStatement.setString(1, service.getServiceName());
@@ -58,7 +59,7 @@ public class ServiceRepository implements IServiceRepository {
     @Override
     public boolean updateService(Service service) {
         boolean rowUpdates;
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseConnection.getConnection();
         try {
             CallableStatement callableStatement = connection.prepareCall(CALL_UPDATES_SERVICE);
             callableStatement.setString(1, service.getServiceName());
@@ -74,7 +75,7 @@ public class ServiceRepository implements IServiceRepository {
     @Override
     public boolean deleteService(int id) {
         boolean rowDelete;
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseConnection.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SERVICE);
             preparedStatement.setInt(1, id);
@@ -89,7 +90,7 @@ public class ServiceRepository implements IServiceRepository {
     public Service getById(int id) {
         Service service = null;
         try {
-            PreparedStatement preparedStatement = BaseRepository.getConnection().prepareStatement(SELECT_SERVICE_BY_ID);
+            PreparedStatement preparedStatement = BaseConnection.getConnection().prepareStatement(SELECT_SERVICE_BY_ID);
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
 

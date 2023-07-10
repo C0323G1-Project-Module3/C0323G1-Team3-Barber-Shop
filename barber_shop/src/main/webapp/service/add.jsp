@@ -22,59 +22,113 @@
 <head>
     <title>Add</title>
     <style>
-        a{
+        a {
             text-decoration: none;
         }
-        .navbar.navbar-expand-lg {
-            background-color: #d5b981;
+
+        button:hover {
+            background-color: #1d2434; /* Màu nền khi di chuột qua */
+            color: #d5b981; /* Màu chữ khi di chuột qua */
+            border: 2px solid #1d2434; /* Đường viền khi di chuột qua */
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ */
         }
 
-        .navbar.navbar-expand-lg .navbar-nav .nav-link {
-            color: #000000;
-            font-weight: bold;
+        button {
+            cursor: pointer; /* Con trỏ chuột thành hình bàn tay */
+            transition-duration: 0.4s; /* Thời gian chuyển đổi */
+            margin-top: 10px;
+            margin-left: 20px;
+            border-radius: 4px;
         }
-        input[type=text],[type=number] {  width: 100%;  padding: 12px 20px;  margin: 8px 0;  box-sizing: border-box;
-        border: 2px solid #1d2434; border-radius: 4px; background-color: #d5b981; color: black;}
+         #button{
+            margin-left: 250px;
+        }
+
+        form {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+
+        input[type=text], [type=number] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 20px;
+            box-sizing: border-box;
+            border: 2px solid #1d2434;
+            border-radius: 4px;
+            background-color: #d5b981;
+            color: black;
+        }
+        .nav-item a {
+            color: #d5b981;
+        }
+
+        body {
+            background-image: url("/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        h2, table{
+            margin-left: 50px;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>
-<div class="navbar navbar-expand-lg navbar-nav nav-link" style="top: 0">
+<nav class="navbar navbar-expand-xxl navbar-dark" style="background-color: #1d2434" aria-label="Seventh navbar example">
     <div class="container-fluid">
-        <a href="index.html" class="navbar-brand text-dark">Barber <span>Cường Nhựa</span></a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between " id="navbarCollapse">
-            <div class="navbar-nav ml-auto ">
-                <a href="/ServiceServlet" class="nav-item nav-link active">Home</a>
+        <a class="navbar-brand" href="/AccountServlet"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
+    </div>
+</nav>
+<button id="button" onclick="history.back()">Quay lại</button>
+<div class="row" style="height: 350px;">
+<form method="post" action="/ServiceServlet?action=add" class="container" style="width: 60%">
+    <caption>
+        <h2>Thêm mới dịch vụ</h2>
+    </caption>
+    <table>
+        <tr>
+            <th>Tên dịch vụ:</th>
+            <td>
+                <input type="text" name="name" id="name" size="45"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Giá:</th>
+            <td>
+                <input type="number" name="price" id="price" size="45"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" value="Thêm mới" role="button" class="btn btn-outline-primary">Thêm mới</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</div>
+<div class="footer pt-5" style="background-color: #1d2434;color: #d5b981;bottom: auto">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="footer-contact">
+                            <h2>Địa chỉ Barber</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>280 Trần Hưng Đạo, Sơn Trà, Đà Nẵng</p>
+                            <p><i class="fa fa-phone-alt"></i>0123456789</p>
+                            <p><i class="fa fa-envelope"></i>cuongplastic@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-    <form method="post" action="/ServiceServlet?action=add" class="container">
-        <caption>
-            <h2>Thêm mới dịch vụ</h2>
-        </caption>
-        <table border="1" cellpadding="5">
-            <tr>
-                <th>Tên dịch vụ:</th>
-                <td>
-                    <input type="text" name="name" id="name" size="45"/>
-                </td>
-            </tr>
-            <tr>
-                <th>Giá:</th>
-                <td>
-                    <input type="number" name="price" id="price" size="45"/>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <button type="submit" value="Thêm mới" role="button" class="btn btn-outline-primary">Thêm mới</button>
-                </td>
-            </tr>
-        </table>
-    </form>
 </body>
 </html>

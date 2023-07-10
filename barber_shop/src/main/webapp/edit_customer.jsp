@@ -1,15 +1,15 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
-  User: tranv
-  Date: 7/9/2023
-  Time: 10:22 AM
+  User: ASUS
+  Date: 7/10/2023
+  Time: 5:01 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Xóa Nhân viên</title>
+    <title>Chỉnh sửa thông tin Khách hàng</title>
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
     <style>
         .nav-item a {
@@ -22,7 +22,6 @@
             background-repeat: no-repeat;
             background-position: center center;
         }
-
     </style>
 </head>
 <body>
@@ -31,65 +30,54 @@
         <a class="navbar-brand" href="/AccountServlet"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
     </div>
 </nav>
-
 <div class="container ">
-    <form class="form text-light" method="post" action="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}">
-        <p class="text-center display-3" style="color: #d5b981">Thông tin nhân viên cần xóa</p>
+    <form class="form text-light" method="post" action="CustomerServlet?action=edit&id=${customer.getCustomerId()}">
+        <p class="text-center display-3" style="color: #d5b981">Chỉnh sửa thông tin khách hàng</p>
 
         <!-- Name input -->
         <div class="form-outline mb-4 ">
-            <label type="text" id="name" class="form-control w-50" name="name">${employee.getEmployeeName()}</label>
+            <input type="text" id="name" class="form-control w-50" value="${customer.getCustomerName()}" name="name"/>
             <label class="form-label" for="name">Họ và tên</label>
         </div>
-
         <!-- Birthday input -->
-        <div class="form-outline mb-4">
-            <label type="text" id="birthDay" class="form-control w-50" name="birthDay">${employee.getBirthDay()}</label>
-            <label class="form-label" for="birthDay">Ngày sinh</label>
-        </div>
 
-        <!-- Salary input -->
         <div class="form-outline mb-4">
-            <label type="number" id="salary" class="form-control w-50" name="salary">${employee.getSalary()}</label>
-            <label class="form-label" for="salary">Lương</label>
+            <input type="text" id="birthday" class="form-control w-50" value="${customer.getBirthday()}"
+                   name="birthDay"/>
+            <label class="form-label" for="birthDay">Ngày sinh</label>
         </div>
 
         <!-- Phone Number input -->
         <div class="form-outline mb-4">
-            <label type="text" id="phoneNumber" class="form-control w-50" name="phoneNumber">${employee.getPhoneNumber()}</label>
+            <input type="text" id="phoneNumber" class="form-control w-50" value="${customer.getPhone()}"
+                   name="phoneNumber"/>
             <label class="form-label" for="phoneNumber">Số điện thoại</label>
         </div>
 
         <!-- Gender input -->
         <div class="form-outline mb-4">
-            <label type="text" id="gender" class="form-control w-50" name="gender">
-                <c:if test="${employee.isGender()==true}">
-                    Nam
+            <label>Giới tính</label>
+            <select name="gender" id="gender">
+                <c:if test="${customer.isGender()==true}">
+                    <option value="true">Nam</option>
+                    <option value="false">Nữ</option>
                 </c:if>
-                <c:if test="${employee.isGender()==false}">
-                    Nữ
+                <c:if test="${customer.isGender()==false}">
+                    <option value="false">Nữ</option>
+                    <option value="true">Nam</option>
                 </c:if>
-            </label>
-            <label class="form-label" for="gender">Giới tính</label>
 
-        </div>
-
-
-        <!-- ID Card input -->
-        <div class="form-outline mb-4">
-            <label type="text" id="idCard" class="form-control w-50" name="idCard">${employee.getIdCard()}</label>
-            <label class="form-label" for="idCard">Số CMND/CCCD</label>
+            </select>
         </div>
 
         <!-- Address input -->
         <div class="form-outline mb-4">
-            <label type="text" id="address" class="form-control w-50" name="address">${employee.getAddress()}</label>
-            <label class="form-label" for="address">Số CMND/CCCD</label>
+            <input type="text" id="address" class="form-control w-50" value="${customer.getAddress()}" name="address"/>
+            <label class="form-label" for="address">Địa chỉ</label>
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-dark btn-block mb-3">Xóa</button>
-        <a href="/EmployeeServlet"><button type="button" class="btn btn-dark btn-block mb-3">Hủy</button></a>
+        <button type="submit" class="btn btn-dark btn-block mb-3">Cập Nhật</button>
     </form>
 </div>
 

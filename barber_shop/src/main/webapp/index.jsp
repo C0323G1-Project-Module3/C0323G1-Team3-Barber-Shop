@@ -6,9 +6,6 @@
     <title>Barber Shop Cường Plastic</title>
 </head>
 <body>
-<h1><%= "Barber shop Cường Plastic" %>
-</h1>
-<br/>
-<c:redirect url="login.jsp"></c:redirect>
+<c:redirect url="/AccountServlet"/>
 </body>
 </html>
