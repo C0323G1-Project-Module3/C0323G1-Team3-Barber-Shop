@@ -12,43 +12,59 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/BookingServlet" method="post">
-  <table>
-    <tr>
-      <th>Tên khách hàng: </th>
-      <th>//</th>
-    </tr>
-    <tr>
-      <th>Ngày booking: </th>
-      <th><input type="date" name="date"  min="2000-01-01" max="2024-12-31"></th>
-    </tr>
-    <tr>
-      <th>Chọn dịch vụ: </th>
-      <c:forEach items="${service}" var="s">
-        <label for="service">${s.getNameService()}</label>
-        <label for="service" >${s.getPriceService()}</label>
-        <td><input type="checkbox" name="service" id="service" value="${s.getPriceService()}"></td>
-      </c:forEach>
-      <script>
-        function myFunction() {
-          const checkBox = document.getElementById("service");
-          let sum = 0;
-          if(checkBox.checked){
-            sum+= value
-          }
-          return sum;
+<div class="container">
+    <form action="/BookingServlet?action=addBooking&id=${idCustomer}" method="post">
+        <div class="row">
+            <table>
+                <tr>
+                    <th>Tên khách hàng:</th>
+                    <th>${customer.getCustomerName()}</th>
+                </tr>
+                <tr>
+                    <th>Ngày booking:</th>
+                    <th><input type="date" name="date" min="2000-01-01" max="2024-12-31"></th>
+                </tr>
+
+                <th>Chọn dịch vụ:</th>
+                <c:forEach items="${serviceList}" var="s" varStatus="loop">
+                    <tr>
+                        <td class="form-check">
+                            <input class="form-check-input" type="checkbox" name="checkBox${s.getServiceId()}" value="${s.getServiceId()}" onclick="calculate(${loop.count},${s.getPrice()})" id="${loop.count}" >
+                            <label class="form-check-label" for="${loop.count}">
+                                <label>${s.getServiceName()}</label>
+                                <label>${s.getPrice()}</label>
+                            </label>
+                        </td>
+                    </tr>
+                </c:forEach>
+                <tr>
+                    <th>Tổng tiền:</th>
+                    <td></td>
+                    <td><span id="showTotal" name="showTotal" value=""></span></td>
+                    <td><input type="hidden" id="showTotal1" name="showTotal1" value=""/></td>
+                </tr>
+            </table>
+        </div>
+        <input type="submit" value="Đặt dịch vụ">
+    </form>
+</div>
+<script>
+    let total=0;
+    let listServiceId ="";
+    function calculate (id , price){
+        let checkbox= document.getElementById(id);
+        if (checkbox.checked){
+            total+=price;
         }
-        let sumPrice =myFunction();
-        let displayPrice = document.getElementById("sumPrice")
-        displayPrice.innerHTML = sumPrice;
-      </script>
-    </tr>
-    <tr>
-      <th>Tổng tiền cần trả: </th>
-      <th><p id="sumPrice"></p></th>
-    </tr>
-  </table>
-  <input type="submit" value="Đặt dịch vụ" onclick="myFunction()">
-</form>
+        else{
+            total-=price;
+        }
+        document.getElementById("showTotal").innerHTML=total;
+        document.getElementById("showTotal").value=total;
+        document.getElementById("showTotal1").innerHTML=total;
+        document.getElementById("showTotal1").value=total;
+    }
+
+</script>
 </body>
 </html>

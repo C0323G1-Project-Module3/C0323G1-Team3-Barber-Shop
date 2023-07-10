@@ -17,6 +17,12 @@ public class Booking {
         this.bookingStatus = bookingStatus;
     }
 
+    public Booking(String bookingDate, int accountId, boolean bookingStatus) {
+        this.bookingDate = bookingDate;
+        this.accountId = accountId;
+        this.bookingStatus = bookingStatus;
+    }
+
     public int getBookingId() {
         return bookingId;
     }
@@ -47,5 +53,15 @@ public class Booking {
 
     public void setBookingStatus(boolean bookingStatus) {
         this.bookingStatus = bookingStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "bookingId=" + bookingId +
+                ", bookingDate='" + bookingDate + '\'' +
+                ", accountId=" + accountId +
+                ", bookingStatus=" + bookingStatus +
+                '}';
     }
 }

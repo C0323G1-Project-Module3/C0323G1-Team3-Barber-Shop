@@ -5,9 +5,41 @@ public class BookingDTO {
     private String bookingDate;
     private double price;
     private boolean bookingStatus;
+    private double totalPrice;
+    private int bookingId;
 
     public BookingDTO() {
 
+    }
+
+    public BookingDTO(String customerName, String bookingDate, int bookingId, double totalPrice) {
+        this.customerName = customerName;
+        this.bookingDate = bookingDate;
+        this.totalPrice = totalPrice;
+        this.bookingId = bookingId;
+    }
+
+
+
+
+    public boolean isBookingStatus() {
+        return bookingStatus;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public int getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingId(int bookingId) {
+        this.bookingId = bookingId;
     }
 
     public boolean getBookingStatus() {
@@ -53,5 +85,17 @@ public class BookingDTO {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "BookingDTO{" +
+                "customerName='" + customerName + '\'' +
+                ", bookingDate='" + bookingDate + '\'' +
+                ", price=" + price +
+                ", bookingStatus=" + bookingStatus +
+                ", totalPrice=" + totalPrice +
+                ", bookingId=" + bookingId +
+                '}';
     }
 }
