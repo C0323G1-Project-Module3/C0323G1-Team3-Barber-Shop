@@ -1,9 +1,18 @@
 package controller.account;
 
 import model.Account;
+import model.Customer;
+import model.Employee;
 import model.dto_model.AccountDTO;
+import model.dto_model.BookingDTO;
 import service.account.IAccountService;
 import service.account.impl.AccountService;
+import service.customer.ICustomerService;
+import service.customer.impl.CustomerService;
+import service.employee.IEmployeeService;
+import service.employee.impl.EmployeeService;
+import service.booking.IBookingService;
+import service.booking.impl.BookingService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -14,12 +23,17 @@ import java.util.List;
 @WebServlet(name = "AccountServlet", value = "/AccountServlet")
 public class AccountServlet extends HttpServlet {
     private static IAccountService accountService = new AccountService();
+    private static final IEmployeeService employeeService = new EmployeeService();
+    private static final ICustomerService customerService = new CustomerService();
+    private static final IBookingService bookingService = new BookingService();
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         HttpSession session = request.getSession();
         if (action == null &&(session.getAttribute("account")==null || action!="showFormLogin"))
+
             action = "";
         switch (action) {
             case "admin":
@@ -36,6 +50,8 @@ public class AccountServlet extends HttpServlet {
                 break;
             default:
                 response.sendRedirect("home/home.jsp");
+                break;
+
         }
     }
 
@@ -73,8 +89,14 @@ public class AccountServlet extends HttpServlet {
     }
 
     private static void getAllAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<BookingDTO> bookingDTOList = bookingService.displayBooking();
         List<AccountDTO> accountList = accountService.getAllAccount();
+        List<Employee> employeeList = employeeService.display();
+        List<Customer> customerList =  customerService.viewAllCustomer();
+        request.setAttribute("customerList",customerList);
+        request.setAttribute("employeeList",employeeList);
         request.setAttribute("accountList", accountList);
+        request.setAttribute("bookingDTOList",bookingDTOList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/page_admin.jsp");
         dispatcher.forward(request, response);
     }
@@ -82,8 +104,8 @@ public class AccountServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        HttpSession session = request.getSession();
-        if (action == null || session.getAttribute("account") == null)
+
+        if (action == null )
             action = "";
         switch (action) {
             case "login":
@@ -121,7 +143,7 @@ public class AccountServlet extends HttpServlet {
         }
     }
 
-    private static void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userName = request.getParameter("username");
         String passWord = request.getParameter("password");
         Account account = accountService.selectAccount(userName, passWord);

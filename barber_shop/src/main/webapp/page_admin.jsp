@@ -98,6 +98,132 @@
         </div>
     </div>
 </div>
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="table-responsive">
+            <table id="tableStudent2" class="table caption-top table-light table-hover table-striped text-center"
+                   style="width:100%">
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
+                </caption>
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Lương</th>
+                    <th>Số điện thoại</th>
+                    <th>Giới tính</th>
+                    <th>Số CMND</th>
+                    <th>Địa chỉ</th>
+                    <th>Cập nhật</th>
+                    <th>Xóa</th>
+                </tr>
+                <c:forEach var="employee" items="${employeeList}" varStatus="loop">
+                <tr>
+                    <td>${loop.count}</td>
+                    <td><c:out value="${employee.getEmployeeName()}"/></td>
+                    <td><c:out value="${employee.getBirthDay()}"/></td>
+                    <td><c:out value="${employee.getSalary()}"/></td>
+                    <td><c:out value="${employee.getPhoneNumber()}"/></td>
+                    <td>
+                        <c:if test="${employee.isGender()==true}">
+                            Nam
+                        </c:if>
+                        <c:if test="${employee.isGender()==false}">
+                            Nữ
+                        </c:if>
+                    </td>
+                    <td><c:out value="${employee.getIdCard()}"/></td>
+                    <td><c:out value="${employee.getAddress()}"/></td>
+
+                    <td><a class="btn btn-primary"href="/EmployeeServlet?action=edit&id=${employee.getEmployeeId()}" role="submit">Cập nhật</a></td>
+                    <td><a class="btn btn-danger" href="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}" role="button">Xóa</a></td>
+                </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="table-responsive">
+            <table id="tableStudent4" class="table caption-top table-light table-hover table-striped text-center"
+                   style="width:100%">
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
+                </caption>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>birthday</th>
+                    <th>phone</th>
+                    <th>gender</th>
+                    <th>address</th>
+                    <th> </th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="customer" items="${customerList}">
+                    <tr>
+                        <td><c:out value="${customer.getCustomerName()}"/></td>
+                        <td><c:out value="${customer.getBirthday()}"/></td>
+                        <td><c:out value="${customer.getPhone()}"/></td>
+                        <td><c:out value="${customer.isGender()}"/></td>
+                        <td><c:out value="${customer.getAddress()}"/></td>
+                        <td class="d-flex justify-content-center align-items-center">
+                            <a href="/CustomerServlet?action=showFormEdit&id=${customer.getCustomerId()}"><button type="button" class="btn btn-primary mx-3">
+                                Sửa Mật Khẩu
+                            </button></a>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="table-responsive">
+            <table id="displayBooking" class="table caption-top table-light table-hover table-striped text-center"
+                   style="width:100%">
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
+                    <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal1">Thêm
+                    </button>
+                </caption>
+                <thead>
+                <tr>
+                    <th>Tên khách hàng</th>
+                    <th>Ngày booking</th>
+                    <th>Tổng tiền </th>
+                    <th>Trạng thái </th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <c:forEach var="b" items="${bookingDTOList}">
+                    <tr>
+                        <td>
+                                ${b.getCustomerName()}
+                        </td>
+                        <td>
+                                ${b.getBookingDate()}
+                        </td>
+                        <td>
+                                ${b.getPrice()}
+                        </td>
+                        <td>
+                                ${b.getBookingStatus()}
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 <div class="footer pt-5" style="background-color: #1d2434;color: #d5b981">
     <div class="container">
@@ -167,7 +293,7 @@
         });
     });
     $(document).ready(function () {
-        $('#tableStudent2').dataTable({
+        $('#displayBooking').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5

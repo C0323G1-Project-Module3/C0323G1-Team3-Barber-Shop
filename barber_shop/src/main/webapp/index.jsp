@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Barber Shop Cường Plastic</title>
 </head>
 <body>
 <c:redirect url="home/home.jsp"/>
