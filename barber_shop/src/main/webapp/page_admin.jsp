@@ -141,9 +141,12 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="table-responsive">
-            <table id="tableStudent4" class="table caption-top table-light table-hover table-striped text-center"
+            <table id="tableCustomer" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
                 <caption><h1 class="display-4 float-start" style="color: #cfb981">Customer</h1>
+                    <a href="/CustomerServlet?action=create"><button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
+                                       data-bs-target="#exampleModal1">Thêm
+                    </button></a>
                 </caption>
                 <thead>
                 <tr>
@@ -307,6 +310,14 @@
             "pageLength": 5
         });
     });
+    $(document).ready(function () {
+        $('#tableCustomer').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        });
+    });
+
     function confirm(accountId)
     {
         document.getElementById("confirm").href="/AccountServlet?action=delete&id="+accountId;
