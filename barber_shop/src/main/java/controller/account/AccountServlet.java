@@ -89,14 +89,14 @@ public class AccountServlet extends HttpServlet {
     }
 
     private static void getAllAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        List<BookingDTO> bookingDTOList = bookingService.displayBooking();
+        List<BookingDTO> bookingDTOList = bookingService.displayBooking();
         List<AccountDTO> accountList = accountService.getAllAccount();
         List<Employee> employeeList = employeeService.display();
         List<Customer> customerList =  customerService.viewAllCustomer();
         request.setAttribute("customerList",customerList);
         request.setAttribute("employeeList",employeeList);
         request.setAttribute("accountList", accountList);
-//        request.setAttribute("bookingDTOList",bookingDTOList);
+        request.setAttribute("bookingDTOList",bookingDTOList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/page_admin.jsp");
         dispatcher.forward(request, response);
     }
