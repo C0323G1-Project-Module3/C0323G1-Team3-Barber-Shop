@@ -74,7 +74,6 @@ a:focus {
     transition: .5s;
     z-index: 999;
 }
-
 .navbar.nav-sticky {
     position: fixed;
     top: 0;
@@ -106,7 +105,12 @@ a:focus {
     padding: 10px 10px 8px 10px;
     color: #ffffff;
 }
-
+/*.navbar-dark .navbar-nav .nav-link:hover{*/
+/*    background-color: #1d2434; !* Màu nền khi di chuột qua *!*/
+/*    color: #1d2434; !* Màu chữ khi di chuột qua *!*/
+/*    border: 2px solid #1d2434; !* Đường viền khi di chuột qua *!*/
+/*    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); !* Hiệu ứng bóng đổ *!*/
+/*}*/
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
     background: rgba(256, 256, 256, .1);

@@ -92,10 +92,6 @@
                         Nếu có vấn đề gì trong lúc sử dụng dịch vụ quý khách có thể liên hệ với chúng tôi để giải quyết vấn đề,
                         mọi thông tin liên hệ ở bên góc trái màn hình. Cảm ơn quý khách đã sử dụng dịch vụ.
                     </p>
-                    <div class="form">
-                        <input class="form-control" placeholder="Email goes here">
-                        <button class="btn">Submit</button>
-                    </div>
                 </div>
             </div>
         </div>

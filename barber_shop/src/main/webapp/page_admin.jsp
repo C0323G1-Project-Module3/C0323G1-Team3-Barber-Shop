@@ -206,10 +206,8 @@
         <div class="table-responsive">
             <table id="displayBooking" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
-                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
-                    <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">Thêm
-                    </button>
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Danh sách booking</h1>
+
                 </caption>
                 <thead>
                 <tr>
