@@ -42,15 +42,15 @@
         <!-- Birthday input -->
 
         <div class="form-outline mb-4">
-            <input type="text" id="birthday" class="form-control w-50" value="${customer.getBirthday()}"
-                   name="birthDay"/>
-            <label class="form-label" for="birthDay">Ngày sinh</label>
+            <input type="date" id="birthday" class="form-control w-50" value="${customer.getBirthday()}"
+                   name="birthday"/>
+            <label class="form-label" for="birthday">Ngày sinh</label>
         </div>
 
         <!-- Phone Number input -->
         <div class="form-outline mb-4">
             <input type="text" id="phoneNumber" class="form-control w-50" value="${customer.getPhone()}"
-                   name="phoneNumber"/>
+                   name="phone"/>
             <label class="form-label" for="phoneNumber">Số điện thoại</label>
         </div>
 
@@ -74,6 +74,14 @@
         <div class="form-outline mb-4">
             <input type="text" id="address" class="form-control w-50" value="${customer.getAddress()}" name="address"/>
             <label class="form-label" for="address">Địa chỉ</label>
+        </div>
+        <div class="form-outline mb-4">
+            <label>loại khách hàng</label>
+            <select name="typeId" id="typeId">
+                    <option value="1">Member</option>
+                    <option value="2">Gold</option>
+                    <option value="3">Diamond</option>
+            </select>
         </div>
 
         <!-- Submit button -->

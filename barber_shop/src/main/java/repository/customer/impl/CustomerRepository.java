@@ -14,13 +14,12 @@ import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository {
     private static final String INSERT_ACCOUNT_CUSTOMER_SQL = "insert into account(username,password,role_id) values(?,?,1);";
-    private static final String INSERT_CUSTOMER_SQL = "insert into customer(customer_name,birthday,phone_number,gender," +
-            "address,customer_type_id,account_id) values(?,?,?,?,?,1,?);";
+    private static final String INSERT_CUSTOMER_SQL = "insert into customer(customer_name,birthday,phone_number,gender,address,customer_type_id,account_id) values(?,?,?,?,?,1,?);";
     private static final String SELECT_CUSTOMER_BY_ID = "SELECT* FROM customer where customer_id=?;";
     private static final String SELECT_ALL_CUSTOMERS = "SELECT * FROM customer;";
     private static final String DELETE_CUSTOMER_SQL = "DELETE FROM customer where customer_id=?;";
     private static final String UPDATE_CUSTOMER_SQL = "UPDATE customer set customer_name=?,birthday=?,phone_number=?,gender=?," +
-            "address=?,customer_type_id=?,account_id=?;";
+            "address=?,customer_type_id=? where customer_id=?;";
     private static final String SELECT_ACCOUNT_SQL_BY_USERNAME = "SELECT * FROM account where username=?;";
 
     //  Customer(int customerId, String customerName, String birthday, String phone,
@@ -67,6 +66,7 @@ public class CustomerRepository implements ICustomerRepository {
             preparedStatement.setString(5, customer.getAddress());
             preparedStatement.setInt(6, customer.getCustomerAccountId());
             preparedStatement.executeUpdate();
+            connection.close();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -144,7 +144,7 @@ public class CustomerRepository implements ICustomerRepository {
             preparedStatement.setBoolean(4,customer.isGender());
             preparedStatement.setString(5,customer.getAddress());
             preparedStatement.setInt(6,customer.getCustomerTypeId());
-            preparedStatement.setInt(7,customer.getCustomerAccountId());
+            preparedStatement.setInt(7,id);
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
