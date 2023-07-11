@@ -4,6 +4,8 @@ import model.Account;
 import model.Customer;
 import repository.account.IAccountRepository;
 import repository.account.impl.AccountRepository;
+import service.account.IAccountService;
+import service.account.impl.AccountService;
 import service.customer.ICustomerService;
 import service.customer.impl.CustomerService;
 
@@ -16,7 +18,7 @@ import java.util.List;
 @WebServlet(name = "CustomerServlet", value = "/CustomerServlet")
 public class CustomerServlet extends HttpServlet {
     ICustomerService customerService=new CustomerService();
-    IAccountRepository accountRepository=new AccountRepository();
+    IAccountService accountService=new AccountService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -104,6 +106,7 @@ public class CustomerServlet extends HttpServlet {
                 break;
             case "edit":
                 updateCustomer(request, response);
+                break;
             case "delete":
                 deleteCustomer(request,response);
                 break;
@@ -113,7 +116,7 @@ public class CustomerServlet extends HttpServlet {
         int id=Integer.parseInt(request.getParameter("id"));
         Customer customer=customerService.findById(id);
         customerService.remove(id);
-        accountRepository.deleteAccount(customer.getCustomerAccountId());
+        accountService.deleteAccount(customer.getCustomerAccountId());
         try {
             response.sendRedirect("/CustomerServlet");
         } catch (IOException e) {
@@ -128,7 +131,6 @@ public class CustomerServlet extends HttpServlet {
         boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
         String address = request.getParameter("address");
         int typeId= Integer.parseInt(request.getParameter("typeId"));
-
         Customer customer=new Customer(name,birthday,phone,gender,address,typeId);
         customerService.update(id,customer);
         try {
