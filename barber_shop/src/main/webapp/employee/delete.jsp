@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Xóa Nhân viên</title>
@@ -33,7 +34,8 @@
 </nav>
 
 <div class="container ">
-    <form class="form text-light" method="post" action="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}">
+    <form id="form" class="form text-light" method="post"
+          action="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}">
         <p class="text-center display-3" style="color: #d5b981">Thông tin nhân viên cần xóa</p>
 
         <!-- Name input -->
@@ -50,13 +52,16 @@
 
         <!-- Salary input -->
         <div class="form-outline mb-4">
-            <label type="number" id="salary" class="form-control w-50" name="salary">${employee.getSalary()}</label>
+
+            <label type="number" id="salary" class="form-control w-50" name="salary"><fmt:setLocale value="vi_VN"/>
+                <fmt:formatNumber value="${employee.getSalary()}" type="currency"/></label>
             <label class="form-label" for="salary">Lương</label>
         </div>
 
         <!-- Phone Number input -->
         <div class="form-outline mb-4">
-            <label type="text" id="phoneNumber" class="form-control w-50" name="phoneNumber">${employee.getPhoneNumber()}</label>
+            <label type="text" id="phoneNumber" class="form-control w-50"
+                   name="phoneNumber">${employee.getPhoneNumber()}</label>
             <label class="form-label" for="phoneNumber">Số điện thoại</label>
         </div>
 
@@ -84,12 +89,14 @@
         <!-- Address input -->
         <div class="form-outline mb-4">
             <label type="text" id="address" class="form-control w-50" name="address">${employee.getAddress()}</label>
-            <label class="form-label" for="address">Số CMND/CCCD</label>
+            <label class="form-label" for="address">Địa chỉ</label>
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-dark btn-block mb-3">Xóa</button>
-        <a href="/EmployeeServlet"><button type="button" class="btn btn-dark btn-block mb-3">Hủy</button></a>
+        <button type="button" onclick="showConfirm()" class="btn btn-dark btn-block mb-3">Xóa</button>
+        <a href="/EmployeeServlet">
+            <button type="button" class="btn btn-dark btn-block mb-3">Hủy</button>
+        </a>
     </form>
 </div>
 
@@ -112,7 +119,14 @@
         </div>
     </div>
 </div>
-
+<script>
+    function showConfirm() {
+        let confirmDelete = confirm("Bạn có chắc chắn muốn xóa Nhân viên trên ?")
+        if (confirmDelete) {
+            document.getElementById("form").requestSubmit();
+        }
+    }
+</script>
 
 <script src="jquery/jquery-3.5.1.min.js"></script>
 <script src="datatables/js/jquery.dataTables.min.js"></script>
