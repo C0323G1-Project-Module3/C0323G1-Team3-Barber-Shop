@@ -24,6 +24,23 @@
             background-repeat: no-repeat;
             background-position: center center;
         }
+        form {
+            font-size: 20px;
+            background-image: url("home/login.png");
+            background-size: cover;
+            border-radius: 20px;
+            color: whitesmoke;
+            margin: 5% 15% 5% auto;
+            padding: 25px;
+            border-style: none;
+            width: 400px;
+            height: 500px;
+            collapse: 10px;
+        }
+        label,input,button{
+            margin: 10px;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
@@ -36,15 +53,18 @@
 <div class="container m-5">
     <form action="/AccountServlet?action=login" method="post" class="text-light ">
         <!-- Email input -->
+        <div class="login">
         <div class="form-outline mb-4 w-50">
-            <input type="text" name="username" id="form2Example1" class="form-control"/>
             <label class="form-label" for="form2Example1">Tên Đăng Nhập</label>
+            <input type="text" name="username" id="form2Example1" class="form-control"/>
+
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4 w-50">
-            <input type="password" name="password" id="form2Example2" class="form-control"/>
             <label class="form-label" for="form2Example2">Mật Khẩu</label>
+            <input type="password" name="password" id="form2Example2" class="form-control"/>
+
         </div>
         <c:if test="${msg != null}">
             <span class="text-danger">${msg}</span>
@@ -55,6 +75,7 @@
         <!-- Register buttons -->
         <div class="float-start">
             <p>Nếu không phải là thành viên <a href="register.jsp">Đăng kí</a></p>
+        </div>
         </div>
     </form>
 </div>
