@@ -3,7 +3,6 @@ package repository.employee.impl;
 import base_connection.BaseConnection;
 import model.Account;
 import model.Employee;
-import repository.DB_connect.BaseRepository;
 import repository.employee.IEmployeeRepository;
 
 import java.sql.*;
@@ -133,7 +132,7 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public void edit(Employee employee) {
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseConnection.getConnection();
         try {
             CallableStatement callableStatement = connection.prepareCall(CALL_EDIT);
             callableStatement.setInt(1,employee.getEmployeeId());
@@ -155,7 +154,7 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public void remove(int id) {
-        Connection connection = BaseRepository.getConnection();
+        Connection connection = BaseConnection.getConnection();
         try {
             CallableStatement callableStatement = connection.prepareCall(CALL_DELETE);
             callableStatement.setInt(1,id);

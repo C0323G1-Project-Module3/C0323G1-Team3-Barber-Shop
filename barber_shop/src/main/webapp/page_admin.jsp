@@ -1,3 +1,4 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%--
@@ -154,9 +155,6 @@
             <table id="tableCustomer" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
                 <caption><h1 class="display-4 float-start" style="color: #cfb981">Customer</h1>
-                    <a href="/CustomerServlet?action=create"><button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
-                                       data-bs-target="#exampleModal1">Thêm
-                    </button></a>
                 </caption>
                 <thead>
                 <tr>
@@ -182,15 +180,18 @@
                         <td><c:out value="${customer.getPhone()}"/></td>
                         <td>
                             <c:if test="${customer.isGender()==true}">
-                                Nam
+                            Nam
                             </c:if>
                             <c:if test="${customer.isGender()==false}">
-                                Nữ
+                            Nữ
                             </c:if>
                         <td><c:out value="${customer.getAddress()}"/></td>
-
-                        <td><a class="btn btn-primary"href="/CustomerServlet?action=edit&id=${customer.getCustomerId()}" role="submit">Cập nhật</a></td>
-                        <td><a class="btn btn-danger" href="/CustomerServlet?action=delete&id=${customer.getCustomerId()}" role="button">Xóa</a></td>
+                        <td><a class="btn btn-primary"
+                               href="/CustomerServlet?action=edit&id=${customer.getCustomerId()}" role="submit">Cập
+                            nhật</a></td>
+                        <td><a class="btn btn-danger"
+                               href="/CustomerServlet?action=delete&id=${customer.getCustomerId()}"
+                               role="button">Xóa</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -240,6 +241,45 @@
     </div>
 </div>
 
+<%--dịch vụ--%>
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="table-responsive">
+            <table id="displayService" class="table caption-top table-light table-hover table-striped text-center"
+                   style="width:100%">
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Danh sách dịch vụ</h1>
+                    <a href="/ServiceServlet?action=add"><button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
+                                                                     data-bs-target="#exampleModal1">Thêm mới
+                    </button></a>
+                </caption>
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên dịch vụ</th>
+                    <th>Giá dịch vụ</th>
+                    <th>Chỉnh sửa</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <c:forEach var="service" items="${serviceList}" varStatus="loop">
+                    <tr>
+                        <td>${loop.count}</td>
+                        <td><c:out value="${service.serviceName}"/></td>
+                        <td><c:out value="${service.price}"/></td>
+                        <td><a class="btn btn-primary" href="/ServiceServlet?action=edit&id=${service.getServiceId()}"
+                               role="button">Cập nhật</a></td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<%--dịch vụ end--%>
 <div class="footer pt-5" style="background-color: #1d2434;color: #d5b981">
     <div class="container">
         <div class="row">

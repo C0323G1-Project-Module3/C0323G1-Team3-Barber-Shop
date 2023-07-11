@@ -93,7 +93,7 @@
         <div class="collapse navbar-collapse justify-content-between " id="navbarCollapse">
             <div class="navbar-nav ml-auto ">
 
-                <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
+                <a href="#" class="nav-item nav-link active">Trang chủ</a>
                 <c:if test="${sessionScope.account == null}">
                     <a href="/AccountServlet?action=showFormLogin" class="nav-item nav-link">Đăng nhập</a>
                     <a href="/CustomerServlet?action=create" class="nav-item nav-link">Đăng kí</a>

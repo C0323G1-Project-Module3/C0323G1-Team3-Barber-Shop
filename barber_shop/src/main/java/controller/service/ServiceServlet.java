@@ -27,21 +27,7 @@ public class ServiceServlet extends HttpServlet {
             case "edit":
                 showEditForm(request, response);
                 break;
-            case "delete":
-                deleteService(request, response);
-                break;
-            default:
-                listService(request, response);
         }
-    }
-
-    private void deleteService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        serviceService.deleteService(id);
-        List<Service> serviceList = serviceService.displayAll();
-        request.setAttribute("serviceList", serviceList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("service/service.jsp");
-        dispatcher.forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,14 +35,6 @@ public class ServiceServlet extends HttpServlet {
         Service service = serviceService.getById(id);
         request.setAttribute("service", service);
         RequestDispatcher dispatcher = request.getRequestDispatcher("service/edit.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    private void listService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Service> serviceList = serviceService.displayAll();
-        System.out.println(serviceList);
-        request.setAttribute("serviceList", serviceList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("service/service.jsp");
         dispatcher.forward(request, response);
     }
 
