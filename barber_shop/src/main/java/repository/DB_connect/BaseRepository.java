@@ -1,18 +1,13 @@
-
-package base_connection;
+package repository.DB_connect;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class BaseConnection {
+public class BaseRepository {
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/barber_shop";
     private static final String USERNAME = "root";
-<<<<<<< HEAD
-    private static final String PASSWORD = "123456";
-=======
-    private static final String PASSWORD = "duyviet";
->>>>>>> origin/develop
+    private static final String PASSWORD = "";
     public static Connection getConnection() {
         Connection connection = null;
         try {

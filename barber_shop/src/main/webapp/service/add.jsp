@@ -27,8 +27,8 @@
         }
 
         button:hover {
-            background-color: #1d2434; /* Màu nền khi di chuột qua */
-            color: #d5b981; /* Màu chữ khi di chuột qua */
+            background-color: #d5b981; /* Màu nền khi di chuột qua */
+            color: #1d2434; /* Màu chữ khi di chuột qua */
             border: 2px solid #1d2434; /* Đường viền khi di chuột qua */
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ */
         }
@@ -39,6 +39,8 @@
             margin-top: 10px;
             margin-left: 20px;
             border-radius: 4px;
+            color: #d5b981;
+            background-color: #1d2434;
         }
          #button{
             margin-left: 250px;
@@ -82,6 +84,7 @@
 <nav class="navbar navbar-expand-xxl navbar-dark" style="background-color: #1d2434" aria-label="Seventh navbar example">
     <div class="container-fluid">
         <a class="navbar-brand" href="/AccountServlet"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
+        <a class="navbar-brand" href="/AccountServlet?action=admin"><h3 style="color: #d5b981">Danh sách</h3></a>
     </div>
 </nav>
 <button id="button" onclick="history.back()">Quay lại</button>

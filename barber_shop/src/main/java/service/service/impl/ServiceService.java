@@ -26,11 +26,6 @@ public class ServiceService implements IServiceService {
     }
 
     @Override
-    public boolean deleteService(int id) {
-        return serviceRepository.deleteService(id);
-    }
-
-    @Override
     public Service getById(int id) {
         return serviceRepository.getById(id);
     }
