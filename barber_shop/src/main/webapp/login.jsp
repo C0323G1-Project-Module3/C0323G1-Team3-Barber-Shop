@@ -13,49 +13,47 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
-    <style>
-        .nav-item a {
-            color: #d5b981;
-        }
 
-        body {
-            background-image: url(background.jpg);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-        }
-        form {
-            font-size: 20px;
-            background-image: url("home/login.png");
-            background-size: cover;
-            border-radius: 20px;
-            color: whitesmoke;
-            margin: 5% 15% 5% auto;
-            padding: 25px;
-            border-style: none;
-            width: 400px;
-            height: 500px;
-            collapse: 10px;
-        }
-        label,input,button{
-            margin: 10px;
-            padding: 5px;
-        }
-    </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-xxl navbar-dark" style="background-color: #1d2434" aria-label="Seventh navbar example">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/AccountServlet"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
-    </div>
-</nav>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #1d2434">
+    <!-- Container wrapper -->
+    <div class="container">
+        <!-- Navbar brand -->
 
-<div class="container m-5">
-    <form action="/AccountServlet?action=login" method="post" class="text-light ">
+        <!-- Toggle button -->
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarButtonsExample"
+                aria-controls="navbarButtonsExample"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item display-5">
+                    <a class="nav-link" href="#" style="color: #d5b981">BARBER X</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+</nav>
+<div class="container p-0 m-5">
+    <form action="/AccountServlet?action=login" method="post">
         <!-- Email input -->
         <div class="login">
         <div class="form-outline mb-4 w-50">
-            <label class="form-label" for="form2Example1">Tên Đăng Nhập</label>
+            <label class="form-label " for="form2Example1">Tên Đăng Nhập</label>
             <input type="text" name="username" id="form2Example1" class="form-control"/>
 
         </div>
@@ -70,7 +68,7 @@
             <span class="text-danger">${msg}</span>
         </c:if>
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4 d-flex justify-content-center">Sign in</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4 d-flex justify-content-center">Đăng nhập</button>
 
         <!-- Register buttons -->
         <div class="float-start">
@@ -81,26 +79,7 @@
 </div>
 
 
-
-<div class="footer pt-5" style="background-color: #1d2434;color: #d5b981">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="footer-contact">
-                            <h2>Địa chỉ Barber</h2>
-                            <p><i class="fa fa-map-marker-alt"></i>280 Trần Hưng Đạo, Sơn Trà, Đà Nẵng</p>
-                            <p><i class="fa fa-phone-alt"></i>0123456789</p>
-                            <p><i class="fa fa-envelope"></i>cuongplastic@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<%@ include file="footer.jsp" %>
 
 <script src="jquery/jquery-3.5.1.min.js"></script>
 <script src="datatables/js/jquery.dataTables.min.js"></script>
