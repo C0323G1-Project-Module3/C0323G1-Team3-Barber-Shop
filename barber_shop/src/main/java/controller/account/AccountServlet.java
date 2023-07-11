@@ -26,28 +26,22 @@ import java.util.List;
 @WebServlet(name = "AccountServlet", value = "/AccountServlet")
 public class AccountServlet extends HttpServlet {
     private static IAccountService accountService = new AccountService();
-    private static final IEmployeeService employeeService = new EmployeeService();
-    private static final ICustomerService customerService = new CustomerService();
-    private static final IBookingService bookingService = new BookingService();
-    private static final IServiceService serviceService = new ServiceService();
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         HttpSession session = request.getSession();
-        if (action == null &&(session.getAttribute("account")==null || action!="showFormLogin"))
-
+        if (action == null && (session.getAttribute("account") == null || action != "showFormLogin"))
             action = "";
         switch (action) {
-            case "admin":
+            case "showAccount":
                 getAllAccount(request, response);
                 break;
-            case "showFormLogin":
+            case "ShowFormLogin":
                 ShowFormLogin(request, response);
                 break;
-            case "showFormEdit":
-                showFormEdit(request, response);
+            case "resetPassword":
+                resetPassword(request, response);
                 break;
             case "logout":
                 logout(request, response);
@@ -55,21 +49,17 @@ public class AccountServlet extends HttpServlet {
             default:
                 response.sendRedirect("home/home.jsp");
                 break;
-
         }
     }
 
-    private void showFormEdit(HttpServletRequest request, HttpServletResponse response) {
+    private void resetPassword(HttpServletRequest request, HttpServletResponse response) {
         int accountId = Integer.parseInt(request.getParameter("id"));
-        Account account = accountService.selectAccountById(accountId);
-        System.out.println(account);
-        request.setAttribute("account", account);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("edit_account.jsp");
+        accountService.resetPassword(accountId);
+        request.setAttribute("msg", "Đã hồi phục mật khẩu thành công");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/AccountServlet?action=showAccount");
         try {
             dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -93,17 +83,9 @@ public class AccountServlet extends HttpServlet {
     }
 
     private static void getAllAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<BookingDTO> bookingDTOList = bookingService.displayBooking();
         List<AccountDTO> accountList = accountService.getAllAccount();
-        List<Employee> employeeList = employeeService.display();
-        List<Customer> customerList =  customerService.viewAllCustomer();
-        List<Service> serviceList = serviceService.displayAll();
-        request.setAttribute("serviceList", serviceList);
-        request.setAttribute("customerList",customerList);
-        request.setAttribute("employeeList",employeeList);
         request.setAttribute("accountList", accountList);
-        request.setAttribute("bookingDTOList",bookingDTOList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/page_admin.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/account_show.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -111,41 +93,14 @@ public class AccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
 
-        if (action == null )
+        if (action == null)
             action = "";
         switch (action) {
             case "login":
                 login(request, response);
                 break;
-            case "editPassword":
-                editPassword(request, response);
-                break;
             default:
                 response.sendRedirect("home/home.jsp");
-        }
-    }
-
-    private void editPassword(HttpServletRequest request, HttpServletResponse response) {
-        int accountId = Integer.parseInt(request.getParameter("id"));
-        String password = request.getParameter("password");
-        String confirm = request.getParameter("confirm");
-        if (password.equals(confirm)) {
-            accountService.editPassword(accountId, password);
-            try {
-                response.sendRedirect("/AccountServlet?action=admin");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            request.setAttribute("msg", "Mật khẩu không trùng");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("edit_account.jsp");
-            try {
-                dispatcher.forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 

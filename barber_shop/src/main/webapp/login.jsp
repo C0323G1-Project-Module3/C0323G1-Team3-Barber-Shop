@@ -13,7 +13,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
-
 </head>
 <body>
 <!-- Navbar -->
@@ -80,10 +79,6 @@
 
 
 <%@ include file="footer.jsp" %>
-
-<script src="jquery/jquery-3.5.1.min.js"></script>
-<script src="datatables/js/jquery.dataTables.min.js"></script>
-<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
 <script src="bootstrap520/js/bootstrap.bundle.js"></script>
 </body>
 </html>

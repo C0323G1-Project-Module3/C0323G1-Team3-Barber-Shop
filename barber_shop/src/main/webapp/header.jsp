@@ -27,8 +27,9 @@
             <!-- Left links -->
 
             <div class="d-flex align-items-center">
-                <a href="" class="text-decoration-none m-3" style="color: #d5b981">Quay trở lại</a>
-                <a href="" class="text-decoration-none" style="color: #d5b981">Đăng xuất</a>
+                <a href="/AccountServlet" class="text-decoration-none m-3" style="color: #d5b981">Quay trở lại</a>
+                <a href="/AccountServlet?action=logout" class="text-decoration-none" style="color: #d5b981">Đăng
+                    xuất</a>
             </div>
         </div>
         <!-- Collapsible wrapper -->
