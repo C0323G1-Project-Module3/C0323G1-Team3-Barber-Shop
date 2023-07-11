@@ -13,7 +13,6 @@ import java.util.List;
 public class ServiceRepository implements IServiceRepository {
     private static final String SELECT_SERVICE_ALL = "select * from service";
     private static final String SELECT_SERVICE_BY_ID = " select * from service where service_id=? ";
-    private static final String DELETE_SERVICE = "delete from service where service_id=?";
     private static final String CALL_INSERT_SERVICE = " call insert_service(?, ? ); ";
     private static final String CALL_UPDATES_SERVICE = " call update_service(?, ?, ?);";
 
@@ -70,20 +69,6 @@ public class ServiceRepository implements IServiceRepository {
             throw new RuntimeException(e);
         }
         return rowUpdates;
-    }
-
-    @Override
-    public boolean deleteService(int id) {
-        boolean rowDelete;
-        Connection connection = BaseConnection.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SERVICE);
-            preparedStatement.setInt(1, id);
-            rowDelete=preparedStatement.executeUpdate()>0;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return rowDelete;
     }
 
     @Override
