@@ -24,13 +24,13 @@ public class Customer {
         this.customerAccountId = customerAccountId;
     }
 
-    public Customer(String customerName, String birthday, String phone, boolean gender, String address, int customerTypeId) {
+    public Customer(String customerName, String birthday, String phone, boolean gender, String address, int customerAccountId) {
         this.customerName = customerName;
         this.birthday = birthday;
         this.phone = phone;
         this.gender = gender;
         this.address = address;
-        this.customerTypeId = customerTypeId;
+        this.customerAccountId = customerAccountId;
     }
 
     public int getCustomerId() {
@@ -95,5 +95,19 @@ public class Customer {
 
     public void setCustomerAccountId(int customerAccountId) {
         this.customerAccountId = customerAccountId;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", customerName='" + customerName + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", phone='" + phone + '\'' +
+                ", gender=" + gender +
+                ", address='" + address + '\'' +
+                ", customerTypeId=" + customerTypeId +
+                ", customerAccountId=" + customerAccountId +
+                '}';
     }
 }

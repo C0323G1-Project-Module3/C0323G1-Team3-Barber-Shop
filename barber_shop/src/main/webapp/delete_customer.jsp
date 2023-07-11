@@ -23,49 +23,75 @@
             background-position: center center;
             color: whitesmoke;
         }
-        form{
-            margin: 10%;
+
+        form {
+            font-size: 18px;
+            background-image: url("home/login.png");
+            background-size: cover;
+            border-radius: 20px;
+            color: whitesmoke;
+            margin: 2% 15% 2% auto;
+            padding: 25px;
+            border-style: none;
+            width: 400px;
+            height: 500px;
+            collapse: 10px;
+            opacity: 0.7;
         }
 
+        label {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        input, select, button {
+            margin: 20px;
+        }
     </style>
 </head>
-<body class="container-fluid mt-5">
-<form class="table-responsive" action="CustomerServlet?action=delete&id=${customer.getCustomerId()}" method="post">
-        <h1 class="display-4 float-start">Thông tin khách hàng cần xóa</h1>
-        <table class="table caption-top table-light table-hover table-striped text-center">
-            <tr>
-                <td>Họ và tên</td>
-                <td>${customer.getCustomerName()}</td>
-            </tr>
-            <tr>
-                <td>Ngày sinh</td>
-                <td>${customer.getBirthday()}</td>
-            </tr>
-            <tr>
-                <td>Số điện thoại</td>
-                <td>${customer.getPhone()}</td>
-            </tr>
-            <tr>
-                <td>Giới tính</td>
-                <td>
-                    <c:if test="${customer.isGender()}">
-                        Nam
-                    </c:if></td>
+<body class="container-fluid">
+<nav class="navbar navbar-expand-xxl navbar-dark" style="background-color: #1d2434" aria-label="Seventh navbar example">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/AccountServlet"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
+    </div>
+</nav>
+<form action="CustomerServlet?action=delete&id=${customer.getCustomerId()}" method="post">
+    <h1 class=" float-start">Thông tin khách hàng cần xóa</h1>
+    <div>
+        <div>
+            <label>Họ và tên</label>
+            <label>${customer.getCustomerName()}</label>
+        </div>
+        <div>
+            <label>Ngày sinh</label>
+            <label>${customer.getBirthday()}</label>
+        </div>
+        <div>
+            <label>Số điện thoại</label>
+            <label>${customer.getPhone()}</label>
+        </div>
+        <div>
+            <label>Giới tính</label>
+            <label>
+                <c:if test="${customer.isGender()}">
+                    Nam
+                </c:if>
                 <c:if test="${customer.isGender()==false}">
                     Nữ
                 </c:if>
-            </tr>
-            <tr>
-                <td>Địa chỉ</td>
-                <td>${customer.getAddress()}</td>
-            </tr>
-            <td><input type="submit" class="btn btn-primary" value="Xóa Nhân viên"/></td>
-            <td><a href="/CustomerServlet">
-                <button type="button">Hủy</button>
-            </a></td>
-            </tr>
+            </label>
+        </div>
+        <div>
+            <label>Địa chỉ</label>
+            <label>${customer.getAddress()}</label>
+        </div>
+        <label><input type="submit" class="btn btn-primary" value="Xóa Nhân viên"/></label>
+        <label><a href="/CustomerServlet">
+            <button type="button">Hủy</button>
+        </a></label>
+        </div>
 
-        </table>
+    </div>
 
 </form>
 </body>
