@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -51,7 +52,9 @@
 
     <!-- Salary input -->
     <div class="form-outline mb-4">
-        <input type="number" id="salary" class="form-control w-50" value="${employee.getSalary()}" name="salary"/>
+        <fmt:setLocale value="vi_VN"/>
+        <fmt:formatNumber value="${employee.getSalary()}" type="currency"/>
+        <input type="number" id="salary" class="form-control w-50" value="${employee.getSalary()}" name="salary">
         <label class="form-label" for="salary">Lương</label>
     </div>
 

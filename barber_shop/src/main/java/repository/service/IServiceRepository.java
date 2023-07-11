@@ -11,7 +11,5 @@ public interface IServiceRepository {
 
     public boolean updateService(Service service);
 
-    public boolean deleteService(int id);
-
     Service getById(int id);
 }

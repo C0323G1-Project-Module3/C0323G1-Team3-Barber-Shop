@@ -13,6 +13,12 @@ public class Account {
         this.roleId = roleId;
     }
 
+    public Account(String username, String password, int roleId) {
+        this.username = username;
+        this.password = password;
+        this.roleId = roleId;
+    }
+
     public Account(String username, String password) {
         this.username = username;
         this.password = password;
