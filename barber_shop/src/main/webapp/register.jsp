@@ -48,7 +48,7 @@
 <body>
 <nav class="navbar navbar-expand-xxl navbar-dark" style="background-color: #1d2434" aria-label="Seventh navbar example">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
+        <a class="navbar-brand" href="AccountServlet"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl"
                 aria-controls="navbarsExampleXxl" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
