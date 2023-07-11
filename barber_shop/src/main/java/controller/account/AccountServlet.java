@@ -3,6 +3,7 @@ package controller.account;
 import model.Account;
 import model.Customer;
 import model.Employee;
+import model.Service;
 import model.dto_model.AccountDTO;
 import model.dto_model.BookingDTO;
 import service.account.IAccountService;
@@ -13,6 +14,8 @@ import service.employee.IEmployeeService;
 import service.employee.impl.EmployeeService;
 import service.booking.IBookingService;
 import service.booking.impl.BookingService;
+import service.service.IServiceService;
+import service.service.impl.ServiceService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -26,6 +29,7 @@ public class AccountServlet extends HttpServlet {
     private static final IEmployeeService employeeService = new EmployeeService();
     private static final ICustomerService customerService = new CustomerService();
     private static final IBookingService bookingService = new BookingService();
+    private static final IServiceService serviceService = new ServiceService();
 
 
     @Override
@@ -93,6 +97,8 @@ public class AccountServlet extends HttpServlet {
         List<AccountDTO> accountList = accountService.getAllAccount();
         List<Employee> employeeList = employeeService.display();
         List<Customer> customerList =  customerService.viewAllCustomer();
+        List<Service> serviceList = serviceService.displayAll();
+        request.setAttribute("serviceList", serviceList);
         request.setAttribute("customerList",customerList);
         request.setAttribute("employeeList",employeeList);
         request.setAttribute("accountList", accountList);
