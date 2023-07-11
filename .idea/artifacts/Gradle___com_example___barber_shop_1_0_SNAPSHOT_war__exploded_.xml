@@ -12,10 +12,10 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/barber_shop/build/libs/exploded/barber_shop-1.0-SNAPSHOT.war/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="com.example.barber_shop.main/web/Web Gradle : barber_shop-1.0-SNAPSHOT.war" />
+      <element id="javaee-facet-resources" facet="barber_shop.main/web/Web Gradle : barber_shop-1.0-SNAPSHOT.war" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="com.example.barber_shop.main" />
+          <element id="module-output" name="barber_shop.main" />
           <element id="dir-copy" path="$PROJECT_DIR$/barber_shop/build/resources/main" />
         </element>
         <element id="directory" name="lib">

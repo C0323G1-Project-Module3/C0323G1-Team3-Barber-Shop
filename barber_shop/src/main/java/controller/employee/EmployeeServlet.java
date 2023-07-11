@@ -161,12 +161,10 @@ public class EmployeeServlet extends HttpServlet {
         String address = request.getParameter("address");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        Account account=new Account(username,password);
-        System.out.println(account);
-        this.employeeService.insertAccount(account);
-        int accountId=employeeService.getEmployeeAccountId(username);
-        Employee employee = new Employee(employeeName, birthDay, salary, phoneNumber, gender, idCard, address, accountId);
-        System.out.println(employee);
+        Account account=new Account(username,password,2);
+        accountService.createAccount(account);
+        Account newAccount = accountService.selectAccount(username,password);
+        Employee employee = new Employee(employeeName, birthDay, salary, phoneNumber, gender, idCard, address, newAccount.getAccountId());
         this.employeeService.create(employee);
 
         try {
