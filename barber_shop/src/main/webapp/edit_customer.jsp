@@ -22,6 +22,27 @@
             background-repeat: no-repeat;
             background-position: center center;
         }
+        form {
+            font-size: 14px;
+            background-image: url("home/login.png");
+            background-size: cover;
+            border-radius: 20px;
+            color: whitesmoke;
+            margin: 2% 15% 2% auto;
+            padding: 20px;
+            border-style:none;
+            width: 550px;
+            height: 800px;
+            collapse: 10px;
+        }
+        label{
+            margin: 5px;
+            padding: 2px;
+        }
+        input,select,button {
+            margin-left: 40px;
+            padding: 1px;
+        }
     </style>
 </head>
 <body>
@@ -32,26 +53,29 @@
 </nav>
 <div class="container ">
     <form class="form text-light" method="post" action="CustomerServlet?action=edit&id=${customer.getCustomerId()}">
-        <p class="text-center display-3" style="color: #d5b981">Chỉnh sửa thông tin khách hàng</p>
+        <h1 class="text-center" style="color: #d5b981">Chỉnh sửa thông tin khách hàng</h1>
 
         <!-- Name input -->
         <div class="form-outline mb-4 ">
-            <input type="text" id="name" class="form-control w-50" value="${customer.getCustomerName()}" name="name"/>
             <label class="form-label" for="name">Họ và tên</label>
+            <input type="text" id="name" class="form-control w-50" value="${customer.getCustomerName()}" name="name"/>
+
         </div>
         <!-- Birthday input -->
 
         <div class="form-outline mb-4">
-            <input type="text" id="birthday" class="form-control w-50" value="${customer.getBirthday()}"
-                   name="birthDay"/>
-            <label class="form-label" for="birthDay">Ngày sinh</label>
+            <label class="form-label" for="birthday">Ngày sinh</label>
+
+            <input type="date" id="birthday" class="form-control w-50" value="${customer.getBirthday()}"
+                   name="birthday"/>
         </div>
 
         <!-- Phone Number input -->
         <div class="form-outline mb-4">
-            <input type="text" id="phoneNumber" class="form-control w-50" value="${customer.getPhone()}"
-                   name="phoneNumber"/>
             <label class="form-label" for="phoneNumber">Số điện thoại</label>
+
+            <input type="text" id="phoneNumber" class="form-control w-50" value="${customer.getPhone()}"
+                   name="phone"/>
         </div>
 
         <!-- Gender input -->
@@ -72,8 +96,17 @@
 
         <!-- Address input -->
         <div class="form-outline mb-4">
-            <input type="text" id="address" class="form-control w-50" value="${customer.getAddress()}" name="address"/>
             <label class="form-label" for="address">Địa chỉ</label>
+
+            <input type="text" id="address" class="form-control w-50" value="${customer.getAddress()}" name="address"/>
+        </div>
+        <div class="form-outline mb-4">
+            <label>loại khách hàng</label>
+            <select name="typeId" id="typeId">
+                    <option value="1">Member</option>
+                    <option value="2">Gold</option>
+                    <option value="3">Diamond</option>
+            </select>
         </div>
 
         <!-- Submit button -->
