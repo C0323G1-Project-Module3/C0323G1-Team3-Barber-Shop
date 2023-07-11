@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
 </head>
 <body>
-<div class="footer pt-5 position-absolute w-100" style="background-color: #1d2434;color: #d5b981;">
+<div class="footer pt-5 position-absolute w-100 bottom-0" style="background-color: #1d2434;color: #d5b981;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-7">
