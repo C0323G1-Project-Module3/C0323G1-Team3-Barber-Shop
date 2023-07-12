@@ -29,6 +29,7 @@ public class ServiceServlet extends HttpServlet {
                 break;
             default:
                 listService(request, response);
+                break;
         }
     }
 

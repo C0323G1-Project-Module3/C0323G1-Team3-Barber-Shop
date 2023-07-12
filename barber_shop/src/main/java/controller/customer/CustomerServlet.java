@@ -131,7 +131,7 @@ public class CustomerServlet extends HttpServlet {
         boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
         String address = request.getParameter("address");
         int typeId= Integer.parseInt(request.getParameter("typeId"));
-        Customer customer=new Customer(name,birthday,phone,gender,address,typeId);
+        Customer customer=new Customer(name,birthday,phone,gender,address);
         customerService.update(id,customer);
         try {
             response.sendRedirect("/CustomerServlet");

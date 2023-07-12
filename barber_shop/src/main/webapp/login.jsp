@@ -299,7 +299,7 @@
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 float-end">
                 <li class="nav-item display-5">
-                    <a class="nav-link" href="#" style="color: #d5b981">BARBER X</a>
+                    <a class="nav-link" href="home.jsp" style="color: #d5b981">BARBER X</a>
                 </li>
             </ul>
         </div>

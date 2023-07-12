@@ -103,14 +103,6 @@
 
             <input type="text" id="address" class="form-control w-50 border-bottom" value="${customer.getAddress()}" name="address"/>
         </div>
-        <div class="form-outline mb-4">
-            <label>loại khách hàng</label>
-            <select name="typeId" id="typeId">
-                    <option value="1">Member</option>
-                    <option value="2">Gold</option>
-                    <option value="3">Diamond</option>
-            </select>
-        </div>
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-dark btn-block mb-3 ">Cập Nhật</button>
