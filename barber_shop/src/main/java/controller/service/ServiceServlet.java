@@ -33,14 +33,6 @@ public class ServiceServlet extends HttpServlet {
         }
     }
 
-    private void listService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Service> serviceList = serviceService.displayAll();
-        System.out.println(serviceList);
-        request.setAttribute("serviceList", serviceList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("service/service_list.jsp");
-        dispatcher.forward(request, response);
-    }
-
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Service service = serviceService.getById(id);

@@ -1,3 +1,4 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -190,8 +191,7 @@
                     </div>
                     <h3 class="text-white">Cắt tóc</h3>
                     <p>
-                        Với thâm niên 3 tháng cắt tóc cộng thêm đội ngũ chuyên gia từ nước ngoài, dịch vụ cắt tóc luôn
-                        là dịch vụ được yêu thích nhất barber
+                        Với thâm niên 3 tháng cắt tóc cộng thêm đội ngũ chuyên gia từ nước ngoài, dịch vụ cắt tóc luôn là dịch vụ được yêu thích nhất barber
                     </p>
                 </div>
             </div>
@@ -202,8 +202,7 @@
                     </div>
                     <h3 class="text-white">Cạo râu</h3>
                     <p>
-                        Với sự xuất hiện của chuyên gia Thành Râu, chúng tôi khẳng định luôn đem lại cho bạn vẻ bề ngoài
-                        sáng bóng, sạch sâu và cảm giác thõa mái nhất trong thời gian sử dụng dịch vụ.
+                        Với sự xuất hiện của chuyên gia Thành Râu, chúng tôi khẳng định luôn đem lại cho bạn vẻ bề ngoài sáng bóng, sạch sâu và cảm giác thõa mái nhất trong thời gian sử dụng dịch vụ.
                     </p>
                 </div>
             </div>
@@ -435,9 +434,8 @@
                 <div class="footer-newsletter">
                     <h2>Vấn đề</h2>
                     <p>
-                        Nếu có vấn đề gì trong lúc sử dụng dịch vụ quý khách có thể liên hệ với chúng tôi để giải quyết
-                        vấn đề,
-                        mọi thông tin liên hệ ở bên góc trái màn hình. Cảm ơn quý khách đã sử dụng dịch vụ.
+                       Nếu có vấn đề gì trong lúc sử dụng dịch vụ quý khách có thể liên hệ với chúng tôi để giải quyết vấn đề,
+                       mọi thông tin liên hệ ở bên góc trái màn hình. Cảm ơn quý khách đã sử dụng dịch vụ.
                     </p>
                 </div>
             </div>

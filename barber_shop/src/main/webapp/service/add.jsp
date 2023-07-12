@@ -43,6 +43,9 @@
             color: #d5b981;
             background-color: #1d2434;
         }
+         #button{
+            margin-left: 250px;
+        }
 
         form {
             background-color: white;
@@ -62,13 +65,15 @@
             background-color: white;w
             color: black;
         }
+        .nav-item a {
+            color: #d5b981;
+        }
 
         body {
-            /*background-image: url("/background.jpg");*/
-            /*background-size: cover;*/
-            /*background-repeat: no-repeat;*/
+            background-image: url("/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
             background-position: center center;
-            background-color: white;
         }
         h2, table{
             margin-left: 50px;
@@ -78,9 +83,14 @@
     </style>
 </head>
 <body>
-<%@include file="header.jsp"%>
-<%--content--%>
-<div class="row" style="height: 350px;margin-top: 100px">
+<nav class="navbar navbar-expand-xxl navbar-dark" style="background-color: #1d2434" aria-label="Seventh navbar example">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/AccountServlet"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
+        <a class="navbar-brand" href="/AccountServlet?action=admin"><h3 style="color: #d5b981">Danh sách</h3></a>
+    </div>
+</nav>
+<button id="button" onclick="history.back()">Quay lại</button>
+<div class="row" style="height: 350px;">
 <form method="post" action="/ServiceServlet?action=add" class="container" style="width: 60%">
     <caption>
         <h2>Thêm mới dịch vụ</h2>
@@ -107,7 +117,23 @@
     </table>
 </form>
 </div>
-<%--footer--%>
-<%@include file="footer.jsp"%>
+<div class="footer pt-5" style="background-color: #1d2434;color: #d5b981;bottom: auto">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="footer-contact">
+                            <h2>Địa chỉ Barber</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>280 Trần Hưng Đạo, Sơn Trà, Đà Nẵng</p>
+                            <p><i class="fa fa-phone-alt"></i>0123456789</p>
+                            <p><i class="fa fa-envelope"></i>cuongplastic@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
