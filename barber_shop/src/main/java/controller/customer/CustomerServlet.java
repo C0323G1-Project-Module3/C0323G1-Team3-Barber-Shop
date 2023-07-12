@@ -37,7 +37,7 @@ public class CustomerServlet extends HttpServlet {
                 showDeleteForm(request,response);
                 break;
             default:
-                comeAdmin(request,response);
+               listCustomer(request,response);
                 break;
         }
     }
@@ -67,7 +67,7 @@ public class CustomerServlet extends HttpServlet {
     private void listCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customerList = customerService.viewAllCustomer();
         request.setAttribute("customerList", customerList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/AccountServlet?action=admin");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/customer/list_customer.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
@@ -77,7 +77,7 @@ public class CustomerServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = customerService.findById(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("edit_customer.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/edit_customer.jsp");
         request.setAttribute("customer", customer);
         try {
             dispatcher.forward(request, response);
@@ -113,12 +113,12 @@ public class CustomerServlet extends HttpServlet {
         }
     }
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
-        int id=Integer.parseInt(request.getParameter("id"));
+        int id=Integer.parseInt(request.getParameter("customerId"));
         Customer customer=customerService.findById(id);
         customerService.remove(id);
         accountService.deleteAccount(customer.getCustomerAccountId());
         try {
-            response.sendRedirect("/CustomerServlet");
+            response.sendRedirect("CustomerServlet");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -131,7 +131,7 @@ public class CustomerServlet extends HttpServlet {
         boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
         String address = request.getParameter("address");
         int typeId= Integer.parseInt(request.getParameter("typeId"));
-        Customer customer=new Customer(name,birthday,phone,gender,address,typeId);
+        Customer customer=new Customer(name,birthday,phone,gender,address);
         customerService.update(id,customer);
         try {
             response.sendRedirect("/CustomerServlet");

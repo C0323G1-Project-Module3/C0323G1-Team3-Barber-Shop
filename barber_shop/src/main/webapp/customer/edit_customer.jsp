@@ -58,7 +58,7 @@
         <!-- Name input -->
         <div class="form-outline mb-4 ">
             <label class="form-label" for="name">Họ và tên</label>
-            <input type="text" id="name" class="form-control w-50" value="${customer.getCustomerName()}" name="name"/>
+            <input type="text" id="name" class="form-control w-50 border-bottom" value="${customer.getCustomerName()}" name="name"/>
 
         </div>
         <!-- Birthday input -->
@@ -66,7 +66,7 @@
         <div class="form-outline mb-4">
             <label class="form-label" for="birthday">Ngày sinh</label>
 
-            <input type="date" id="birthday" class="form-control w-50" value="${customer.getBirthday()}"
+            <input type="date" id="birthday" class="form-control w-50 border-bottom" value="${customer.getBirthday()}"
                    name="birthday"/>
         </div>
 
@@ -74,7 +74,7 @@
         <div class="form-outline mb-4">
             <label class="form-label" for="phoneNumber">Số điện thoại</label>
 
-            <input type="text" id="phoneNumber" class="form-control w-50" value="${customer.getPhone()}"
+            <input type="text" id="phoneNumber" class="form-control w-50 border-bottom" value="${customer.getPhone()}"
                    name="phone"/>
         </div>
 
@@ -82,35 +82,30 @@
         <div class="form-outline mb-4">
             <label>Giới tính</label>
             <select name="gender" id="gender">
-                <c:if test="${customer.isGender()==true}">
-                    <option value="true">Nam</option>
-                    <option value="false">Nữ</option>
-                </c:if>
-                <c:if test="${customer.isGender()==false}">
-                    <option value="false">Nữ</option>
-                    <option value="true">Nam</option>
-                </c:if>
-
+                <label for="man"><input type="radio" value="true" id="man">Nam</label>
+                <label for="women"><input type="radio" value="true" id="women">Nữ</label>
             </select>
+
+<%--                <c:if test="${customer.isGender()==true}">--%>
+<%--                    <option value="true">Nam</option>--%>
+<%--                    <option value="false">Nữ</option>--%>
+<%--                </c:if>--%>
+<%--                <c:if test="${customer.isGender()==false}">--%>
+<%--                    <option value="false">Nữ</option>--%>
+<%--                    <option value="true">Nam</option>--%>
+<%--                </c:if>--%>
+
         </div>
 
         <!-- Address input -->
         <div class="form-outline mb-4">
             <label class="form-label" for="address">Địa chỉ</label>
 
-            <input type="text" id="address" class="form-control w-50" value="${customer.getAddress()}" name="address"/>
-        </div>
-        <div class="form-outline mb-4">
-            <label>loại khách hàng</label>
-            <select name="typeId" id="typeId">
-                    <option value="1">Member</option>
-                    <option value="2">Gold</option>
-                    <option value="3">Diamond</option>
-            </select>
+            <input type="text" id="address" class="form-control w-50 border-bottom" value="${customer.getAddress()}" name="address"/>
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-dark btn-block mb-3">Cập Nhật</button>
+        <button type="submit" class="btn btn-dark btn-block mb-3 ">Cập Nhật</button>
     </form>
 </div>
 
