@@ -6,7 +6,6 @@
     <title>Barber Shop Cường Plastic</title>
 </head>
 <body>
-<%--<c:redirect url="/AccountServlet"/>--%>
-<c:redirect url="/EmployeeServlet"/>
+<c:redirect url="home/home.jsp"/>
 </body>
 </html>

@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -24,6 +25,7 @@
             background-position: center center;
         }
     </style>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-xxl navbar-dark" style="background-color: #1d2434" aria-label="Seventh navbar example">
@@ -37,13 +39,10 @@
         <div class="collapse navbar-collapse" id="navbarsExampleXxl">
             <ul class="navbar-nav me-auto mb-2 mb-xl-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/home/home.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Log Out</a>
+                    <a class="nav-link" href="/AccountServlet">Thoát đăng nhập</a>
                 </li>
             </ul>
         </div>
@@ -55,10 +54,7 @@
         <div class="table-responsive">
             <table id="displayBooking" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
-                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
-                    <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">Thêm
-                    </button>
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Lịch sử booking</h1>
                 </caption>
                 <thead>
                 <tr>
@@ -79,7 +75,9 @@
                                 ${c.getBookingDate()}
                         </td>
                         <td>
-                                ${c.getPrice()}
+                            <fmt:setLocale value="vi_VN"/>
+                            <fmt:formatNumber value=" ${c.getPrice()}" type="currency"/>
+
                         </td>
                         <td>
                                 ${c.getBookingStatus()}
