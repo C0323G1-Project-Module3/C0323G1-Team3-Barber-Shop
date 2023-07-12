@@ -9,12 +9,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
+    <title>Danh sách Nhân viên</title>
+    <link rel="stylesheet" href="../bootstrap520/css/bootstrap.css">
 </head>
 <body>
 <%@ include file="/header.jsp" %>
-
 
 
 <div class="container-fluid" style="margin-top: 80px; margin-bottom: 30px">
@@ -26,8 +25,7 @@
                 <caption><h1 class="display-4 float-start" style="color: #cfb981">Nhân viên
                 </h1>
                     <a href="/EmployeeServlet?action=create">
-                        <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal1">Thêm mới Nhân viên
+                        <button type="button" class="btn btn-primary mx-3 float-end mt-5">Thêm mới Nhân viên
                         </button>
                     </a>
                 </caption>
@@ -44,30 +42,34 @@
                     <th>Cập nhật</th>
                     <th>Xóa</th>
                 </tr>
+                </thead>
+                <tbody>
                 <c:forEach var="employee" items="${employeeList}" varStatus="loop">
-                <tr>
-                    <td>${loop.count}</td>
-                    <td><c:out value="${employee.getEmployeeName()}"/></td>
-                    <td><c:out value="${employee.getBirthDay()}"/></td>
-                    <td><c:out value="${employee.getSalary()}"/></td>
-                    <td><c:out value="${employee.getPhoneNumber()}"/></td>
-                    <td>
-                        <c:if test="${employee.isGender()==true}">
-                            Nam
-                        </c:if>
-                        <c:if test="${employee.isGender()==false}">
-                            Nữ
-                        </c:if>
-                    </td>
-                    <td><c:out value="${employee.getIdCard()}"/></td>
-                    <td><c:out value="${employee.getAddress()}"/></td>
-
-                    <td><a class="btn btn-primary" href="/EmployeeServlet?action=edit&id=${employee.getEmployeeId()}"
-                           role="submit">Cập nhật</a></td>
-                    <td><a class="btn btn-danger" href="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}"
-                           role="button">Xóa</a></td>
-                </tr>
+                    <tr>
+                        <td>${loop.count}</td>
+                        <td><c:out value="${employee.getEmployeeName()}"/></td>
+                        <td><c:out value="${employee.getBirthDay()}"/></td>
+                        <td><c:out value="${employee.getSalary()}"/></td>
+                        <td><c:out value="${employee.getPhoneNumber()}"/></td>
+                        <td>
+                            <c:if test="${employee.isGender()==true}">
+                                Nam
+                            </c:if>
+                            <c:if test="${employee.isGender()==false}">
+                                Nữ
+                            </c:if>
+                        </td>
+                        <td><c:out value="${employee.getIdCard()}"/></td>
+                        <td><c:out value="${employee.getAddress()}"/></td>
+                        <td><a class="btn btn-primary"
+                               href="/EmployeeServlet?action=edit&id=${employee.getEmployeeId()}"
+                        >Cập nhật</a></td>
+                        <td><a class="btn btn-danger"
+                               href="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}"
+                        >Xóa</a></td>
+                    </tr>
                 </c:forEach>
+                </tbody>
             </table>
         </div>
     </div>
@@ -75,9 +77,9 @@
 
 
 <%@ include file="/footer.jsp" %>
-<script src="jquery/jquery-3.5.1.min.js"></script>
-<script src="datatables/js/jquery.dataTables.min.js"></script>
-<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
+<script src="../jquery/jquery-3.5.1.min.js"></script>
+<script src="../datatables/js/jquery.dataTables.min.js"></script>
+<script src="../datatables/js/dataTables.bootstrap5.min.js"></script>
 <script>
     // function changeUrl() {
     //     let stateObj = { foo: "bar" };
@@ -90,11 +92,13 @@
 
     $(document).ready(function () {
         $('#tableEmployee').dataTable({
-            "dom": 'strip',
+            "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5
         });
     });
+
+    $(document).write("Hello")
 </script>
 </body>
 </html>
