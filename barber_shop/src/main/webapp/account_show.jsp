@@ -71,20 +71,23 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                <a id="confirm-btn">
-                    <button type="button" class="btn btn-primary">Xác nhận</button>
-                </a>
+                <form action="/AccountServlet?action=resetPassword" method="post" id="formConfirm">
+                    <button type="button" onclick="sumitData()" class="btn btn-primary">Xác nhận</button>
+                    <input type="text" hidden="hidden" name="accountId" id="accountId"/>
+                </form>
             </div>
         </div>
     </div>
 </div>
 <c:if test="${msg != null}">
-    <div class="modal" onloadstart="changeUrl()" id="myModal" tabindex="-1">
+    <div class="modal" id="myModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
+
                 <div class="modal-body">
                     <p class="text-dark">Đã hồi phục thành công</p>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                 </div>
@@ -97,20 +100,18 @@
 <script src="datatables/js/jquery.dataTables.min.js"></script>
 <script src="datatables/js/dataTables.bootstrap5.min.js"></script>
 <script>
-    function changeUrl() {
-        let stateObj = { foo: "bar" };
-        let newTitle = "New Title";
-        let newUrl = "/new-url";
-        history.pushState(newTitle, newUrl);
-    }
 
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         $("#myModal").modal('show');
     });
 
     function confirm(accountId) {
-        document.getElementById("confirm-btn").href = "/AccountServlet?action=resetPassword&id=" + accountId;
+        document.getElementById("accountId").value = accountId;
+    }
+
+    function sumitData() {
+        document.getElementById("formConfirm").submit();
     }
 
     $(document).ready(function () {
