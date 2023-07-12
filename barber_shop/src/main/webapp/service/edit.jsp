@@ -12,14 +12,10 @@
     <title>Edit</title>
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
     <style>
-        .nav-item a {
-            color: #d5b981;
-        }
-
         body {
-            background-image: url("/background.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
+            /*background-image: url("/background.jpg");*/
+            background-color: white;
+
             background-position: center center;
         }
         h1,h3{
@@ -51,49 +47,52 @@
         #button{
             margin-left: 80px;
         }
+        /*input[type=text], [type=number]{*/
+        /*    width: 100%;*/
+        /*    padding: 12px 20px;*/
+        /*    margin: 8px 20px;*/
+        /*    box-sizing: border-box;*/
+        /*    border: 2px solid #1d2434;*/
+        /*    border-radius: 4px;*/
+        /*    color: black;*/
+        /*}*/
+        form {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+        .form-label{
+            color: #1d2434;
+            font-weight: bold;
+        }
+        .my-display-3 {
+            font-weight: bold;
+        }
 
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-xxl navbar-dark" style="background-color: #1d2434" aria-label="Seventh navbar example">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/AccountServlet"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
-        <a class="navbar-brand" href="/AccountServlet?action=admin"><h3 style="color: #d5b981">Danh sách</h3></a>
-    </div>
-</nav>
+<%@include file="header.jsp"%>
 <button id="button" onclick="history.back()">Quay lại</button>
-<div class="container">
+<div class="container" style="margin-top: 100px">
     <form class="form text-light" method="post" action="/ServiceServlet?action=edit&id=${service.getServiceId()}">
-        <p class="text-center display-3" style="color: #d5b981">Chỉnh sửa thông tin dịch vụ</p>
+        <p class="text-center display-3 my-display-3" style="color: #d5b981">Chỉnh sửa thông tin dịch vụ</p>
         <div class="form-outline mb-4 ">
-            <input type="text" id="name" class="form-control w-50" value="${service.getServiceName()}" name="name"/>
             <label class="form-label" for="name">Tên dịch vụ</label>
+            <input type="text" id="name" class="form-control w-50" value="${service.getServiceName()}" name="name"/>
         </div>
         <div class="form-outline mb-4">
+            <label class="form-label" for="price">Giá dịch vụ</label>
             <input type="number" id="price" class="form-control w-50" value="${service.getPrice()}"
                    name="price"/>
-            <label class="form-label" for="price">Giá dịch vụ</label>
         </div>
         <button type="submit" class="btn btn-dark btn-block mb-3">Cập Nhật</button>
     </form>
 </div>
-<div class="footer pt-5" style="background-color: #1d2434;color: #d5b981;bottom: auto">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="footer-contact">
-                            <h2>Địa chỉ Barber</h2>
-                            <p><i class="fa fa-map-marker-alt"></i>280 Trần Hưng Đạo, Sơn Trà, Đà Nẵng</p>
-                            <p><i class="fa fa-phone-alt"></i>0123456789</p>
-                            <p><i class="fa fa-envelope"></i>cuongplastic@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<%--footer--%>
+<div style="bottom: 0">
+<%@include file="footer.jsp"%>
 </div>
 <script src="jquery/jquery-3.5.1.min.js"></script>
 <script src="datatables/js/jquery.dataTables.min.js"></script>
