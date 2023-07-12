@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -83,9 +82,9 @@
 <body>
 
 <!-- Nav Bar Start -->
-<div class="navbar navbar-expand-lg bg-dark navbar-dark" style="top: 0">
+<div class="navbar navbar-expand-lg  navbar-dark" style="top: 0">
     <div class="container-fluid">
-        <a href="index.html" class="navbar-brand text-dark">Barber <span>X</span></a>
+        <a href="index.html" class="navbar-brand text-white">Barber <span>X</span></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -93,14 +92,16 @@
         <div class="collapse navbar-collapse justify-content-between " id="navbarCollapse">
             <div class="navbar-nav ml-auto ">
 
-                <a href="#" class="nav-item nav-link active">Trang chủ</a>
+                <a href="/home/home.jsp" class="nav-item nav-link active">Trang chủ</a>
                 <c:if test="${sessionScope.account == null}">
                     <a href="/AccountServlet?action=showFormLogin" class="nav-item nav-link">Đăng nhập</a>
                     <a href="/CustomerServlet?action=create" class="nav-item nav-link">Đăng kí</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId == 1}">
-                    <a href="/BookingServlet?action=showAddBooking&id=${sessionScope.account.getAccountId()}" class="nav-item nav-link">Booking</a>
-                    <a href="/BookingServlet?action=showHistoryBooking&id=${sessionScope.account.getAccountId()}" class="nav-item nav-link">Lịch sử booking</a>
+                    <a href="/BookingServlet?action=showAddBooking&id=${sessionScope.account.getAccountId()}"
+                       class="nav-item nav-link">Booking</a>
+                    <a href="/BookingServlet?action=showHistoryBooking&id=${sessionScope.account.getAccountId()}"
+                       class="nav-item nav-link">Lịch sử booking</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId == 3 ||  sessionScope.account.roleId == 2}">
                     <a href="/BookingServlet?action=showBookingEmp" class="nav-item nav-link">Danh sách booking</a>
@@ -189,7 +190,8 @@
                     </div>
                     <h3 class="text-white">Cắt tóc</h3>
                     <p>
-                        Với thâm niên 3 tháng cắt tóc cộng thêm đội ngũ chuyên gia từ nước ngoài, dịch vụ cắt tóc luôn là dịch vụ được yêu thích nhất barber
+                        Với thâm niên 3 tháng cắt tóc cộng thêm đội ngũ chuyên gia từ nước ngoài, dịch vụ cắt tóc luôn
+                        là dịch vụ được yêu thích nhất barber
                     </p>
                 </div>
             </div>
@@ -200,7 +202,8 @@
                     </div>
                     <h3 class="text-white">Cạo râu</h3>
                     <p>
-                        Với sự xuất hiện của chuyên gia Thành Râu, chúng tôi khẳng định luôn đem lại cho bạn vẻ bề ngoài sáng bóng, sạch sâu và cảm giác thõa mái nhất trong thời gian sử dụng dịch vụ.
+                        Với sự xuất hiện của chuyên gia Thành Râu, chúng tôi khẳng định luôn đem lại cho bạn vẻ bề ngoài
+                        sáng bóng, sạch sâu và cảm giác thõa mái nhất trong thời gian sử dụng dịch vụ.
                     </p>
                 </div>
             </div>
@@ -432,8 +435,9 @@
                 <div class="footer-newsletter">
                     <h2>Vấn đề</h2>
                     <p>
-                       Nếu có vấn đề gì trong lúc sử dụng dịch vụ quý khách có thể liên hệ với chúng tôi để giải quyết vấn đề,
-                       mọi thông tin liên hệ ở bên góc trái màn hình. Cảm ơn quý khách đã sử dụng dịch vụ.
+                        Nếu có vấn đề gì trong lúc sử dụng dịch vụ quý khách có thể liên hệ với chúng tôi để giải quyết
+                        vấn đề,
+                        mọi thông tin liên hệ ở bên góc trái màn hình. Cảm ơn quý khách đã sử dụng dịch vụ.
                     </p>
                 </div>
             </div>
