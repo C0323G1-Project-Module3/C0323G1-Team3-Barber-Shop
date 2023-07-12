@@ -53,7 +53,7 @@
         <div class="table-responsive">
             <table id="Account" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
-                <caption><h1 class="display-4 float-start" style="color: #cfb981">Account</h1>
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Tài khoản</h1>
                 </caption>
                 <thead>
                 <tr>
@@ -100,7 +100,7 @@
             <table id="tableEmployee" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
 
-                <caption><h1 class="display-4 float-start" style="color: #cfb981">Employee
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Nhân viên
                 </h1>
                     <a href="/EmployeeServlet?action=create">
                         <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
@@ -154,7 +154,7 @@
         <div class="table-responsive">
             <table id="tableCustomer" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
-                <caption><h1 class="display-4 float-start" style="color: #cfb981">Customer</h1>
+                <caption><h1 class="display-4 float-start" style="color: #cfb981">Khách hàng</h1>
                 </caption>
                 <thead>
                 <tr>
@@ -373,6 +373,13 @@
 
     $(document).ready(function () {
         $('#tableCustomer').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        });
+    });
+    $(document).ready(function () {
+        $('#displayService').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5

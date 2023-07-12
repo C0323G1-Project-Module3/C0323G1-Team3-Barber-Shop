@@ -16,12 +16,10 @@ public class BookingDetailServiceRepository implements IBookingDetailServiceRepo
         Connection connection = BaseConnection.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(ADD_BOOKING_DETAIL);
-            System.out.println(serviceList);
-            System.out.println(bookingId);
             for (Integer s: serviceList) {
                 preparedStatement.setInt(1,s);
                 preparedStatement.setInt(2,bookingId);
-                preparedStatement.executeUpdate();
+                preparedStatement.execute();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
