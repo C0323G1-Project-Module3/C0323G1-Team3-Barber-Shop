@@ -36,8 +36,8 @@
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="login_signin.css">
+    <link rel="stylesheet" href="home/style.css">
+    <link rel="stylesheet" href="home/login_signin.css">
     <style>
         .col-md-4 {
             display: inline-block;
@@ -110,25 +110,24 @@
         <div class="collapse navbar-collapse justify-content-between " id="navbarCollapse">
             <div class="navbar-nav ml-auto ">
 
-                <a href="/home/home.jsp" class="nav-item nav-link active">Trang chủ</a>
+                <a href="home.jsp" class="nav-item nav-link active">Trang chủ</a>
                 <c:if test="${sessionScope.account == null}">
-                    <a href="/AccountServlet?action=showFormLogin" class="nav-item nav-link">Đăng nhập</a>
-                    <a href="/CustomerServlet?action=create" class="nav-item nav-link">Đăng kí</a>
+                    <a href="login.jsp" class="nav-item nav-link">Đăng nhập</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId == 1}">
-                    <a href="/BookingServlet?action=showAddBooking&id=${sessionScope.account.getAccountId()}"
+                    <a href="BookingServlet?action=showAddBooking&id=${sessionScope.account.getAccountId()}"
                        class="nav-item nav-link">Booking</a>
-                    <a href="/BookingServlet?action=showHistoryBooking&id=${sessionScope.account.getAccountId()}"
+                    <a href="BookingServlet?action=showHistoryBooking&id=${sessionScope.account.getAccountId()}"
                        class="nav-item nav-link">Lịch sử booking</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId == 3 ||  sessionScope.account.roleId == 2}">
-                    <a href="/BookingServlet?action=showBookingEmp" class="nav-item nav-link">Danh sách booking</a>
+                    <a href="BookingServlet?action=showBookingEmp" class="nav-item nav-link">Danh sách booking</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId==3}">
-                    <a href="/AccountServlet" class="nav-item nav-link">Account</a>
+                    <a href="AccountServlet" class="nav-item nav-link">Account</a>
                     <a href="#" class="nav-item nav-link">Service</a>
                     <a href="#" class="nav-item nav-link">Employee</a>
-                    <a href="#" class="nav-item nav-link">Customer</a>
+                    <a href="CustomerServlet" class="nav-item nav-link">Customer</a>
                 </c:if>
                 <c:if test="${sessionScope.account != null}">
                     <a href="/AccountServlet?action=logout" class="nav-item nav-link">Đăng Xuất</a>
@@ -154,7 +153,7 @@
             </div>
             <div class="col-sm-12 col-md-6 d-none d-md-block">
                 <div class="hero-image">
-                    <img src="anh_bia.jpg " alt="Hero Image">
+                    <img src="home/anh_bia.jpg " alt="Hero Image">
                 </div>
             </div>
         </div>
@@ -168,7 +167,7 @@
         <div class="row align-items-center">
             <div class="col-lg-5 col-md-6">
                 <div class="about-img">
-                    <img src="anh2.jpg" alt="Image">
+                    <img src="home/anh2.jpg" alt="Image">
                 </div>
             </div>
             <div class="col-lg-7 col-md-6">
@@ -207,7 +206,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="service-item" style="height: 40%;">
                     <div class="service-img">
-                        <img src="hair_cut.jpg" alt="Image">
+                        <img src="home/hair_cut.jpg" alt="Image">
                     </div>
                     <h3 class="text-white">Cắt tóc</h3>
                     <p>
@@ -219,7 +218,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="service-item" style="height: 40%">
                     <div class="service-img">
-                        <img src="beard.jpg" alt="Image">
+                        <img src="home/beard.jpg" alt="Image">
                     </div>
                     <h3 class="text-white">Cạo râu</h3>
                     <p>
@@ -231,7 +230,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="service-item" style="height: 40%">
                     <div class="service-img">
-                        <img src="service3.jpg" alt="Image">
+                        <img src="home/service3.jpg" alt="Image">
                     </div>
                     <h3 class="text-white">Nhuộm và gội</h3>
                     <p>
@@ -256,7 +255,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="price-item">
                     <div class="price-img">
-                        <img src="price-1.jpg" alt="Image">
+                        <img src="home/price-1.jpg" alt="Image">
                     </div>
                     <div class="price-text">
                         <h2>Cắt tóc</h2>
@@ -267,7 +266,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="price-item">
                     <div class="price-img">
-                        <img src="price-2.jpg" alt="Image">
+                        <img src="home/price-2.jpg" alt="Image">
                     </div>
                     <div class="price-text">
                         <h2>Massage <br> đầu</h2>
@@ -278,7 +277,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="price-item">
                     <div class="price-img">
-                        <img src="hair_color%20(2).jpg" alt="Image">
+                        <img src="home/hair_color (2).jpg" alt="Image">
                     </div>
                     <div class="price-text">
                         <h2>Nhuộm tóc</h2>
@@ -289,7 +288,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="price-item">
                     <div class="price-img">
-                        <img src="shave2.jpg" alt="Image">
+                        <img src="home/shave2.jpg" alt="Image">
                     </div>
                     <div class="price-text">
                         <h2>Cạo mặt & <br> cạo râu</h2>
@@ -315,7 +314,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="thanh%20(2).jpg" alt="Team Image">
+                        <img src="home/thanh (2).jpg" alt="Team Image">
                     </div>
                     <div class="team-text">
                         <h2>Thành Râu</h2>
@@ -326,7 +325,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="quan.jpg" alt="Team Image">
+                        <img src="home/quan.jpg" alt="Team Image">
                     </div>
                     <div class="team-text">
                         <h2>Quân Seven</h2>
@@ -337,7 +336,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="cuong.jpg" alt="Team Image">
+                        <img src="home/cuong.jpg" alt="Team Image">
                     </div>
                     <div class="team-text">
                         <h2>Cường Nhựa</h2>
@@ -348,7 +347,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="duy.jpg" alt="Team Image">
+                        <img src="home/duy.jpg" alt="Team Image">
                     </div>
                     <div class="team-text">
                         <h2>Duy Gates</h2>
@@ -376,43 +375,43 @@
         <div class="carousel-inner no-padding my-5">
             <div class="carousel-item active">
                 <div class="col-xs-4 col-sm-4 col-md-4 slider_info align-top">
-                    <img class="img-fluid card-img-top" src="undercut1.0.png">
+                    <img class="img-fluid card-img-top" src="home/undercut1.0.png">
                     <p class="text-dark" style="text-align: center">Undercut</p>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 slider_info align-top">
-                    <img class="img-fluid card-img-top" src="undercut_longhair_1.0.png">
+                    <img class="img-fluid card-img-top" src="home/undercut_longhair_1.0.png">
                     <p class="text-dark" style="text-align: center">Undercut Asymmetrical</p>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 slider_info align-top">
-                    <img class="img-fluid card-img-top" src="sidepart73.1.0.png">
+                    <img class="img-fluid card-img-top" src="home/sidepart73.1.0.png">
                     <p class="text-dark" style="text-align: center">Side part 7/3</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="col-xs-4 col-sm-4 col-md-4 slider_info align-top">
-                    <img class="img-fluid card-img-top" src="mullet1.0.png">
+                    <img class="img-fluid card-img-top" src="home/mullet1.0.png">
                     <p class="text-dark" style="text-align: center">Mullet</p>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 slider_info align-top">
-                    <img class="img-fluid card-img-top" src="My%20project-1%20(1).png">
+                    <img class="img-fluid card-img-top" src="home/My project-1 (1).png">
                     <p class="text-dark" style="text-align: center">Curly Hair</p>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 slider_info align-top">
-                    <img class="img-fluid card-img-top" src="mohican1.0.png">
+                    <img class="img-fluid card-img-top" src="home/mohican1.0.png">
                     <p class="text-dark" style="text-align: center">Mohican</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="col-xs-4 col-sm-4 col-md-4 slider_info align-top">
-                    <img class="img-fluid card-img-top" src="faux_hawk2.png">
+                    <img class="img-fluid card-img-top" src="home/faux_hawk2.png">
                     <p class="text-dark" style="text-align: center">Faux Hawk</p>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 slider_info align-top">
-                    <img class="img-fluid card-img-top" src="beck_sidepart.png">
+                    <img class="img-fluid card-img-top" src="home/beck_sidepart.png">
                     <p class="text-dark" style="text-align: center">Undercut Sidepart</p>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 slider_info align-top">
-                    <img class="img-fluid card-img-top" src="slickback.jpg22.png">
+                    <img class="img-fluid card-img-top" src="home/slickback.jpg22.png">
                     <p class="text-dark" style="text-align: center">Slick-Back</p>
                 </div>
             </div>
@@ -485,6 +484,6 @@
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
 <!--  login-->
-<script src="login_signin.js"></script>
+<script src="home/login_signin.js"></script>
 </body>
 </html>

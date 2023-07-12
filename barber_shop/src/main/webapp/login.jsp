@@ -314,17 +314,17 @@
         <div class="form-right">
             <div class="tab">
                 <div class="tab-inner">
-                    <button class="tablinks active" onclick="openCity(event,'sign-up')" id="defaultOpen">
-                        Đăng ký
-                    </button>
-                </div>
-                <div class="tab-inner">
-                    <button class="tablinks active" onclick="openCity(event,'sign-in')">
+                    <button class="tablinks active" onclick="openCity(event,'sign-in')" id="defaultOpen">
                         Đăng nhập
                     </button>
                 </div>
+                <div class="tab-inner">
+                    <button class="tablinks active" onclick="openCity(event,'sign-up')" >
+                        Đăng ký
+                    </button>
+                </div>
             </div>
-            <form class="form-detail" action="#" method="post">
+            <form class="form-detail" action="CustomerServlet/action=create" method="post">
                 <div class="tabcontent" id="sign-up" style="display:block;">
                     <div class="form-row">
                         <label class="form-row-inner">
@@ -335,7 +335,7 @@
                     </div>
                     <div class="form-row">
                         <label class="form-row-inner">
-                            <input type="text" name="password" id="password" class="input-text" required>
+                            <input type="password" name="password" id="password" class="input-text" required>
                             <span class="label">Mật khẩu :</span>
                             <span class="border"></span>
                         </label>
@@ -373,7 +373,7 @@
                     </div>
                 </div>
             </form>
-            <form class="form-detail" action="/AccountServlet?action=login" method="post">
+            <form class="form-detail" action="AccountServlet?action=login" method="post">
                 <div class="tabcontent" id="sign-in" style="display:none;">
                     <div class="form-row">
                         <label class="form-row-inner">

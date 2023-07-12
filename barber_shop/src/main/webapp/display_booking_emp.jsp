@@ -28,7 +28,7 @@
 <body>
 <nav class="navbar navbar-expand-xxl navbar-dark" style="background-color: #1d2434" aria-label="Seventh navbar example">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/home/home.jsp"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
+        <a class="navbar-brand" href="/home.jsp"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl"
                 aria-controls="navbarsExampleXxl" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleXxl">
             <ul class="navbar-nav me-auto mb-2 mb-xl-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/home/home.jsp">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/home.jsp">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
