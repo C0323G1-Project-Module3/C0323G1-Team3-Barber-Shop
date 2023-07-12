@@ -70,16 +70,18 @@ public class AccountRepository implements IAccountRepository {
     }
 
     @Override
-    public void editPassword(int accountId, String password) {
+    public void resetPassword(int accountId) {
+        PreparedStatement preparedStatement = null;
         try {
-            PreparedStatement preparedStatement = BaseConnection.getConnection().prepareStatement("update account set account.password=? where account.account_id=?;");
-            preparedStatement.setString(1, password);
-            preparedStatement.setInt(2, accountId);
-            preparedStatement.executeUpdate();
+            preparedStatement = BaseConnection.getConnection().prepareStatement("update account set account.password='123' where account.account_id=?;");
+
+            preparedStatement.setInt(1, accountId);
+            preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public Account selectAccountById(int accountId) {
