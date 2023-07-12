@@ -48,6 +48,22 @@ public class BookingServlet extends HttpServlet {
             case "deleteBooking":
                 deleteBooking(request,response);
                 break;
+            default:
+                showList(request,response);
+                break;
+        }
+    }
+
+    private void showList(HttpServletRequest request, HttpServletResponse response) {
+        List<BookingDTO> bookingDTOList = bookingService.displayBooking();
+        request.setAttribute("bookingDTOList",bookingDTOList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/page_admin.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -56,12 +72,11 @@ public class BookingServlet extends HttpServlet {
         HttpSession session = request.getSession();
         int id = ((Account)session.getAttribute("account")).getAccountId();
         Customer customer = customerService.findById(id);
-        List<Service> serviceList = serviceService.displayAll();
         List<BookingDTO> bookingList = bookingService.displayHistoryBooking(id);
+        System.out.println(bookingList);
         request.setAttribute("id", id);
         request.setAttribute("bookingList", bookingList);
         request.setAttribute("customer", customer);
-        request.setAttribute("serviceList", serviceList);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/history_booking.jsp");
         try {
             requestDispatcher.forward(request, response);

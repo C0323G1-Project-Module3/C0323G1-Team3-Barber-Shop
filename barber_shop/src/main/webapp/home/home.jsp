@@ -83,9 +83,9 @@
 <body>
 
 <!-- Nav Bar Start -->
-<div class="navbar navbar-expand-lg bg-dark navbar-dark" style="top: 0">
+<div class="navbar navbar-expand-lg  navbar-dark" style="top: 0">
     <div class="container-fluid">
-        <a href="index.html" class="navbar-brand text-dark">Barber <span>X</span></a>
+        <a href="index.html" class="navbar-brand text-white">Barber <span>X</span></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -93,14 +93,16 @@
         <div class="collapse navbar-collapse justify-content-between " id="navbarCollapse">
             <div class="navbar-nav ml-auto ">
 
-                <a href="#" class="nav-item nav-link active">Trang chủ</a>
+                <a href="/home/home.jsp" class="nav-item nav-link active">Trang chủ</a>
                 <c:if test="${sessionScope.account == null}">
                     <a href="/AccountServlet?action=showFormLogin" class="nav-item nav-link">Đăng nhập</a>
                     <a href="/CustomerServlet?action=create" class="nav-item nav-link">Đăng kí</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId == 1}">
-                    <a href="/BookingServlet?action=showAddBooking&id=${sessionScope.account.getAccountId()}" class="nav-item nav-link">Booking</a>
-                    <a href="/BookingServlet?action=showHistoryBooking&id=${sessionScope.account.getAccountId()}" class="nav-item nav-link">Lịch sử booking</a>
+                    <a href="/BookingServlet?action=showAddBooking&id=${sessionScope.account.getAccountId()}"
+                       class="nav-item nav-link">Booking</a>
+                    <a href="/BookingServlet?action=showHistoryBooking&id=${sessionScope.account.getAccountId()}"
+                       class="nav-item nav-link">Lịch sử booking</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId == 3 ||  sessionScope.account.roleId == 2}">
                     <a href="/BookingServlet?action=showBookingEmp" class="nav-item nav-link">Danh sách booking</a>

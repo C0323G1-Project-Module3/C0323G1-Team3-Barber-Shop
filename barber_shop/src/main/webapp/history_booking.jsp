@@ -28,7 +28,7 @@
 <body>
 <nav class="navbar navbar-expand-xxl navbar-dark" style="background-color: #1d2434" aria-label="Seventh navbar example">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
+        <a class="navbar-brand" href="/home/home.jsp"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl"
                 aria-controls="navbarsExampleXxl" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,13 +37,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleXxl">
             <ul class="navbar-nav me-auto mb-2 mb-xl-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Log Out</a>
+                    <a class="nav-link" href="/home/home.jsp">Thoát Lịch Sử</a>
                 </li>
             </ul>
         </div>
@@ -56,9 +50,6 @@
             <table id="displayBooking" class="table caption-top table-light table-hover table-striped text-center"
                    style="width:100%">
                 <caption><h1 class="display-4 float-start" style="color: #cfb981">Lịch sử đặt lịch</h1>
-                    <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">Thêm
-                    </button>
                 </caption>
                 <thead>
                 <tr>
@@ -74,7 +65,25 @@
                         <td>${customer.getCustomerName()}</td>
                         <td>${c.getBookingDate()}</td>
                         <td>${c.getTotalPrice()}</td>
-                        <td><a href="/BookingServlet?action=deleteBooking&id=${c.getBookingId()}">xoá</a></td>
+                        <td><input type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete" value="xoá"></td>
+                        <div class="modal" tabindex="-1" id="delete">
+                            <div class="modal-dialog" >
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Xoá đặt dịch vụ</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Bạn có chắc muốn xoá booking ko ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ xoá</button>
+                                        <a class="btn btn-primary"  href="/BookingServlet?action=deleteBooking&id=${c.getBookingId()}"
+                                           role="submit">Xoá </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </tr>
                 </c:forEach>
                 </tbody>
