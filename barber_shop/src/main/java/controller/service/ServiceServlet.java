@@ -28,9 +28,16 @@ public class ServiceServlet extends HttpServlet {
                 showEditForm(request, response);
                 break;
             default:
-//                listService(request, response);
+                listService(request, response);
                 break;
         }
+    }
+
+    private void listService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Service> serviceList = serviceService.displayAll();
+        request.setAttribute("serviceList",serviceList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("service/service_list.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

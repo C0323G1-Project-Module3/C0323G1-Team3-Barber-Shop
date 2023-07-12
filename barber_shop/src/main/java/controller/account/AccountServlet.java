@@ -44,7 +44,7 @@ public class AccountServlet extends HttpServlet {
                 logout(request, response);
                 break;
             default:
-                response.sendRedirect("home/home.jsp");
+                response.sendRedirect("home.jsp");
                 break;
         }
     }

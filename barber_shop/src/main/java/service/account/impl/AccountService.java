@@ -31,13 +31,14 @@ public class AccountService implements IAccountService {
         accountRepository.deleteAccount(accountId);
     }
 
-    @Override
-    public void editPassword(int accountId, String password) {
-        accountRepository.editPassword(accountId, password);
-    }
 
     @Override
     public Account selectAccountById(int accountId) {
         return accountRepository.selectAccountById(accountId);
+    }
+
+    @Override
+    public void resetPassword(int accountId) {
+
     }
 }
