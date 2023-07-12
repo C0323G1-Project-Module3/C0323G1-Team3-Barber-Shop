@@ -115,7 +115,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <span class="text-danger">Chọn xác nhận để hồi phục lại mật khẩu</span>
+                <span class="text-danger"></span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
@@ -133,7 +133,7 @@
             <div class="modal-content">
 
                 <div class="modal-body">
-                    <p class="text-dark">Đã hồi phục thành công</p>
+                    <p class="text-dark">Đã xóa khách hàng thành công</p>
                 </div>
 
                 <div class="modal-footer">
