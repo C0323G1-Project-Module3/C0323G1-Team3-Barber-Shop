@@ -499,12 +499,8 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
-<<<<<<< HEAD:barber_shop/src/main/webapp/home.jsp
 <!--  login-->
 <script src="home/login_signin.js"></script>
 =======
-<!-- login-->
-<script src="login_signin.js"></script>
->>>>>>> 4e2b7fa (update from service):barber_shop/src/main/webapp/home/home.jsp
 </body>
 </html>

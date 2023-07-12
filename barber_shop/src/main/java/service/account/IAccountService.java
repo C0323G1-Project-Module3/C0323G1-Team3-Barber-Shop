@@ -10,6 +10,7 @@ public interface IAccountService {
     List<AccountDTO> getAllAccount();
     void createAccount(Account account);
     void deleteAccount(int accountId);
+    void resetPassword (int accountId);
     Account selectAccountById(int accountId);
 
     void resetPassword(int accountId);

@@ -1,21 +1,9 @@
 package controller.account;
 
 import model.Account;
-import model.Customer;
-import model.Employee;
-import model.Service;
 import model.dto_model.AccountDTO;
-import model.dto_model.BookingDTO;
 import service.account.IAccountService;
 import service.account.impl.AccountService;
-import service.customer.ICustomerService;
-import service.customer.impl.CustomerService;
-import service.employee.IEmployeeService;
-import service.employee.impl.EmployeeService;
-import service.booking.IBookingService;
-import service.booking.impl.BookingService;
-import service.service.IServiceService;
-import service.service.impl.ServiceService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -37,8 +25,8 @@ public class AccountServlet extends HttpServlet {
             case "showAccount":
                 getAllAccount(request, response);
                 break;
-            case "ShowFormLogin":
-                ShowFormLogin(request, response);
+            case "showFormLogin":
+                showFormLogin(request, response);
                 break;
             case "logout":
                 logout(request, response);
@@ -71,7 +59,7 @@ public class AccountServlet extends HttpServlet {
         }
     }
 
-    private void ShowFormLogin(HttpServletRequest request, HttpServletResponse response) {
+    private void showFormLogin(HttpServletRequest request, HttpServletResponse response) {
         try {
             response.sendRedirect("login.jsp");
         } catch (IOException e) {
@@ -113,7 +101,7 @@ public class AccountServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("account", account);
         if (account != null) {
-                response.sendRedirect("/AccountServlet");
+            response.sendRedirect("/AccountServlet");
         } else {
             request.setAttribute("msg", "Sai tài khoản hoặc mật khẩu");
             RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");

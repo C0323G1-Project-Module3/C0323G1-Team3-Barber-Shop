@@ -31,6 +31,9 @@ public class AccountService implements IAccountService {
         accountRepository.deleteAccount(accountId);
     }
 
+    public void resetPassword(int accountId) {
+        accountRepository.resetPassword(accountId);
+    }
 
     @Override
     public Account selectAccountById(int accountId) {
