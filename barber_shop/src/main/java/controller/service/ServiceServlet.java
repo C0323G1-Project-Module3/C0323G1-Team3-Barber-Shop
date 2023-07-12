@@ -29,6 +29,7 @@ public class ServiceServlet extends HttpServlet {
                 break;
             default:
                 listService(request, response);
+                break;
         }
     }
 
@@ -70,8 +71,7 @@ public class ServiceServlet extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         Service editService = new Service(id, name, price);
         this.serviceService.updateService(editService);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("service/edit.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect("/ServiceServlet");
     }
 
     private void addService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -79,7 +79,6 @@ public class ServiceServlet extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         Service service = new Service(name, price);
         this.serviceService.addService(service);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("service/add.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect("/ServiceServlet");
     }
 }

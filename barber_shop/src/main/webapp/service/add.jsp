@@ -5,6 +5,7 @@
   Time: 9:33 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--Bootstrap--%>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -44,10 +45,11 @@
         }
 
         form {
-            background-color: #d5b981;
+            background-color: white;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             padding: 20px;
+            border: 2px solid #1d2434;
         }
 
         input[type=text], [type=number] {
@@ -57,7 +59,7 @@
             box-sizing: border-box;
             border: 2px solid #1d2434;
             border-radius: 4px;
-            background-color: #d5b981;
+            background-color: white;w
             color: black;
         }
 

@@ -6,6 +6,7 @@
   Time: 11:08 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -40,7 +41,10 @@
           <tr>
             <td>${loop.count}</td>
             <td><c:out value="${service.serviceName}"/></td>
-            <td><c:out value="${service.price}"/></td>
+            <td>
+            <fmt:setLocale value="vi_VN"/>
+            <fmt:formatNumber value="${service.price}" type="currency"/>
+            </td>
             <td><a class="btn btn-primary" href="/ServiceServlet?action=edit&id=${service.getServiceId()}"
                    role="button">Cập nhật</a></td>
           </tr>
