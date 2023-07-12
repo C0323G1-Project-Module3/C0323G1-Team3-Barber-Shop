@@ -40,9 +40,6 @@ public class AccountServlet extends HttpServlet {
             case "ShowFormLogin":
                 ShowFormLogin(request, response);
                 break;
-            case "resetPassword":
-                resetPassword(request, response);
-                break;
             case "logout":
                 logout(request, response);
                 break;
@@ -53,11 +50,10 @@ public class AccountServlet extends HttpServlet {
     }
 
     private void resetPassword(HttpServletRequest request, HttpServletResponse response) {
-        int accountId = Integer.parseInt(request.getParameter("id"));;
+        int accountId = Integer.parseInt(request.getParameter("accountId"));;
         accountService.resetPassword(accountId);
         request.setAttribute("msg","Đã hồi phục thành công");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/AccountServlet?action=showAccount");
-
         try {
             dispatcher.forward(request,response);
         } catch (ServletException | IOException e) {
@@ -93,12 +89,17 @@ public class AccountServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-
         if (action == null)
             action = "";
         switch (action) {
+            case "showAccount":
+                getAllAccount(request, response);
+                break;
             case "login":
                 login(request, response);
+                break;
+            case "resetPassword":
+                resetPassword(request, response);
                 break;
             default:
                 response.sendRedirect("home/home.jsp");
@@ -112,11 +113,7 @@ public class AccountServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("account", account);
         if (account != null) {
-            if (account.getRoleId() == 3) {
-                response.sendRedirect("/AccountServlet?action=admin");
-            } else {
-                response.sendRedirect("home/home.jsp");
-            }
+                response.sendRedirect("/AccountServlet");
         } else {
             request.setAttribute("msg", "Sai tài khoản hoặc mật khẩu");
             RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
