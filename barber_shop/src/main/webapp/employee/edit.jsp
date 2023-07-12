@@ -39,33 +39,33 @@
 
     <!-- Name input -->
     <div class="form-outline mb-4 ">
-        <input type="text" id="name" class="form-control w-50" value="${employee.getEmployeeName()}" name="name"/>
         <label class="form-label" for="name">Họ và tên</label>
+        <input type="text" id="name" class="form-control w-50" value="${employee.getEmployeeName()}" name="name"/>
     </div>
 
     <!-- Birthday input -->
     <div class="form-outline mb-4">
+        <label class="form-label" for="phoneNumber">Số điện thoại</label>
         <input type="text" id="phoneNumber" class="form-control w-50" value="${employee.getPhoneNumber()}"
                name="phoneNumber"/>
-        <label class="form-label" for="phoneNumber">Số điện thoại</label>
     </div>
 
     <!-- Salary input -->
     <div class="form-outline mb-4">
-        <fmt:setLocale value="vi_VN"/>
-        <fmt:formatNumber value="${employee.getSalary()}" type="currency"/>
-        <input type="number" id="salary" class="form-control w-50" value="${employee.getSalary()}" name="salary">
         <label class="form-label" for="salary">Lương</label>
+        <input type="number" id="salary" class="form-control w-50" value="${employee.getSalary()}" name="salary">
     </div>
 
     <!-- Phone Number input -->
     <div class="form-outline mb-4">
-        <input type="text" id="birthDay" class="form-control w-50" value="${employee.getBirthDay()}" name="birthDay"/>
         <label class="form-label" for="birthDay">Ngày sinh</label>
+        <input type="text" id="birthDay" class="form-control w-50" value="${employee.getBirthDay()}" name="birthDay"/>
     </div>
 
     <!-- Gender input -->
     <div class="form-outline mb-4">
+        <label class="form-label" for="gender">Giới tính</label>
+        <br>
         <select name="gender" id="gender">
             <c:if test="${employee.isGender()}">
                 <option value="true">Nam</option>
@@ -76,21 +76,20 @@
                 <option value="true">Nam</option>
             </c:if>
         </select>
-        <br>
-        <label class="form-label" for="gender">Giới tính</label>
+
     </div>
 
 
     <!-- ID Card input -->
     <div class="form-outline mb-4">
-        <input type="text" id="idCard" class="form-control w-50" value="${employee.getIdCard()}" name="idCard"/>
         <label class="form-label" for="idCard">Số CMND/CCCD</label>
+        <input type="text" id="idCard" class="form-control w-50" value="${employee.getIdCard()}" name="idCard"/>
     </div>
 
     <!-- Address input -->
     <div class="form-outline mb-4">
-        <input type="text" id="address" class="form-control w-50" value="${employee.getAddress()}" name="address"/>
         <label class="form-label" for="address">Địa chỉ</label>
+        <input type="text" id="address" class="form-control w-50" value="${employee.getAddress()}" name="address"/>
     </div>
 
     <!-- Submit button -->

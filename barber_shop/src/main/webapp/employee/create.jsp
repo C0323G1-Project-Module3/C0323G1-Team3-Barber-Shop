@@ -38,59 +38,59 @@
 
         <!-- Name input -->
         <div class="form-outline mb-4 ">
-            <input type="text" id="name" class="form-control w-50" name="employeeName"/>
             <label class="form-label" for="name">Họ và tên</label>
+            <input type="text" id="name" class="form-control w-50" name="employeeName"/>
         </div>
 
         <!-- Birthday input -->
         <div class="form-outline mb-4">
-            <input type="text" id="birthDay" class="form-control w-50" name="birthDay"/>
             <label class="form-label" for="birthDay">Ngày sinh</label>
+            <input type="text" id="birthDay" class="form-control w-50" name="birthDay"/>
         </div>
 
         <!-- Salary input -->
         <div class="form-outline mb-4">
-            <input type="number" id="salary" class="form-control w-50" name="salary"/>
             <label class="form-label" for="salary">Lương</label>
+            <input type="number" id="salary" class="form-control w-50" name="salary"/>
         </div>
 
         <!-- Phone Number input -->
         <div class="form-outline mb-4">
-            <input type="text" id="phoneNumber" class="form-control w-50" name="phoneNumber"/>
             <label class="form-label" for="phoneNumber">Số điện thoại</label>
+            <input type="text" id="phoneNumber" class="form-control w-50" name="phoneNumber"/>
         </div>
 
         <!-- Gender input -->
         <div class="form-outline mb-4">
+            <label class="form-label" for="gender">Giới tính</label>
+            <br>
             <select name="gender" id="gender">
                     <option value="true">Nam</option>
                     <option value="false">Nữ</option>
             </select>
-            <br>
-            <label class="form-label" for="gender">Giới tính</label>
         </div>
 
         <!-- ID Card input -->
         <div class="form-outline mb-4">
-            <input type="text" id="idCard" class="form-control w-50" name="idCard"/>
             <label class="form-label" for="idCard">Số CMND/CCCD</label>
+            <input type="text" id="idCard" class="form-control w-50" name="idCard"/>
         </div>
 
         <!-- Address input -->
         <div class="form-outline mb-4">
-            <input type="text" id="address" class="form-control w-50" name="address"/>
             <label class="form-label" for="address">Địa chỉ</label>
+            <input type="text" id="address" class="form-control w-50" name="address"/>
         </div>
 
         <!-- Username input -->
         <div class="form-outline mb-4">
-            <input type="text" id="username" class="form-control w-50" name="username"/>
             <label class="form-label" for="username">Tên đăng nhập</label>
+            <input type="text" id="username" class="form-control w-50" name="username"/>
         </div>
 
         <div class="form-outline mb-4">
-            <input type="password" id="password" class="form-control w-50" name="password"/>
             <label class="form-label" for="password">Mật khẩu đăng nhập</label>
+            <input type="password" id="password" class="form-control w-50" name="password"/>
         </div>
 
         <!-- Submit button -->
