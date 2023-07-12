@@ -121,6 +121,10 @@
                     <th>Cập nhật</th>
                     <th>Xóa</th>
                 </tr>
+                </thead>
+                <tbody>
+
+
                 <c:forEach var="employee" items="${employeeList}" varStatus="loop">
                 <tr>
                     <td>${loop.count}</td>
@@ -145,6 +149,7 @@
                            role="button">Xóa</a></td>
                 </tr>
                 </c:forEach>
+                </tbody>
             </table>
         </div>
     </div>

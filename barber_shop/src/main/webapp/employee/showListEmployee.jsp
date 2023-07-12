@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Danh sách Nhân viên</title>
-    <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap520/css/bootstrap.css">
 </head>
 <body>
 <%@ include file="/header.jsp" %>
@@ -36,6 +36,11 @@
                     <th>Ngày sinh</th>
                     <th>Lương</th>
                     <th>Số điện thoại</th>
+                    <th>Giới tính</th>
+                    <th>Số CMND</th>
+                    <th>Địa chỉ</th>
+                    <th>Cập nhật</th>
+                    <th>Xóa</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -46,6 +51,22 @@
                         <td><c:out value="${employee.getBirthDay()}"/></td>
                         <td><c:out value="${employee.getSalary()}"/></td>
                         <td><c:out value="${employee.getPhoneNumber()}"/></td>
+                        <td>
+                            <c:if test="${employee.isGender()==true}">
+                                Nam
+                            </c:if>
+                            <c:if test="${employee.isGender()==false}">
+                                Nữ
+                            </c:if>
+                        </td>
+                        <td><c:out value="${employee.getIdCard()}"/></td>
+                        <td><c:out value="${employee.getAddress()}"/></td>
+                        <td><a class="btn btn-primary"
+                               href="/EmployeeServlet?action=edit&id=${employee.getEmployeeId()}"
+                        >Cập nhật</a></td>
+                        <td><a class="btn btn-danger"
+                               href="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}"
+                        >Xóa</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -56,9 +77,9 @@
 
 
 <%@ include file="/footer.jsp" %>
-<script src="jquery/jquery-3.5.1.min.js"></script>
-<script src="datatables/js/jquery.dataTables.min.js"></script>
-<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
+<script src="../jquery/jquery-3.5.1.min.js"></script>
+<script src="../datatables/js/jquery.dataTables.min.js"></script>
+<script src="../datatables/js/dataTables.bootstrap5.min.js"></script>
 <script>
     // function changeUrl() {
     //     let stateObj = { foo: "bar" };

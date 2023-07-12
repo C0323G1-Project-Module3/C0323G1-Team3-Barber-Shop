@@ -62,7 +62,6 @@
         <div class="form-outline mb-4 w-50">
             <label class="form-label" for="form2Example2">Mật Khẩu</label>
             <input type="password" name="password" id="form2Example2" class="form-control"/>
-
         </div>
         <c:if test="${msg != null}">
             <span class="text-danger">${msg}</span>

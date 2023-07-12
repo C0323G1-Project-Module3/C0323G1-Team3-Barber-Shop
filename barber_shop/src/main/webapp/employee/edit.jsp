@@ -65,7 +65,7 @@
             <div class="form-outline mb-4 col-lg-6">
                 <label class="form-label" for="gender">Giới tính</label>
                 <br>
-                <select class="form-select w-50" name="gender" id="gender">
+                <select class="form-select w-75" name="gender" id="gender">
                     <c:if test="${employee.isGender()}">
                         <option value="true">Nam</option>
                         <option value="false">Nữ</option>
