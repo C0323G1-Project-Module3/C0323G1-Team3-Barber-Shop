@@ -12,26 +12,9 @@
     <title>Thêm mới Nhân viên</title>
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
     <style>
-        /*.nav-item a {*/
-        /*    color: #d5b981;*/
-        /*}*/
-
-        /*body {*/
-        /*    background-image: url("/background.jpg");*/
-        /*    background-size: cover;*/
-        /*    background-repeat: no-repeat;*/
-        /*    background-position: center center;*/
-        /*}*/
         body .form-label {
             color: #0a0a0a;
         }
-        /*form {*/
-        /*    background-color: white;*/
-        /*    border-radius: 10px;*/
-        /*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
-        /*    padding: 20px;*/
-        /*}*/
-
     </style>
 </head>
 <body>

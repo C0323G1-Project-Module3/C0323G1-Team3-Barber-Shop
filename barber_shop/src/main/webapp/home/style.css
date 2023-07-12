@@ -81,12 +81,19 @@ a:focus {
 }
 
 .navbar-brand img{
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border: 2px solid #fff;
     padding: 5px;
     background-color: #1d2434;
 }
+.dropdown-menu{
+    background-color: #1d2434;
+}
+.dropdown-item{
+    color: #d5b981;
+}
+
 
 /*******************************/
 /********** Hero CSS ***********/

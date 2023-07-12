@@ -92,6 +92,17 @@
             background-color: #1d2434;
         }
 
+        .dropdown-menu {
+            background-color: #1d2434;
+        }
+
+        .dropdown-item {
+            color: #d5b981;
+        }
+
+        #username {
+            color: #d5b981;
+        }
     </style>
 
 
@@ -100,7 +111,7 @@
 <body>
 
 <!-- Nav Bar Start -->
-<div class="navbar navbar-expand-lg  navbar-dark" style="top: 0">
+<div class="navbar navbar-expand-lg navbar-dark" style="top: 0">
     <div class="container-fluid">
         <a href="index.html" class="navbar-brand text-white">Barber <span>X</span></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -124,13 +135,21 @@
                     <a href="BookingServlet?action=showBookingEmp" class="nav-item nav-link">Danh sách booking</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId==3}">
-                    <a href="AccountServlet" class="nav-item nav-link">Account</a>
-                    <a href="#" class="nav-item nav-link">Service</a>
-                    <a href="#" class="nav-item nav-link">Employee</a>
-                    <a href="CustomerServlet" class="nav-item nav-link">Customer</a>
+                    <div class="nav-item dropdown rounded-select">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Quản lý</a>
+                        <div class="dropdown-menu">
+                            <a href="/ServiceServlet" class="dropdown-item">Dịch vụ</a>
+                            <a href="/CustomerServlet" class="dropdown-item">Khách hàng</a>
+                            <a href="/EmployeeServlet" class="dropdown-item">Nhân viên</a>
+                            <a href="/AccountServlet" class="dropdown-item">Tài khoản</a>
+                        </div>
+                    </div>
                 </c:if>
                 <c:if test="${sessionScope.account != null}">
                     <a href="/AccountServlet?action=logout" class="nav-item nav-link">Đăng Xuất</a>
+                </c:if>
+                <c:if test="${sessionScope.account != null}">
+                    <span id="username" class="nav-item nav-link">Xin chào, ${sessionScope.account.username}</span>
                 </c:if>
             </div>
         </div>
@@ -480,7 +499,12 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
+<<<<<<< HEAD:barber_shop/src/main/webapp/home.jsp
 <!--  login-->
 <script src="home/login_signin.js"></script>
+=======
+<!-- login-->
+<script src="login_signin.js"></script>
+>>>>>>> 4e2b7fa (update from service):barber_shop/src/main/webapp/home/home.jsp
 </body>
 </html>
