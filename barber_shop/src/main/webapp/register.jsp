@@ -61,11 +61,11 @@
     <div>
     <label for="username">Tên tài khoản:</label><br/>
     <input type="text" id="username" name="username" required><br/>
-    <label for="password">Mật khẩu :</label><br/>
+    <label for="password">Mật khẩu:</label><br/>
     <input type="password" id="password" name="password" required><br/>
     <label for="name">Tên:</label><br/>
     <input type="text" id="name" name="name" required><br/>
-    <label for="gender">Chọn giới tính :</label><br/>
+    <label for="gender">Chọn giới tính:</label><br/>
     <select id="gender" name="gender" required>
         <option value="true">Nam</option>
         <option value="false">Nữ</option>
@@ -74,7 +74,7 @@
     <input type="date" id="birthday" name="birthday" required><br/>
     <label for="phone">Điện thoại:</label><br/>
     <input type="text" id="phone" name="phone" required><br/>
-    <label for="address">Địa chỉ :</label><br/>
+    <label for="address">Địa chỉ</label><br/>
     <input type="text" id="address" name="address" required><br/><br/>
     <button type="submit" class="btn btn-outline-warning">Đăng ký</button>
     </div>
@@ -137,6 +137,5 @@
 <script src="jquery/jquery-3.5.1.min.js"></script>
 <script src="datatables/js/jquery.dataTables.min.js"></script>
 <script src="datatables/js/dataTables.bootstrap5.min.js"></script>
-
 </body>
 </html>

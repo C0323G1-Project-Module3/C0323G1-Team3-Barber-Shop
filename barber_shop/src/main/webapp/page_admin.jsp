@@ -104,7 +104,7 @@
                 </h1>
                     <a href="/EmployeeServlet?action=create">
                         <button type="button" class="btn btn-primary mx-3 float-end mt-5" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal1">Thêm mới nhân viên
+                                data-bs-target="#exampleModal1">Thêm mới Nhân viên
                         </button>
                     </a>
  </caption>
@@ -161,13 +161,13 @@
 
 
                     <th>STT</th>
-                    <th>Họ và tên</th>
-                    <th>Ngày sinh</th>
-                    <th>Số điện thoại</th>
-                    <th>Giới tính</th>
-                    <th>Địa chỉ</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Họ và Tên</th>
+                    <th>Ngày Sinh</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Giới Tính</th>
+                    <th>Địa Chỉ</th>
+                    <th>EDIT</th>
+                    <th>DELETE</th>
 
                 </tr>
                 </thead>
