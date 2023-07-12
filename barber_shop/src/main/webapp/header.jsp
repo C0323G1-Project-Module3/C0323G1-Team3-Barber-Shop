@@ -33,7 +33,7 @@
         <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarButtonsExample">
             <!-- Left links -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 float-end">
                 <li class="nav-item display-5">
                     <a class="nav-link" href="#" style="color: #d5b981">BARBER X</a>
                 </li>

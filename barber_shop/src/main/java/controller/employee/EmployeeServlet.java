@@ -36,9 +36,24 @@ public class EmployeeServlet extends HttpServlet {
                 showFormDelete(request, response);
                 break;
             default:
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/AccountServlet?action=admin");
-                requestDispatcher.forward(request,response);
+                showList(request,response);
                 break;
+        }
+
+    }
+
+    private void showList(HttpServletRequest request, HttpServletResponse response) {
+        List<Employee> employeeList = employeeService.display();
+        String msg = request.getParameter("msg");
+        request.setAttribute("employeeList", employeeList);
+        request.setAttribute("msg", msg);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/employee/showListEmployee.jsp");
+        try {
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }

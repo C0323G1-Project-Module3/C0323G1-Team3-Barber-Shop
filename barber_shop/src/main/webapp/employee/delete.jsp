@@ -13,90 +13,91 @@
     <title>Xóa Nhân viên</title>
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
     <style>
-        .nav-item a {
-            color: #d5b981;
+        body .form-label {
+            color: #0a0a0a;
         }
-
-        body {
-            background-image: url("/background.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-        }
-
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-xxl navbar-dark" style="background-color: #1d2434" aria-label="Seventh navbar example">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/AccountServlet"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
-    </div>
-</nav>
+<%@ include file="/header.jsp" %>
 
-<div class="container ">
+<div class="container-fluid" style="margin-top: 80px; margin-bottom: 30px">
     <form id="form" class="form text-light" method="post"
           action="/EmployeeServlet?action=delete&id=${employee.getEmployeeId()}">
         <p class="text-center display-3" style="color: #d5b981">Thông tin nhân viên cần xóa</p>
 
-        <!-- Name input -->
-        <div class="form-outline mb-4 ">
-            <label type="text" id="name" class="form-control w-50" name="name">${employee.getEmployeeName()}</label>
-            <label class="form-label" for="name">Họ và tên</label>
-        </div>
+        <div class="row">
+            <!-- Name input -->
+            <div class="form-outline mb-4 col-lg-6">
+                <label class="form-label" for="name">Họ và tên</label>
+                <label type="text" id="name" class="form-control w-50" name="name">${employee.getEmployeeName()}</label>
+            </div>
 
-        <!-- Birthday input -->
-        <div class="form-outline mb-4">
-            <label type="text" id="birthDay" class="form-control w-50" name="birthDay">${employee.getBirthDay()}</label>
-            <label class="form-label" for="birthDay">Ngày sinh</label>
-        </div>
-
-        <!-- Salary input -->
-        <div class="form-outline mb-4">
-
-            <label type="number" id="salary" class="form-control w-50" name="salary"><fmt:setLocale value="vi_VN"/>
-                <fmt:formatNumber value="${employee.getSalary()}" type="currency"/></label>
-            <label class="form-label" for="salary">Lương</label>
-        </div>
-
-        <!-- Phone Number input -->
-        <div class="form-outline mb-4">
-            <label type="text" id="phoneNumber" class="form-control w-50"
-                   name="phoneNumber">${employee.getPhoneNumber()}</label>
-            <label class="form-label" for="phoneNumber">Số điện thoại</label>
-        </div>
-
-        <!-- Gender input -->
-        <div class="form-outline mb-4">
-            <label type="text" id="gender" class="form-control w-50" name="gender">
-                <c:if test="${employee.isGender()==true}">
-                    Nam
-                </c:if>
-                <c:if test="${employee.isGender()==false}">
-                    Nữ
-                </c:if>
-            </label>
-            <label class="form-label" for="gender">Giới tính</label>
-
+            <!-- Birthday input -->
+            <div class="form-outline mb-4 col-lg-6">
+                <label class="form-label" for="birthDay">Ngày sinh</label>
+                <label type="text" id="birthDay" class="form-control w-50"
+                       name="birthDay">${employee.getBirthDay()}</label>
+            </div>
         </div>
 
 
-        <!-- ID Card input -->
-        <div class="form-outline mb-4">
-            <label type="text" id="idCard" class="form-control w-50" name="idCard">${employee.getIdCard()}</label>
-            <label class="form-label" for="idCard">Số CMND/CCCD</label>
+        <div class="row">
+            <!-- Salary input -->
+            <div class="form-outline mb-4 col-lg-6">
+                <label class="form-label" for="salary">Lương</label>
+                <label type="number" id="salary" class="form-control w-50" name="salary"><fmt:setLocale value="vi_VN"/>
+                    <fmt:formatNumber value="${employee.getSalary()}" type="currency"/></label>
+            </div>
+
+            <!-- Phone Number input -->
+            <div class="form-outline mb-4 col-lg-6">
+                <label class="form-label" for="phoneNumber">Số điện thoại</label>
+                <label type="text" id="phoneNumber" class="form-control w-50"
+                       name="phoneNumber">${employee.getPhoneNumber()}</label>
+            </div>
         </div>
 
-        <!-- Address input -->
-        <div class="form-outline mb-4">
-            <label type="text" id="address" class="form-control w-50" name="address">${employee.getAddress()}</label>
-            <label class="form-label" for="address">Địa chỉ</label>
+        <div class="row">
+            <!-- Gender input -->
+            <div class="form-outline mb-4 col-lg-6">
+                <label class="form-label" for="gender">Giới tính</label>
+                <label type="form-select" id="gender" class="form-control w-50" name="gender">
+                    <c:if test="${employee.isGender()==true}">
+                        Nam
+                    </c:if>
+                    <c:if test="${employee.isGender()==false}">
+                        Nữ
+                    </c:if>
+                </label>
+            </div>
+
+
+            <!-- ID Card input -->
+            <div class="form-outline mb-4 col-lg-6">
+                <label class="form-label" for="idCard">Số CMND/CCCD</label>
+                <label type="text" id="idCard" class="form-control w-50" name="idCard">${employee.getIdCard()}</label>
+            </div>
         </div>
 
-        <!-- Submit button -->
-        <button type="button" onclick="showConfirm()" class="btn btn-dark btn-block mb-3">Xóa</button>
-        <a href="/EmployeeServlet">
-            <button type="button" class="btn btn-dark btn-block mb-3">Hủy</button>
-        </a>
+        <div class="row">
+            <!-- Address input -->
+            <div class="form-outline mb-4 col-lg-6">
+                <label class="form-label" for="address">Địa chỉ</label>
+                <label type="text" id="address" class="form-control w-50"
+                       name="address">${employee.getAddress()}</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-outline mb-4 col-lg-6">
+                <!-- Submit button -->
+                <button type="button" onclick="showConfirm()" class="btn btn-primary btn-block mb-3">Xóa</button>
+                <a href="/EmployeeServlet">
+                    <button type="button" class="btn btn-dark btn-danger mb-3">Hủy</button>
+                </a>
+            </div>
+        </div>
     </form>
 </div>
 
