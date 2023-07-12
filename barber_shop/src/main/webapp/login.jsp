@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -14,13 +13,15 @@
     <title>Login</title>
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
     <style>
-        nav{
+        nav {
             width: 100%;
             z-index: 1;
         }
+
         body {
             margin: 0
         }
+
         .page-content {
             width: 100%;
             margin: 0 auto;
@@ -48,13 +49,13 @@
             -ms-border-radius: 8px;
             -moz-border-radius: 8px;
             -webkit-border-radius: 8px;
-            box-shadow: 0 8px 20px 0 rgba(0,0,0,.15);
-            -o-box-shadow: 0 8px 20px 0 rgba(0,0,0,.15);
-            -ms-box-shadow: 0 8px 20px 0 rgba(0,0,0,.15);
-            -moz-box-shadow: 0 8px 20px 0 rgba(0,0,0,.15);
-            -webkit-box-shadow: 0 8px 20px 0 rgba(0,0,0,.15);
+            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+            -o-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+            -ms-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+            -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+            -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
             margin: 120px 0;
-            font-family: source sans pro,sans-serif;
+            font-family: source sans pro, sans-serif;
             color: #425d54;
             position: relative;
             display: flex;
@@ -68,6 +69,7 @@
             width: 100%;
             background-size: 100% 100%;
         }
+
         .form-v8-content .form-right {
             padding: 30px 0;
             position: relative;
@@ -101,13 +103,13 @@
             -ms-outline: none;
             -moz-outline: none;
             -webkit-outline: none;
-            font-family: source sans pro,sans-serif;
+            font-family: source sans pro, sans-serif;
             font-size: 24px;
             font-weight: 400;
             color: #425d54;
             padding-bottom: 22px;
             border-bottom: 3px solid;
-            border-bottom-color: rgba(255,255,255,.2);
+            border-bottom-color: rgba(255, 255, 255, .2);
             width: 100%
         }
 
@@ -175,7 +177,7 @@
             padding: 0 10px 15px;
             border: 1px solid transparent;
             border-bottom: 1px solid;
-            border-bottom-color: rgba(255,255,255,.2);
+            border-bottom-color: rgba(255, 255, 255, .2);
             background: 0 0;
             appearance: unset;
             -moz-appearance: unset;
@@ -198,11 +200,11 @@
         }
 
         .form-v8-content .form-detail .form-row .input-text:focus {
-            border-bottom: 1px solid  #425d54;
+            border-bottom: 1px solid #425d54;
             background: 0 0;
         }
 
-        .form-v8-content .form-detail .form-row .input-text:focus+.label,.form-v8-content .form-detail .form-row .input-text:valid+.label {
+        .form-v8-content .form-detail .form-row .input-text:focus + .label, .form-v8-content .form-detail .form-row .input-text:valid + .label {
             transform: translateY(-26px) scale(1);
             -moz-transform: translateY(-26px) scale(1);
             -webkit-transform: translateY(-26px) scale(1);
@@ -210,7 +212,7 @@
             -ms-transform: translateY(-26px) scale(1)
         }
 
-        .form-v8-content .form-detail .form-row .input-text:focus+.border,.form-v8-content .form-detail .form-row .input-text:valid+.border {
+        .form-v8-content .form-detail .form-row .input-text:focus + .border, .form-v8-content .form-detail .form-row .input-text:valid + .border {
             transform: scaleX(1);
             -moz-transform: scaleX(1);
             -webkit-transform: scaleX(1);
@@ -229,7 +231,7 @@
             border: none;
             margin: 5px 0 50px 0;
             cursor: pointer;
-            font-family: source sans pro,sans-serif;
+            font-family: source sans pro, sans-serif;
             color: #333;
             font-weight: 700;
             font-size: 18px
@@ -245,7 +247,7 @@
 
         @media screen and (max-width: 991px) {
             .form-v8-content {
-                margin:180px 20px;
+                margin: 180px 20px;
                 flex-direction: column;
                 -o-flex-direction: column;
                 -ms-flex-direction: column;
@@ -290,10 +292,12 @@
     </style>
 </head>
 <body>
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light position-fixed" style="background-color: #1d2434">
     <!-- Container wrapper -->
     <div class="container">
         <!-- Navbar brand -->
+
         <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarButtonsExample">
             <!-- Left links -->
@@ -303,9 +307,8 @@
                 </li>
             </ul>
         </div>
-        <!-- Collapsible wrapper -->
+        <!-- Container wrapper -->
     </div>
-    <!-- Container wrapper -->
 </nav>
 <div class="page-content">
     <div class="form-v8-content">
@@ -314,28 +317,32 @@
         <div class="form-right">
             <div class="tab">
                 <div class="tab-inner">
-                    <button class="tablinks active" onclick="openCity(event,'sign-in')" id="defaultOpen">
-                        Đăng nhập
-                    </button>
-                </div>
-                <div class="tab-inner">
-                    <button class="tablinks active" onclick="openCity(event,'sign-up')" >
+                    <button class="tablinks active" onclick="openCity(event,'sign-up')"
+                            >
                         Đăng ký
                     </button>
                 </div>
+                <div class="tab-inner">
+                    <button class="tablinks active" onclick="openCity(event,'sign-in')"
+                            id="defaultOpen">
+                        Đăng nhập
+                    </button>
+                </div>
             </div>
-            <form class="form-detail" action="CustomerServlet/action=create" method="post">
+            <form class="form-detail" action="CustomerServlet?action=create" method="post">
                 <div class="tabcontent" id="sign-up" style="display:block;">
                     <div class="form-row">
                         <label class="form-row-inner">
-                            <input type="text" name="username" id="username" class="input-text" required>
+                            <input type="text" name="username" id="username" class="input-text"
+                                   required>
                             <span class="label">Tên tài khoản:</span>
                             <span class="border"></span>
                         </label>
                     </div>
                     <div class="form-row">
                         <label class="form-row-inner">
-                            <input type="password" name="password" id="password" class="input-text" required>
+                            <input type="text" name="password" id="password" class="input-text"
+                                   required>
                             <span class="label">Mật khẩu :</span>
                             <span class="border"></span>
                         </label>
@@ -349,7 +356,8 @@
                     </div>
                     <div class="form-row">
                         <label class="form-row-inner">
-                            <input type="text" name="birthday" id="birthday" class="input-text" required>
+                            <input type="text" name="birthday" id="birthday" class="input-text"
+                                   required>
                             <span class="label">Chọn ngày sinh :</span>
                             <span class="border"></span>
                         </label>
@@ -373,18 +381,20 @@
                     </div>
                 </div>
             </form>
-            <form class="form-detail" action="AccountServlet?action=login" method="post">
+            <form class="form-detail" action="/AccountServlet?action=login" method="post">
                 <div class="tabcontent" id="sign-in" style="display:none;">
                     <div class="form-row">
                         <label class="form-row-inner">
-                            <input type="text" name="username" id="username2" class="input-text" required>
+                            <input type="text" name="username" id="username2" class="input-text"
+                                   required>
                             <span class="label">Tên tài khoản:</span>
                             <span class="border"></span>
                         </label>
                     </div>
                     <div class="form-row">
                         <label class="form-row-inner">
-                            <input type="text" name="password" id="password2" class="input-text" required>
+                            <input type="text" name="password" id="password2" class="input-text"
+                                   required>
                             <span class="label">Mật khẩu :</span>
                             <span class="border"></span>
                         </label>
@@ -397,30 +407,30 @@
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
-<div class="footer pt-5 position-absolute w-100" style="background-color: #1d2434;color: #d5b981;">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="footer-contact">
-                            <h2>Địa chỉ Barber</h2>
-                            <p><i class="fa fa-map-marker-alt"></i>280 Trần Hưng Đạo, Sơn Trà, Đà Nẵng</p>
-                            <p><i class="fa fa-phone-alt"></i>0123456789</p>
-                            <p><i class="fa fa-envelope"></i>cuongplastic@gmail.com</p>
+    <div class="footer pt-5 position-absolute w-100" style="background-color: #1d2434;color: #d5b981;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="footer-contact">
+                                <h2>Địa chỉ Barber</h2>
+                                <p><i class="fa fa-map-marker-alt"></i>280 Trần Hưng Đạo, Sơn Trà, Đà
+                                    Nẵng</p>
+                                <p><i class="fa fa-phone-alt"></i>0123456789</p>
+                                <p><i class="fa fa-envelope"></i>cuongplastic@gmail.com</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-5">
+                <div class="col-lg-5">
+                </div>
             </div>
         </div>
     </div>
-</div>
 <script src="/bootstrap520/js/bootstrap.bundle.js"></script>
 <script>
     function openCity(evt, cityName) {
