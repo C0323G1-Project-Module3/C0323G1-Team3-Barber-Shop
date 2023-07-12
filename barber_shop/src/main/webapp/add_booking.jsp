@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Thêm mới Nhân viên</title>
@@ -27,7 +28,14 @@
 <body>
 <nav class="navbar navbar-expand-xxl navbar-dark" style="background-color: #1d2434" aria-label="Seventh navbar example">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/home/home.jsp"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
+        <a class="navbar-brand" href="/AccountServlet"><h1 class="display-4" style="color: #d5b981">BARBER X</h1></a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarsExampleXxl">
+        <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/AccountServlet">Thoát tài khoản</a>
+            </li>
+        </ul>
     </div>
 </nav>
 
@@ -66,7 +74,8 @@
                                id="${loop.count}">
                         <label class="form-check-label" for="${loop.count}">
                             <label>${s.getServiceName()}</label>
-                            <label>${s.getPrice()} vnđ</label>
+                            <fmt:setLocale value="vi_VN"/>
+                            <fmt:formatNumber value=" ${s.getPrice()}" type="currency"/>
                             <br>
                         </label>
                     </td>

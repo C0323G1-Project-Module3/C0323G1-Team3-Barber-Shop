@@ -48,6 +48,22 @@ public class BookingServlet extends HttpServlet {
             case "deleteBooking":
                 deleteBooking(request,response);
                 break;
+            default:
+                showList(request,response);
+                break;
+        }
+    }
+
+    private void showList(HttpServletRequest request, HttpServletResponse response) {
+        List<BookingDTO> bookingDTOList = bookingService.displayBooking();
+        request.setAttribute("bookingDTOList",bookingDTOList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/page_admin.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
