@@ -53,12 +53,13 @@ public class AccountServlet extends HttpServlet {
     }
 
     private void resetPassword(HttpServletRequest request, HttpServletResponse response) {
-        int accountId = Integer.parseInt(request.getParameter("id"));
+        int accountId = Integer.parseInt(request.getParameter("id"));;
         accountService.resetPassword(accountId);
-        request.setAttribute("msg", "Đã hồi phục mật khẩu thành công");
+        request.setAttribute("msg","Đã hồi phục thành công");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/AccountServlet?action=showAccount");
+
         try {
-            dispatcher.forward(request, response);
+            dispatcher.forward(request,response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
