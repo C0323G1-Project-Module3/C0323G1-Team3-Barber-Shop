@@ -10,14 +10,14 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap520/css/bootstrap.css">
     <style>
         .nav-item a {
             color: #d5b981;
         }
 
         body {
-            background-image: url("background.jpg");
+            background-image: url("../background.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
@@ -26,7 +26,7 @@
 
         form {
             font-size: 18px;
-            background-image: url("home/login.png");
+            background-image: url("../home/login.png");
             background-size: cover;
             border-radius: 20px;
             color: whitesmoke;

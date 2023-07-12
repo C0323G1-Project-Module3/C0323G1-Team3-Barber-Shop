@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Chỉnh sửa thông tin Khách hàng</title>
-    <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap520/css/bootstrap.css">
     <style>
         .nav-item a {
             color: #d5b981;
@@ -24,7 +24,7 @@
         }
         form {
             font-size: 14px;
-            background-image: url("home/login.png");
+            background-image: url("../home/login.png");
             background-size: cover;
             border-radius: 20px;
             color: whitesmoke;
@@ -135,9 +135,9 @@
 </div>
 
 
-<script src="jquery/jquery-3.5.1.min.js"></script>
-<script src="datatables/js/jquery.dataTables.min.js"></script>
-<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
-<script src="bootstrap520/js/bootstrap.bundle.js"></script>
+<script src="../jquery/jquery-3.5.1.min.js"></script>
+<script src="../datatables/js/jquery.dataTables.min.js"></script>
+<script src="../datatables/js/dataTables.bootstrap5.min.js"></script>
+<script src="../bootstrap520/js/bootstrap.bundle.js"></script>
 </body>
 </html>
