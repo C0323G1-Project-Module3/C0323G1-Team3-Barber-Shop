@@ -381,6 +381,9 @@
             <span class="border"></span>
           </label>
         </div>
+        <c:if test="${msg != null}">
+          <span class="text-danger">${msg}</span>
+        </c:if>
         <div class="form-row-last">
           <input type="submit" name="register" class="register" value="Sign in">
         </div>

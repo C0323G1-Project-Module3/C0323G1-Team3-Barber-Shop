@@ -33,6 +33,14 @@ public class Customer {
         this.customerAccountId = customerAccountId;
     }
 
+    public Customer(String customerName, String birthday, String phone, boolean gender, String address) {
+        this.customerName = customerName;
+        this.birthday = birthday;
+        this.phone = phone;
+        this.gender = gender;
+        this.address = address;
+    }
+
     public int getCustomerId() {
         return customerId;
     }
