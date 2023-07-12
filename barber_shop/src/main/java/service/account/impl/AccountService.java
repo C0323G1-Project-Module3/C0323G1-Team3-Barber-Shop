@@ -6,7 +6,9 @@ import repository.account.IAccountRepository;
 import repository.account.impl.AccountRepository;
 import service.account.IAccountService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AccountService implements IAccountService {
     private static IAccountRepository accountRepository = new AccountRepository();
@@ -22,8 +24,12 @@ public class AccountService implements IAccountService {
     }
 
     @Override
-    public void createAccount(Account account) {
-        accountRepository.createAccount(account);
+    public Map<String, String> createAccount(Account account) {
+        Map<String, String> map = new HashMap<>();
+        if (account.getUsername() != null)
+            accountRepository.createAccount(account);
+
+        return map;
     }
 
     @Override
@@ -32,8 +38,8 @@ public class AccountService implements IAccountService {
     }
 
     @Override
-    public void editPassword(int accountId, String password) {
-        accountRepository.editPassword(accountId, password);
+    public void resetPassword(int accountId) {
+        accountRepository.resetPassword(accountId);
     }
 
     @Override

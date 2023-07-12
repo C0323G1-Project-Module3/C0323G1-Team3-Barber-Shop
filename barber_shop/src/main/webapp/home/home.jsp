@@ -36,7 +36,6 @@
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="login_signin.css">
     <style>
@@ -73,6 +72,24 @@
             outline: none;
             border: none;
         }
+        .navbar{
+            background-color:#1d2434;
+            position: fixed;
+            top:0;
+            z-index: 3;
+            width: 100%;
+        }
+        .nav-link{
+            color: #d5b981;
+        }
+
+        .navbar-brand img{
+            width: 100px;
+            height: 100px;
+            border: 2px solid #fff;
+            padding: 5px;
+            background-color: #1d2434;
+        }
 
     </style>
 
@@ -82,6 +99,7 @@
 <body>
 
 <!-- Nav Bar Start -->
+
 <div class="navbar navbar-expand-lg  navbar-dark" style="top: 0">
     <div class="container-fluid">
         <a href="index.html" class="navbar-brand text-white">Barber <span>X</span></a>
@@ -107,7 +125,10 @@
                     <a href="/BookingServlet?action=showBookingEmp" class="nav-item nav-link">Danh sách booking</a>
                 </c:if>
                 <c:if test="${sessionScope.account.roleId==3}">
-                    <a href="/AccountServlet?action=admin" class="nav-item nav-link">Admin</a>
+                    <a href="/AccountServlet" class="nav-item nav-link">Account</a>
+                    <a href="#" class="nav-item nav-link">Service</a>
+                    <a href="#" class="nav-item nav-link">Employee</a>
+                    <a href="#" class="nav-item nav-link">Customer</a>
                 </c:if>
                 <c:if test="${sessionScope.account != null}">
                     <a href="/AccountServlet?action=logout" class="nav-item nav-link">Đăng Xuất</a>
