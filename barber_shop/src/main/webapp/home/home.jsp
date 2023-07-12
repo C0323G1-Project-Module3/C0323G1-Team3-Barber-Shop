@@ -99,7 +99,8 @@
 <body>
 
 <!-- Nav Bar Start -->
-<div class="navbar navbar-nav" style="top: 0;">
+
+<div class="navbar navbar-expand-lg  navbar-dark" style="top: 0">
     <div class="container-fluid">
         <a href="index.html" class="navbar-brand text-white">Barber <span>X</span></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
