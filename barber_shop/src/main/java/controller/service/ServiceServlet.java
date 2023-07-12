@@ -28,7 +28,7 @@ public class ServiceServlet extends HttpServlet {
                 showEditForm(request, response);
                 break;
             default:
-                listService(request, response);
+//                listService(request, response);
                 break;
         }
     }

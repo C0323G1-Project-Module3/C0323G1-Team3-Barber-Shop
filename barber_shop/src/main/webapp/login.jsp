@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -14,14 +13,17 @@
     <title>Login</title>
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.css">
     <style>
-        nav{
+        nav {
             width: 100%;
             z-index: 1;
         }
+
         body {
             margin: 0
         }
+
         .page-content {
+            z-index: 0;
             width: 100%;
             margin: 0 auto;
             display: flex;
@@ -48,13 +50,13 @@
             -ms-border-radius: 8px;
             -moz-border-radius: 8px;
             -webkit-border-radius: 8px;
-            box-shadow: 0 8px 20px 0 rgba(0,0,0,.15);
-            -o-box-shadow: 0 8px 20px 0 rgba(0,0,0,.15);
-            -ms-box-shadow: 0 8px 20px 0 rgba(0,0,0,.15);
-            -moz-box-shadow: 0 8px 20px 0 rgba(0,0,0,.15);
-            -webkit-box-shadow: 0 8px 20px 0 rgba(0,0,0,.15);
+            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+            -o-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+            -ms-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+            -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
+            -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .15);
             margin: 120px 0;
-            font-family: source sans pro,sans-serif;
+            font-family: source sans pro, sans-serif;
             color: #425d54;
             position: relative;
             display: flex;
@@ -68,7 +70,9 @@
             width: 100%;
             background-size: 100% 100%;
         }
+
         .form-v8-content .form-right {
+            z-index: 0;
             padding: 30px 0;
             position: relative;
             width: 100%;
@@ -78,6 +82,7 @@
         }
 
         .form-v8-content .tab {
+            z-index: 5;
             margin: 5px 0 48px;
             width: 100%;
             display: flex;
@@ -90,10 +95,12 @@
         }
 
         .form-v8-content .tab .tab-inner {
+            z-index: 5;
             width: 100%
         }
 
         .form-v8-content .tab .tablinks {
+            z-index: 0;
             background: 0 0;
             border: none;
             outline: none;
@@ -101,17 +108,18 @@
             -ms-outline: none;
             -moz-outline: none;
             -webkit-outline: none;
-            font-family: source sans pro,sans-serif;
+            font-family: source sans pro, sans-serif;
             font-size: 24px;
             font-weight: 400;
             color: #425d54;
             padding-bottom: 22px;
             border-bottom: 3px solid;
-            border-bottom-color: rgba(255,255,255,.2);
+            border-bottom-color: rgba(255, 255, 255, .2);
             width: 100%
         }
 
         .form-v8-content .tab .tablinks.active {
+            z-index: 5;
             font-weight: 700;
             color: #fff;
             border-bottom-color: #425d54;
@@ -175,7 +183,7 @@
             padding: 0 10px 15px;
             border: 1px solid transparent;
             border-bottom: 1px solid;
-            border-bottom-color: rgba(255,255,255,.2);
+            border-bottom-color: rgba(255, 255, 255, .2);
             background: 0 0;
             appearance: unset;
             -moz-appearance: unset;
@@ -198,11 +206,11 @@
         }
 
         .form-v8-content .form-detail .form-row .input-text:focus {
-            border-bottom: 1px solid  #425d54;
+            border-bottom: 1px solid #425d54;
             background: 0 0;
         }
 
-        .form-v8-content .form-detail .form-row .input-text:focus+.label,.form-v8-content .form-detail .form-row .input-text:valid+.label {
+        .form-v8-content .form-detail .form-row .input-text:focus + .label, .form-v8-content .form-detail .form-row .input-text:valid + .label {
             transform: translateY(-26px) scale(1);
             -moz-transform: translateY(-26px) scale(1);
             -webkit-transform: translateY(-26px) scale(1);
@@ -210,7 +218,7 @@
             -ms-transform: translateY(-26px) scale(1)
         }
 
-        .form-v8-content .form-detail .form-row .input-text:focus+.border,.form-v8-content .form-detail .form-row .input-text:valid+.border {
+        .form-v8-content .form-detail .form-row .input-text:focus + .border, .form-v8-content .form-detail .form-row .input-text:valid + .border {
             transform: scaleX(1);
             -moz-transform: scaleX(1);
             -webkit-transform: scaleX(1);
@@ -229,7 +237,7 @@
             border: none;
             margin: 5px 0 50px 0;
             cursor: pointer;
-            font-family: source sans pro,sans-serif;
+            font-family: source sans pro, sans-serif;
             color: #333;
             font-weight: 700;
             font-size: 18px
@@ -245,7 +253,7 @@
 
         @media screen and (max-width: 991px) {
             .form-v8-content {
-                margin:180px 20px;
+                margin: 180px 20px;
                 flex-direction: column;
                 -o-flex-direction: column;
                 -ms-flex-direction: column;
@@ -322,30 +330,27 @@
     </div>
     <!-- Container wrapper -->
 </nav>
-<div class="container p-0 m-5">
-    <form action="/AccountServlet?action=login" method="post">
-        <!-- Email input -->
-        <div class="login">
-        <div class="form-outline mb-4 w-50">
-            <label class="form-label " for="form2Example1">Tên Đăng Nhập</label>
-            <input type="text" name="username" id="form2Example1" class="form-control"/>
-
+<div class="page-content">
+    <%--    <form action="/AccountServlet?action=login" method="post">--%>
+    <!-- Email input -->
+    <div class="form-v8-content">
+        <div class="form-left">
         </div>
         <div class="form-right">
             <div class="tab">
                 <div class="tab-inner">
-                    <button class="tablinks active" onclick="openCity(event,'sign-in')" id="defaultOpen">
-                        Đăng nhập
+                    <button class="tablinks active" onclick="openCity(event,'sign-up')" id="defaultOpen">
+                        Đăng ký
                     </button>
                 </div>
                 <div class="tab-inner">
-                    <button class="tablinks active" onclick="openCity(event,'sign-up')" >
-                        Đăng ký
+                    <button class="tablinks active" onclick="openCity(event,'sign-in')">
+                        Đăng nhập
                     </button>
                 </div>
             </div>
             <form class="form-detail" action="CustomerServlet/action=create" method="post">
-                <div class="tabcontent" id="sign-up" style="display:block;">
+                <div class="tabcontent" id="sign-up" style="display:none;">
                     <div class="form-row">
                         <label class="form-row-inner">
                             <input type="text" name="username" id="username" class="input-text" required>
@@ -394,7 +399,7 @@
                 </div>
             </form>
             <form class="form-detail" action="AccountServlet?action=login" method="post">
-                <div class="tabcontent" id="sign-in" style="display:none;">
+                <div class="tabcontent" id="sign-in" style="display:block;">
                     <div class="form-row">
                         <label class="form-row-inner">
                             <input type="text" name="username" id="username2" class="input-text" required>
@@ -417,7 +422,6 @@
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
@@ -459,10 +463,13 @@
         evt.currentTarget.className += " active";
     }
 
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
 
-<%@ include file="footer.jsp" %>
 
-<script src="jquery/jquery-3.5.1.min.js"></script>
+    <%@ include file="footer.jsp" %>
+
+    <script src="jquery/jquery-3.5.1.min.js"></script>
 <script src="datatables/js/jquery.dataTables.min.js"></script>
 <script src="datatables/js/dataTables.bootstrap5.min.js"></script>
 <script src="bootstrap520/js/bootstrap.bundle.js"></script>
