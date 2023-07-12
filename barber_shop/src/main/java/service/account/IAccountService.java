@@ -12,4 +12,6 @@ public interface IAccountService {
     void deleteAccount(int accountId);
     void resetPassword (int accountId);
     Account selectAccountById(int accountId);
+
+    void resetPassword(int accountId);
 }

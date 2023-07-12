@@ -39,4 +39,9 @@ public class AccountService implements IAccountService {
     public Account selectAccountById(int accountId) {
         return accountRepository.selectAccountById(accountId);
     }
+
+    @Override
+    public void resetPassword(int accountId) {
+
+    }
 }
